@@ -1,0 +1,160 @@
+<meta charset="utf-8">
+<title>World Cup 26 Match Center — about</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root{
+  --night:#070b12; --night-2:#0b1220; --night-3:#111a2c;
+  --ink:#e8ecf2; --ink-dim:#93a0b4;
+  --gold:#c9a227; --gold-hi:#ecd06f;
+  --grass:#127244;
+  --edge:rgba(147,160,180,.18);
+  --disp:'Oswald','Arial Narrow',sans-serif;
+  --body:'Segoe UI',-apple-system,'Helvetica Neue',sans-serif;
+}
+@font-face{
+  font-family:'Oswald';font-style:normal;font-weight:200 700;
+  src:url(data:font/woff2;base64,/*OSWALD_B64*/) format('woff2');
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:
+    radial-gradient(90% 40% at 50% -5%, #141f35 0%, transparent 70%),
+    var(--night);
+  color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;
+  min-height:100vh;
+}
+a{color:var(--gold-hi);text-decoration:none}
+a:hover{text-decoration:underline}
+:focus-visible{outline:2px solid var(--gold-hi);outline-offset:2px}
+.wrap{max-width:880px;margin:0 auto;padding:0 24px 80px}
+
+header{padding:64px 0 40px}
+.eyebrow{font-family:var(--disp);font-weight:500;font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-dim)}
+h1{
+  font-family:var(--disp);font-weight:700;font-size:clamp(40px,7vw,64px);
+  letter-spacing:.02em;text-transform:uppercase;line-height:1.02;text-wrap:balance;margin-top:10px;
+}
+h1 em{font-style:normal;color:var(--gold)}
+.lede{color:var(--ink-dim);max-width:60ch;margin-top:16px;font-size:17px}
+.cta-row{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+.btn{
+  display:inline-block;font-family:var(--disp);font-weight:500;font-size:15px;
+  letter-spacing:.12em;text-transform:uppercase;padding:12px 22px;border-radius:4px;
+}
+.btn.primary{background:var(--gold);color:#141003}
+.btn.primary:hover{background:var(--gold-hi);text-decoration:none}
+.btn.ghost{border:1px solid var(--edge);color:var(--ink)}
+.btn.ghost:hover{border-color:var(--gold);text-decoration:none}
+.updated{font-size:12.5px;color:var(--ink-dim);margin-top:14px;font-variant-numeric:tabular-nums}
+.updated b{color:var(--grass);font-weight:600}
+
+h2{
+  font-family:var(--disp);font-weight:700;font-size:22px;letter-spacing:.08em;
+  text-transform:uppercase;margin:56px 0 14px;
+}
+h2 em{font-style:normal;color:var(--gold)}
+p{max-width:66ch}
+p + p{margin-top:12px}
+
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:20px}
+.feature{border:1px solid var(--edge);border-radius:6px;background:var(--night-2);padding:18px}
+.feature h3{font-family:var(--disp);font-weight:500;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-hi);margin-bottom:6px}
+.feature p{font-size:13.5px;color:var(--ink-dim)}
+
+.flow{display:flex;flex-direction:column;gap:0;margin-top:20px;max-width:640px}
+.flow-node{
+  border:1px solid var(--edge);border-radius:6px;background:var(--night-3);
+  padding:14px 18px;
+}
+.flow-node h3{font-family:var(--disp);font-weight:500;font-size:14px;letter-spacing:.12em;text-transform:uppercase}
+.flow-node h3 span{color:var(--ink-dim);font-size:11px;letter-spacing:.08em;margin-left:8px}
+.flow-node p{font-size:13.5px;color:var(--ink-dim);margin-top:3px;max-width:none}
+.flow-arrow{
+  align-self:center;color:var(--gold);font-size:18px;line-height:1;padding:6px 0;
+  font-family:var(--disp);
+}
+
+ul.rules{margin:16px 0 0 0;padding:0;list-style:none;max-width:70ch}
+ul.rules li{padding:10px 0 10px 26px;position:relative;border-bottom:1px solid rgba(147,160,180,.09);font-size:14.5px}
+ul.rules li::before{content:"◆";position:absolute;left:2px;top:11px;color:var(--gold);font-size:10px}
+ul.rules b{color:var(--ink)}
+ul.rules li{color:var(--ink-dim)}
+
+.stackline{
+  margin-top:18px;font-family:var(--disp);font-weight:500;font-size:13px;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--ink-dim);
+}
+.stackline b{color:var(--ink);font-weight:500}
+
+footer{
+  border-top:1px solid var(--edge);margin-top:64px;padding-top:18px;
+  font-size:12.5px;color:var(--ink-dim);display:flex;gap:8px 24px;flex-wrap:wrap;
+}
+@media (prefers-reduced-motion: no-preference){
+  header > *{animation:rise .6s cubic-bezier(.2,.7,.2,1) both}
+  header > *:nth-child(2){animation-delay:.06s}
+  header > *:nth-child(3){animation-delay:.12s}
+  header > *:nth-child(4){animation-delay:.18s}
+  header > *:nth-child(5){animation-delay:.24s}
+  @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">A living interface · 2026 FIFA World Cup</div>
+  <h1>World Cup <em>26</em><br>Match Center</h1>
+  <p class="lede">A broadcast-night 3D view of the tournament — tap-to-flip player cards on a
+  floodlit pitch, the knockout bracket, the Golden Boot race — kept current by autonomous
+  research agents that verify every stat against a source before they're allowed to write it.</p>
+  <div class="cta-row">
+    <a class="btn primary" href="index.html">Open the match center</a>
+    <a class="btn ghost" href="https://github.com/newsbubbles/worldcup26">Source on GitHub</a>
+  </div>
+  <div class="updated">Data verified <b>/*UPDATED*/</b> · every player card links to its stats source</div>
+</header>
+
+<h2>The <em>interface</em></h2>
+<p>One self-contained HTML file. No framework, no CDN, no build chain on the front end —
+the display typeface ships inside the file as a data URI and the whole thing works from a
+file:// URL. The 3D is plain CSS: a perspective pitch you look across at a low camera angle,
+player pins standing on it like billboards, and cards that flip in real 3D space.</p>
+<div class="features">
+  <div class="feature"><h3>Lineups</h3><p>Eight teams' latest verified starting XIs laid out on the pitch by formation. Stars glow gold — tap any player for their card.</p></div>
+  <div class="feature"><h3>Player cards</h3><p>Tournament goals, assists and minutes on the front; the story and a clickable stats source on the back.</p></div>
+  <div class="feature"><h3>Bracket</h3><p>Round of 32 through the final at MetLife — winners in gold, shootouts annotated, upcoming fixtures dashed.</p></div>
+  <div class="feature"><h3>Golden Boot</h3><p>The full scorer table with verified assist counts where they exist, and an honest dash where they don't.</p></div>
+</div>
+
+<h2>How it stays <em>current</em></h2>
+<div class="flow">
+  <div class="flow-node"><h3>Serper scraper MCP <span>google_search · scrape · batch_scrape</span></h3>
+    <p>Each researcher gets its own copy of the search-and-scrape server. Cross-checking two sources costs one batch call.</p></div>
+  <div class="flow-arrow">▼</div>
+  <div class="flow-node"><h3>Researcher agents <span>bracket · stats · squads</span></h3>
+    <p>Fresh pydantic-ai agents per run, on an OpenAI-compatible endpoint (kimi-k2.5 via OpenRouter by default). They read the store, hunt the delta, and report what they can prove.</p></div>
+  <div class="flow-arrow">▼</div>
+  <div class="flow-node"><h3>Datastore MCP <span>the only write path</span></h3>
+    <p>Reports stage against a validated schema; a commit merges atomically under a file lock, re-validates the whole document, and returns a diff.</p></div>
+  <div class="flow-arrow">▼</div>
+  <div class="flow-node"><h3>worldcup.json → one HTML file</h3>
+    <p>Every commit rebuilds the site: data injected straight into the template, published as a single static file.</p></div>
+</div>
+
+<h2>Rules the tools <em>enforce</em></h2>
+<ul class="rules">
+  <li><b>Every write needs a source URL.</b> A stat the agent can't cite is a stat that doesn't get written.</li>
+  <li><b>Settled results are protected.</b> Overwriting a played match requires an explicit correction flag and a note citing the discrepancy.</li>
+  <li><b>Goal tallies never decrease.</b> A lower number means the source is stale, and the tool says so.</li>
+  <li><b>Errors point forward.</b> Every rejection names the constraint and the next call to make — agents branch from errors, they don't learn from them.</li>
+  <li><b>No fallbacks.</b> A failed commit writes nothing and says why. Unverifiable stats render as a dash, not a guess.</li>
+</ul>
+
+<div class="stackline">Stack — <b>pydantic-ai</b> · <b>FastMCP</b> · <b>Serper</b> · <b>OpenRouter</b> · zero-dependency frontend</div>
+
+<footer>
+  <span>Data: ESPN · FIFA · Wikipedia · Al Jazeera · NBC · Sky (full source list in the match center footer)</span>
+  <a href="index.html">Match center</a>
+  <a href="https://github.com/newsbubbles/worldcup26">GitHub</a>
+</footer>
+</div>

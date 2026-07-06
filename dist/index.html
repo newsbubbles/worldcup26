@@ -1,0 +1,659 @@
+<meta charset="utf-8">
+<title>World Cup 26 — Match Center</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+/* ============ TOKENS ============ */
+:root{
+  --night:#070b12;          /* stadium sky */
+  --night-2:#0b1220;        /* raised surfaces */
+  --night-3:#111a2c;        /* cards, cells */
+  --grass:#0e5c37;
+  --grass-2:#127244;
+  --line:rgba(233,240,248,.85);
+  --ink:#e8ecf2;            /* floodlight white */
+  --ink-dim:#93a0b4;        /* blue-biased grey */
+  --gold:#c9a227;           /* trophy gold — the one accent */
+  --gold-hi:#ecd06f;
+  --live:#31c46a;
+  --edge:rgba(147,160,180,.18);
+  --disp:'Oswald', 'Arial Narrow', sans-serif;
+  --body:'Segoe UI', -apple-system, 'Helvetica Neue', sans-serif;
+}
+@font-face{
+  font-family:'Oswald';
+  font-style:normal;
+  font-weight:200 700;
+  src:url(data:font/woff2;base64,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) format('woff2');
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  background:var(--night);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:15px;
+  line-height:1.5;
+  overflow-x:hidden;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+a{color:var(--gold-hi);text-decoration:none}
+a:hover{text-decoration:underline}
+:focus-visible{outline:2px solid var(--gold-hi);outline-offset:2px}
+
+/* ============ HEADER ============ */
+header{
+  display:flex;align-items:center;gap:20px;
+  padding:10px 20px 0;
+  flex-wrap:wrap;
+}
+.wordmark{font-family:var(--disp);font-weight:700;font-size:26px;letter-spacing:.04em;line-height:1;text-transform:uppercase;white-space:nowrap}
+.wordmark em{font-style:normal;color:var(--gold)}
+.stage-tag{font-family:var(--disp);font-weight:500;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-dim);white-space:nowrap}
+.stage-tag b{color:var(--live);font-weight:500}
+nav{display:flex;gap:4px;margin-left:auto}
+nav button{
+  font-family:var(--disp);font-weight:500;font-size:14px;letter-spacing:.14em;text-transform:uppercase;
+  padding:8px 16px;color:var(--ink-dim);
+  border-bottom:2px solid transparent;
+}
+nav button:hover{color:var(--ink)}
+nav button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--gold)}
+
+/* ============ TICKER ============ */
+.ticker{
+  border-top:1px solid var(--edge);border-bottom:1px solid var(--edge);
+  margin-top:10px;overflow:hidden;white-space:nowrap;
+  background:var(--night-2);
+}
+.ticker-track{display:inline-block;padding:6px 0;animation:tick 90s linear infinite}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.tick-item{display:inline-flex;align-items:baseline;gap:8px;padding:0 26px;font-size:13px;color:var(--ink-dim)}
+.tick-item .sc{font-family:var(--disp);font-weight:700;font-size:14px;color:var(--ink);font-variant-numeric:tabular-nums;letter-spacing:.05em}
+.tick-item .rd{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+@media (prefers-reduced-motion: reduce){
+  .ticker-track{animation:none;padding-left:0}
+  .world{animation:none !important}
+  .beam{display:none}
+}
+
+/* ============ VIEWS ============ */
+main{flex:1;display:flex;flex-direction:column;min-height:0}
+.view{display:none;flex:1;min-height:0}
+.view.on{display:flex;flex-direction:column}
+
+/* ============ PITCH VIEW ============ */
+#view-pitch{position:relative}
+.arena{
+  position:relative;flex:1;min-height:520px;overflow:hidden;
+}
+/* stadium bowl + crowd shimmer */
+.arena::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(120% 70% at 50% 108%, rgba(18,114,68,.28), transparent 55%),
+    radial-gradient(90% 46% at 50% -6%, #1a2438 0%, #101827 34%, transparent 68%),
+    var(--night);
+}
+.crowd{
+  position:absolute;left:-10%;right:-10%;top:0;height:34%;
+  background:
+    repeating-linear-gradient(90deg, rgba(233,236,242,.05) 0 2px, transparent 2px 5px),
+    repeating-linear-gradient(0deg, rgba(233,236,242,.035) 0 2px, transparent 2px 6px),
+    linear-gradient(180deg,#151f33 0%, #0d1524 90%, transparent 100%);
+  transform:perspective(700px) rotateX(38deg);
+  transform-origin:bottom center;
+  opacity:.9;
+}
+.beam{
+  position:absolute;top:-12%;width:34%;height:70%;
+  background:linear-gradient(190deg, rgba(236,240,248,.10), transparent 68%);
+  filter:blur(6px);pointer-events:none;
+  animation:beam 11s ease-in-out infinite alternate;
+}
+.beam.l{left:2%;transform:rotate(14deg)}
+.beam.r{right:2%;transform:rotate(-14deg) scaleX(-1);animation-delay:-5s}
+@keyframes beam{from{opacity:.5}to{opacity:1}}
+
+.stage{
+  position:absolute;inset:0;
+  perspective:1150px;perspective-origin:50% 30%;
+}
+.world{
+  position:absolute;left:50%;top:56%;
+  width:min(62vw, 760px);aspect-ratio:68/92;
+  transform-style:preserve-3d;
+  transform:translate(-50%,-50%) rotateX(var(--tilt,54deg)) rotateZ(0deg);
+  animation:sway 16s ease-in-out infinite alternate;
+}
+@keyframes sway{
+  from{transform:translate(-50%,-50%) rotateX(var(--tilt,54deg)) rotateZ(-2.2deg)}
+  to  {transform:translate(-50%,-50%) rotateX(var(--tilt,54deg)) rotateZ(2.2deg)}
+}
+.pitch{
+  position:absolute;inset:0;
+  background:
+    repeating-linear-gradient(0deg, var(--grass) 0 12.5%, var(--grass-2) 12.5% 25%);
+  border:2px solid var(--line);
+  border-radius:6px;
+  box-shadow:0 0 0 14px rgba(7,11,18,.55), 0 0 90px rgba(18,114,68,.45);
+}
+/* markings */
+.pitch i{position:absolute;border:2px solid var(--line);pointer-events:none}
+.mk-half{left:0;right:0;top:50%;border-width:1px 0 0 0}
+.mk-circle{left:50%;top:50%;width:26%;aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%)}
+.mk-spot{left:50%;top:50%;width:5px;height:5px;border-radius:50%;background:var(--line);border:none;transform:translate(-50%,-50%)}
+.mk-boxT{left:21%;right:21%;top:-2px;height:17%;border-top:none}
+.mk-boxB{left:21%;right:21%;bottom:-2px;height:17%;border-bottom:none}
+.mk-goalT{left:36%;right:36%;top:-2px;height:6%;border-top:none}
+.mk-goalB{left:36%;right:36%;bottom:-2px;height:6%;border-bottom:none}
+.mk-dT{left:50%;top:17%;width:18%;aspect-ratio:2/1;border-radius:0 0 200px 200px;border-top:none;transform:translateX(-50%)}
+.mk-dB{left:50%;bottom:17%;width:18%;aspect-ratio:2/1;border-radius:200px 200px 0 0;border-bottom:none;transform:translateX(-50%)}
+
+/* player pins — billboards standing on the pitch */
+.pin{
+  position:absolute;width:0;height:0;
+  transform-style:preserve-3d;
+}
+.pin>button{
+  position:absolute;left:0;bottom:0;
+  transform:translate(-50%,0) rotateX(calc(var(--tilt,54deg) * -1));
+  transform-origin:bottom center;
+  display:flex;flex-direction:column;align-items:center;gap:3px;
+  transition:filter .15s;
+}
+.pin>button:hover{filter:brightness(1.25)}
+.shirt{
+  width:44px;height:44px;border-radius:50%;
+  display:grid;place-items:center;
+  font-family:var(--disp);font-weight:700;font-size:19px;
+  background:var(--kit,#333);color:var(--kit-ink,#fff);
+  border:2px solid rgba(233,236,242,.75);
+  box-shadow:0 10px 14px -6px rgba(0,0,0,.7);
+}
+.pin.star .shirt{border-color:var(--gold-hi);box-shadow:0 0 14px rgba(201,162,39,.55),0 10px 14px -6px rgba(0,0,0,.7)}
+.plate{
+  font-family:var(--disp);font-weight:500;font-size:11.5px;letter-spacing:.09em;text-transform:uppercase;
+  background:rgba(7,11,18,.78);padding:2px 7px;border-radius:3px;white-space:nowrap;
+}
+.pin .shadow{
+  position:absolute;left:0;top:0;width:34px;height:34px;border-radius:50%;
+  transform:translate(-50%,-50%) scale(1,.9);
+  background:radial-gradient(closest-side, rgba(0,0,0,.45), transparent);
+}
+
+/* team rail + info */
+.team-rail{
+  position:absolute;left:16px;top:14px;z-index:5;
+  display:flex;flex-direction:column;gap:6px;max-height:calc(100% - 28px);overflow-y:auto;
+  scrollbar-width:thin;
+}
+.chip{
+  display:flex;align-items:center;gap:9px;
+  padding:7px 12px;border:1px solid var(--edge);border-radius:4px;
+  background:rgba(11,18,32,.82);
+  font-family:var(--disp);font-weight:500;font-size:13px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-dim);
+}
+.chip:hover{color:var(--ink);border-color:rgba(147,160,180,.4)}
+.chip[aria-selected="true"]{color:var(--ink);border-color:var(--gold);background:rgba(201,162,39,.10)}
+.flag{width:22px;height:15px;border-radius:2px;flex:none;background:var(--fl,#555);box-shadow:0 0 0 1px rgba(0,0,0,.4)}
+.team-info{
+  position:absolute;right:16px;top:14px;z-index:5;text-align:right;
+  background:rgba(11,18,32,.82);border:1px solid var(--edge);border-radius:4px;
+  padding:12px 16px;max-width:250px;
+}
+.team-info h2{font-family:var(--disp);font-weight:700;font-size:24px;letter-spacing:.05em;text-transform:uppercase;line-height:1.1}
+.team-info .nick{color:var(--gold-hi);font-size:12.5px;font-style:italic;margin-top:2px}
+.team-info dl{margin-top:9px;display:grid;grid-template-columns:auto auto;gap:2px 14px;font-size:12px;justify-content:end}
+.team-info dt{color:var(--ink-dim);letter-spacing:.06em;text-transform:uppercase;font-size:10.5px;align-self:baseline}
+.team-info dd{font-variant-numeric:tabular-nums;text-align:right}
+.hint{
+  position:absolute;left:50%;bottom:12px;transform:translateX(-50%);z-index:5;
+  font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-dim);
+  background:rgba(7,11,18,.6);padding:4px 12px;border-radius:99px;white-space:nowrap;
+}
+
+/* ============ CARD MODAL ============ */
+.card-scene{
+  position:fixed;inset:0;z-index:50;display:none;
+  align-items:center;justify-content:center;
+  background:rgba(4,7,12,.72);backdrop-filter:blur(5px);
+  perspective:1400px;
+}
+.card-scene.on{display:flex}
+.card3d{
+  width:min(330px, 88vw);aspect-ratio:63/88;position:relative;
+  transform-style:preserve-3d;
+  transition:transform .6s cubic-bezier(.2,.7,.2,1);
+  cursor:pointer;
+}
+.card3d.flipped{transform:rotateY(180deg)}
+.cface{
+  position:absolute;inset:0;border-radius:14px;overflow:hidden;
+  backface-visibility:hidden;
+  border:1px solid rgba(201,162,39,.55);
+  background:
+    radial-gradient(120% 90% at 50% -10%, color-mix(in srgb, var(--kit) 38%, var(--night-3)) 0%, var(--night-3) 60%),
+    var(--night-3);
+  box-shadow:0 30px 70px -20px rgba(0,0,0,.85), 0 0 40px rgba(201,162,39,.14);
+  display:flex;flex-direction:column;
+}
+.cface.back{transform:rotateY(180deg)}
+.cface .top{display:flex;justify-content:space-between;align-items:flex-start;padding:16px 18px 0}
+.cface .num{font-family:var(--disp);font-weight:700;font-size:46px;line-height:.9;color:var(--gold-hi)}
+.cface .pos{font-family:var(--disp);font-weight:500;font-size:13px;letter-spacing:.22em;color:var(--ink-dim);text-transform:uppercase;text-align:right}
+.cface .crest{width:30px;height:20px;border-radius:2px;background:var(--fl,#555);margin-top:6px;margin-left:auto;box-shadow:0 0 0 1px rgba(0,0,0,.4)}
+.cface .silhouette{
+  flex:1;display:grid;place-items:center;position:relative;min-height:0;
+}
+.silhouette .shirt{width:84px;height:84px;font-size:36px}
+.cface h3{
+  font-family:var(--disp);font-weight:700;font-size:28px;letter-spacing:.04em;text-transform:uppercase;
+  text-align:center;line-height:1.05;text-wrap:balance;padding:0 14px;
+}
+.cface .club{font-size:12px;color:var(--ink-dim);text-align:center;margin-top:3px}
+.statrow{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  border-top:1px solid rgba(201,162,39,.3);margin-top:14px;
+}
+.statrow div{padding:10px 6px;text-align:center;border-left:1px solid rgba(201,162,39,.16)}
+.statrow div:first-child{border-left:none}
+.statrow b{display:block;font-family:var(--disp);font-weight:700;font-size:24px;font-variant-numeric:tabular-nums;color:var(--gold-hi)}
+.statrow span{font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-dim)}
+.cface.back .bk{padding:18px;display:flex;flex-direction:column;gap:12px;flex:1}
+.cface.back h3{text-align:left;padding:0;font-size:22px}
+.cface.back .note{font-size:13px;color:var(--ink);line-height:1.55}
+.cface.back dl{display:grid;grid-template-columns:auto 1fr;gap:5px 14px;font-size:12.5px}
+.cface.back dt{color:var(--ink-dim);text-transform:uppercase;font-size:10.5px;letter-spacing:.08em;align-self:baseline}
+.cface.back dd{font-variant-numeric:tabular-nums}
+.srcline{margin-top:auto;font-size:12px;border-top:1px solid rgba(201,162,39,.3);padding-top:10px}
+.srcline a{display:inline-flex;gap:6px;align-items:center}
+.flip-hint{position:absolute;left:0;right:0;bottom:-30px;text-align:center;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-dim)}
+.card-close{
+  position:absolute;top:18px;right:22px;z-index:51;
+  font-family:var(--disp);font-size:14px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-dim);
+  padding:8px 12px;
+}
+.card-close:hover{color:var(--ink)}
+
+/* ============ BRACKET ============ */
+#view-bracket{overflow:auto;padding:22px 20px 34px}
+.bracket{display:flex;gap:26px;min-width:max-content;align-items:stretch}
+.round-col{display:flex;flex-direction:column;min-width:224px}
+.round-col h3{
+  font-family:var(--disp);font-weight:500;font-size:13px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--ink-dim);margin-bottom:12px;position:sticky;top:-22px;background:var(--night);padding:6px 0;z-index:2;
+}
+.round-col h3 b{color:var(--gold);font-weight:500}
+.mcells{display:flex;flex-direction:column;justify-content:space-around;gap:10px;flex:1}
+.mcell{
+  border:1px solid var(--edge);border-radius:5px;background:var(--night-3);
+  padding:8px 10px;font-size:13px;
+}
+.mcell.upcoming{border-style:dashed;background:rgba(17,26,44,.5)}
+.mcell .meta{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-dim);margin-bottom:5px;display:flex;justify-content:space-between;gap:8px}
+.mrow{display:flex;align-items:center;gap:8px;padding:2px 0}
+.mrow .tn{font-family:var(--disp);font-weight:500;font-size:14.5px;letter-spacing:.07em;text-transform:uppercase;flex:1}
+.mrow .ms{font-family:var(--disp);font-weight:700;font-size:16px;font-variant-numeric:tabular-nums;min-width:16px;text-align:right}
+.mrow.win .tn,.mrow.win .ms{color:var(--gold-hi)}
+.mrow.lose{opacity:.5}
+.mcell.final-cell{border-color:var(--gold);box-shadow:0 0 24px rgba(201,162,39,.18)}
+
+/* ============ PLAYERS / GOLDEN BOOT ============ */
+#view-players{overflow:auto;padding:22px 20px 40px}
+.gb-wrap{max-width:1180px;margin:0 auto;display:flex;flex-direction:column;gap:30px}
+.gb-head h2, .gallery-head h2{font-family:var(--disp);font-weight:700;font-size:22px;letter-spacing:.08em;text-transform:uppercase}
+.gb-head h2 em, .gallery-head h2 em{font-style:normal;color:var(--gold)}
+.gb-head p, .gallery-head p{color:var(--ink-dim);font-size:13px;margin-top:3px;max-width:64ch}
+table.gb{border-collapse:collapse;width:100%;max-width:660px}
+table.gb th{
+  text-align:left;font-family:var(--disp);font-weight:500;font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--ink-dim);padding:8px 12px;border-bottom:1px solid var(--edge);
+}
+table.gb td{padding:9px 12px;border-bottom:1px solid rgba(147,160,180,.09);font-variant-numeric:tabular-nums}
+table.gb td.n{font-family:var(--disp);font-weight:700;color:var(--gold-hi);font-size:15px}
+table.gb td.g{font-family:var(--disp);font-weight:700;font-size:17px}
+table.gb tr:first-child td{background:rgba(201,162,39,.06)}
+.gb-scroll{overflow-x:auto}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:18px}
+.gcard-holder{perspective:900px}
+.gcard{
+  width:100%;aspect-ratio:63/88;position:relative;transform-style:preserve-3d;
+  transition:transform .55s cubic-bezier(.2,.7,.2,1);cursor:pointer;
+}
+.gcard.flipped{transform:rotateY(180deg)}
+.gcard .cface .num{font-size:34px}
+.gcard .cface h3{font-size:21px}
+.gcard .silhouette .shirt{width:64px;height:64px;font-size:28px}
+.gcard .statrow b{font-size:19px}
+.gcard .cface.back h3{font-size:18px}
+.gcard .cface.back .note{font-size:12px}
+
+/* ============ SOURCES FOOTER ============ */
+footer{
+  border-top:1px solid var(--edge);background:var(--night-2);
+  padding:10px 20px;font-size:12px;color:var(--ink-dim);
+  display:flex;gap:8px 22px;flex-wrap:wrap;align-items:baseline;
+}
+footer .lbl{font-family:var(--disp);font-weight:500;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase}
+
+@media (max-width: 760px){
+  .world{width:88vw;top:60%}
+  .team-info{position:static;max-width:none;text-align:left;margin:10px 16px;order:2}
+  .team-rail{position:static;flex-direction:row;flex-wrap:wrap;margin:10px 16px 0;max-height:none}
+  #view-pitch{overflow:auto}
+  .arena{min-height:480px;flex:none}
+  .shirt{width:36px;height:36px;font-size:16px}
+  nav{width:100%;margin-left:0}
+}
+</style>
+
+<header>
+  <div class="wordmark">World Cup <em>26</em></div>
+  <div class="stage-tag" id="stageTag">Knockout Stage · <b>Round of 16</b> · North America</div>
+  <nav role="tablist" aria-label="Views">
+    <button role="tab" aria-selected="true" data-view="pitch">Lineups</button>
+    <button role="tab" aria-selected="false" data-view="bracket">Bracket</button>
+    <button role="tab" aria-selected="false" data-view="players">Golden Boot</button>
+  </nav>
+</header>
+
+<div class="ticker" aria-hidden="true"><div class="ticker-track" id="tickerTrack"></div></div>
+
+<main>
+  <!-- PITCH -->
+  <section class="view on" id="view-pitch" role="tabpanel">
+    <div class="arena">
+      <div class="crowd"></div>
+      <div class="beam l"></div><div class="beam r"></div>
+      <div class="stage">
+        <div class="world" id="world">
+          <div class="pitch">
+            <i class="mk-half"></i><i class="mk-circle"></i><i class="mk-spot"></i>
+            <i class="mk-boxT"></i><i class="mk-boxB"></i>
+            <i class="mk-goalT"></i><i class="mk-goalB"></i>
+            <i class="mk-dT"></i><i class="mk-dB"></i>
+          </div>
+          <div id="pins"></div>
+        </div>
+      </div>
+      <div class="team-rail" id="teamRail" role="tablist" aria-label="Teams"></div>
+      <div class="team-info" id="teamInfo"></div>
+      <div class="hint">Tap a player for their card · stars glow gold</div>
+    </div>
+  </section>
+
+  <!-- BRACKET -->
+  <section class="view" id="view-bracket" role="tabpanel">
+    <div class="bracket" id="bracket"></div>
+  </section>
+
+  <!-- PLAYERS -->
+  <section class="view" id="view-players" role="tabpanel">
+    <div class="gb-wrap">
+      <div>
+        <div class="gb-head">
+          <h2>Golden <em>Boot</em> race</h2>
+          <p id="gbNote"></p>
+        </div>
+        <div class="gb-scroll"><table class="gb" id="gbTable"></table></div>
+      </div>
+      <div>
+        <div class="gallery-head">
+          <h2>Star <em>cards</em></h2>
+          <p>Every card flips — tournament numbers on the front, the player's story and a stats source on the back.</p>
+        </div>
+        <div class="gallery" id="gallery"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="srcFooter"></footer>
+
+<!-- card modal -->
+<div class="card-scene" id="cardScene" aria-modal="true" role="dialog">
+  <button class="card-close" id="cardClose">Close ✕</button>
+  <div style="position:relative">
+    <div class="card3d" id="card3d"></div>
+    <div class="flip-hint">Click card to flip</div>
+  </div>
+</div>
+
+<script>
+const DATA = {"updated":"2026-07-06","stageTag":"Knockout Stage · <b>Round of 16<\/b> · North America","defaultTeam":"ARG","teamNames":{"CAN":"Canada","RSA":"South Africa","BRA":"Brazil","JPN":"Japan","GER":"Germany","PAR":"Paraguay","NED":"Netherlands","MAR":"Morocco","CIV":"Ivory Coast","NOR":"Norway","FRA":"France","SWE":"Sweden","MEX":"Mexico","ECU":"Ecuador","ENG":"England","COD":"DR Congo","BEL":"Belgium","SEN":"Senegal","USA":"United States","BIH":"Bosnia","ESP":"Spain","AUT":"Austria","POR":"Portugal","CRO":"Croatia","SUI":"Switzerland","ALG":"Algeria","AUS":"Australia","EGY":"Egypt","ARG":"Argentina","CPV":"Cape Verde","COL":"Colombia","GHA":"Ghana","NZL":"New Zealand","W-PORESP":"POR / ESP winner","W-USABEL":"USA / BEL winner","W-ARGEGY":"ARG / EGY winner","W-SUICOL":"SUI / COL winner","W-QF1":"QF1 winner","W-QF2":"QF2 winner","W-QF3":"QF3 winner","W-QF4":"QF4 winner","W-SF1":"SF1 winner","W-SF2":"SF2 winner"},"flags":{"CAN":"linear-gradient(90deg,#D80621 0 25%,#fff 25% 75%,#D80621 75%)","RSA":"linear-gradient(180deg,#007847 0 50%,#001489 50%)","BRA":"radial-gradient(circle at 50% 50%,#002776 0 22%,#FEDD00 23% 52%,#009739 53%)","JPN":"radial-gradient(circle at 50% 50%,#BC002D 0 32%,#fff 33%)","GER":"linear-gradient(180deg,#000 0 33%,#DD0000 33% 66%,#FFCE00 66%)","PAR":"linear-gradient(180deg,#D52B1E 0 33%,#fff 33% 66%,#0038A8 66%)","NED":"linear-gradient(180deg,#AE1C28 0 33%,#fff 33% 66%,#21468B 66%)","CIV":"linear-gradient(90deg,#FF8200 0 33%,#fff 33% 66%,#009A44 66%)","SWE":"linear-gradient(90deg,transparent 0 30%,#FECC02 30% 45%,transparent 45%),linear-gradient(180deg,transparent 0 38%,#FECC02 38% 62%,transparent 62%),#006AA7","MEX":"linear-gradient(90deg,#006341 0 33%,#fff 33% 66%,#C8102E 66%)","ECU":"linear-gradient(180deg,#FFDD00 0 50%,#0072CE 50% 75%,#EF3340 75%)","COD":"linear-gradient(135deg,#007FFF 0 55%,#F7D618 55% 68%,#CE1021 68%)","BEL":"linear-gradient(90deg,#000 0 33%,#FDDA24 33% 66%,#EF3340 66%)","SEN":"linear-gradient(90deg,#00853F 0 33%,#FDEF42 33% 66%,#E31B23 66%)","BIH":"linear-gradient(135deg,#002F6C 0 60%,#FECB00 60%)","AUT":"linear-gradient(180deg,#EF3340 0 33%,#fff 33% 66%,#EF3340 66%)","CRO":"linear-gradient(180deg,#FF0000 0 33%,#fff 33% 66%,#171796 66%)","SUI":"linear-gradient(90deg,transparent 0 40%,#fff 40% 60%,transparent 60%),linear-gradient(180deg,transparent 0 33%,#fff 33% 67%,transparent 67%),#DA291C","ALG":"linear-gradient(90deg,#006233 0 50%,#fff 50%)","AUS":"linear-gradient(135deg,#012169 0 100%)","EGY":"linear-gradient(180deg,#CE1126 0 33%,#fff 33% 66%,#000 66%)","CPV":"linear-gradient(180deg,#003893 0 55%,#fff 55% 70%,#CF2027 70% 82%,#fff 82%)","COL":"linear-gradient(180deg,#FCD116 0 50%,#003893 50% 75%,#CE1126 75%)","GHA":"linear-gradient(180deg,#CE1126 0 33%,#FCD116 33% 66%,#006B3F 66%)","NZL":"linear-gradient(135deg,#012169 0 100%)"},"matches":[{"round":"R32","a":"CAN","b":"RSA","sa":1,"sb":0,"date":"Jun 28","venue":"SoFi Stadium, LA","status":"played"},{"round":"R32","a":"BRA","b":"JPN","sa":2,"sb":1,"date":"Jun 29","venue":"NRG Stadium, Houston","status":"played"},{"round":"R32","a":"GER","b":"PAR","sa":1,"sb":1,"pens":"3-4","pw":"PAR","date":"Jun 29","venue":"Gillette, Foxborough","status":"played"},{"round":"R32","a":"NED","b":"MAR","sa":1,"sb":1,"pens":"2-3","pw":"MAR","date":"Jun 29","venue":"Estadio BBVA, Monterrey","status":"played"},{"round":"R32","a":"CIV","b":"NOR","sa":1,"sb":2,"date":"Jun 30","venue":"AT&T Stadium, Dallas","status":"played"},{"round":"R32","a":"FRA","b":"SWE","sa":3,"sb":0,"date":"Jun 30","venue":"MetLife, New Jersey","status":"played"},{"round":"R32","a":"MEX","b":"ECU","sa":2,"sb":0,"date":"Jun 30","venue":"Estadio Azteca, CDMX","status":"played"},{"round":"R32","a":"ENG","b":"COD","sa":2,"sb":1,"date":"Jul 1","venue":"Mercedes-Benz, Atlanta","status":"played"},{"round":"R32","a":"BEL","b":"SEN","sa":3,"sb":2,"date":"Jul 1","venue":"Lumen Field, Seattle","status":"played"},{"round":"R32","a":"USA","b":"BIH","sa":2,"sb":0,"date":"Jul 1","venue":"Levi's Stadium, SF Bay","status":"played"},{"round":"R32","a":"ESP","b":"AUT","sa":3,"sb":0,"date":"Jul 2","venue":"SoFi Stadium, LA","status":"played"},{"round":"R32","a":"POR","b":"CRO","sa":2,"sb":1,"date":"Jul 2","venue":"BMO Field, Toronto","status":"played"},{"round":"R32","a":"SUI","b":"ALG","sa":2,"sb":0,"date":"Jul 2","venue":"BC Place, Vancouver","status":"played"},{"round":"R32","a":"AUS","b":"EGY","sa":1,"sb":1,"pens":"2-4","pw":"EGY","date":"Jul 3","venue":"AT&T Stadium, Dallas","status":"played"},{"round":"R32","a":"ARG","b":"CPV","sa":3,"sb":2,"date":"Jul 3","venue":"Hard Rock, Miami","status":"played"},{"round":"R32","a":"COL","b":"GHA","sa":1,"sb":0,"date":"Jul 3","venue":"Arrowhead, Kansas City","status":"played"},{"round":"R16","a":"CAN","b":"MAR","sa":0,"sb":3,"date":"Jul 4","venue":"NRG Stadium, Houston","status":"played"},{"round":"R16","a":"PAR","b":"FRA","sa":0,"sb":1,"date":"Jul 4","venue":"Lincoln Financial, Philly","status":"played"},{"round":"R16","a":"BRA","b":"NOR","sa":1,"sb":2,"date":"Jul 5","venue":"MetLife, New Jersey","status":"played"},{"round":"R16","a":"MEX","b":"ENG","sa":2,"sb":3,"date":"Jul 5","venue":"Estadio Azteca, CDMX","status":"played"},{"round":"R16","a":"POR","b":"ESP","date":"Jul 6","venue":"AT&T Stadium, Dallas","status":"upcoming"},{"round":"R16","a":"USA","b":"BEL","date":"Jul 6","venue":"Lumen Field, Seattle","status":"upcoming"},{"round":"R16","a":"ARG","b":"EGY","date":"Jul 7","venue":"Mercedes-Benz, Atlanta","status":"upcoming"},{"round":"R16","a":"SUI","b":"COL","date":"Jul 7","venue":"BC Place, Vancouver","status":"upcoming"},{"round":"QF","a":"FRA","b":"MAR","date":"Jul 9","venue":"Gillette, Foxborough","status":"upcoming"},{"round":"QF","a":"W-PORESP","b":"W-USABEL","date":"Jul 10","venue":"SoFi Stadium, LA","status":"upcoming"},{"round":"QF","a":"NOR","b":"ENG","date":"Jul 11","venue":"Hard Rock, Miami","status":"upcoming"},{"round":"QF","a":"W-ARGEGY","b":"W-SUICOL","date":"Jul 11","venue":"Arrowhead, Kansas City","status":"upcoming"},{"round":"SF","a":"W-QF1","b":"W-QF2","date":"Jul 14","venue":"AT&T Stadium, Dallas","status":"upcoming"},{"round":"SF","a":"W-QF3","b":"W-QF4","date":"Jul 15","venue":"Mercedes-Benz, Atlanta","status":"upcoming"},{"round":"F","a":"W-SF1","b":"W-SF2","date":"Jul 19","venue":"MetLife, New Jersey","status":"upcoming"}],"teams":{"ARG":{"name":"Argentina","nickname":"La Albiceleste","coach":"Lionel Scaloni","rank":1,"colors":{"p":"#75AADB","s":"#FFFFFF","ink":"#0e2f55"},"flag":"linear-gradient(180deg,#74ACDF 0 33%,#fff 33% 66%,#74ACDF 66%)","formation":"4-4-2","lineupNote":"R32 vs Cape Verde, Jul 3 (3-2 aet)","lineup":[{"num":23,"name":"Emiliano Martínez","pos":"GK"},{"num":25,"name":"Facundo Medina","pos":"LB"},{"num":6,"name":"Lisandro Martínez","pos":"CB"},{"num":13,"name":"Cristian Romero","pos":"CB"},{"num":26,"name":"Nahuel Molina","pos":"RB"},{"num":20,"name":"Alexis Mac Allister","pos":"CM"},{"num":24,"name":"Enzo Fernández","pos":"CM"},{"num":7,"name":"Rodrigo De Paul","pos":"CM"},{"num":16,"name":"Thiago Almada","pos":"AM"},{"num":10,"name":"Lionel Messi","pos":"FW"},{"num":22,"name":"Lautaro Martínez","pos":"ST"}],"stars":[{"name":"Lionel Messi","pos":"FW","club":"Inter Miami CF","age":39,"num":10,"wcG":7,"wcA":0,"min":319,"note":"All-time World Cup top scorer: 20 career WC goals in 30 apps. First player with 7+ goals in two separate World Cups (2022, 2026). 199 caps, 117 Argentina goals. Captain.","src":"https://www.messivsronaldo.app/international-stats/world-cup-stats/"},{"name":"Lautaro Martínez","pos":"ST","club":"Inter Milan","age":28,"num":22,"wcG":1,"note":"Argentina's No. 9: 77 caps, 37 international goals. Started all four matches this tournament; scored in the 92nd vs Cape Verde before Messi's corner forced the extra-time winner.","src":"https://www.espn.com/soccer/team/stats/_/id/202/arg.argentina"},{"name":"Julián Álvarez","pos":"FW","club":"Atlético Madrid","age":26,"num":9,"wcG":0,"note":"2022 World Cup winner, 51 caps and 14 goals. Scaloni's impact sub this tournament — four appearances off the bench, including 63' for Lautaro in the R32.","src":"https://www.espn.com/soccer/team/stats/_/id/202/arg.argentina"},{"name":"Alexis Mac Allister","pos":"CM","club":"Liverpool","age":27,"num":20,"wcG":0,"wcA":1,"note":"2022 World Cup winner. Played the full 120 minutes of the R32 win with an assist and 107 touches. The metronome of Scaloni's midfield.","src":"https://www.espn.com/soccer/player-stats/_/gameId/760500"}]},"FRA":{"name":"France","nickname":"Les Bleus","coach":"Didier Deschamps","rank":3,"colors":{"p":"#21304E","s":"#FFFFFF","ink":"#ffffff"},"flag":"linear-gradient(90deg,#0055A4 0 33%,#fff 33% 66%,#EF4135 66%)","formation":"4-2-3-1","lineupNote":"R16 vs Paraguay, Jul 4 (1-0)","lineup":[{"num":16,"name":"Mike Maignan","pos":"GK"},{"num":3,"name":"Lucas Digne","pos":"LB"},{"num":4,"name":"Dayot Upamecano","pos":"CB"},{"num":17,"name":"William Saliba","pos":"CB"},{"num":5,"name":"Jules Koundé","pos":"RB"},{"num":6,"name":"Manu Koné","pos":"DM"},{"num":14,"name":"Adrien Rabiot","pos":"DM"},{"num":12,"name":"Bradley Barcola","pos":"LW"},{"num":11,"name":"Michael Olise","pos":"AM"},{"num":7,"name":"Ousmane Dembélé","pos":"RW"},{"num":10,"name":"Kylian Mbappé","pos":"ST"}],"stars":[{"name":"Kylian Mbappé","pos":"ST","club":"Real Madrid","age":27,"num":10,"wcG":7,"wcA":2,"note":"19 career World Cup goals — the Paraguay penalty was his 19th. Tournament co-leading 7 goals, including a brace against Sweden in the round of 32.","src":"https://www.espn.com/soccer/player/_/id/231388/kylian-mbappe"},{"name":"Ousmane Dembélé","pos":"RW","club":"Paris Saint-Germain","age":29,"num":7,"wcG":4,"wcA":2,"note":"Reigning 2025 Ballon d'Or winner. Hat trick against Norway in the 4-1 group-stage win.","src":"https://www.espn.com/soccer/player/_/id/229744/ousmane-dembele"},{"name":"Michael Olise","pos":"AM","club":"Bayern Munich","age":24,"num":11,"wcG":0,"wcA":5,"note":"5 assists this World Cup — first to that tally since Hässler in 1994. Bundesliga Player of the Season 2025-26 (15 goals, 15 assists).","src":"https://en.wikipedia.org/wiki/Michael_Olise"},{"name":"Bradley Barcola","pos":"LW","club":"Paris Saint-Germain","age":23,"num":12,"wcG":2,"wcA":1,"note":"Goals against Senegal in the group and Sweden in the round of 32. The direct, vertical outlet on Deschamps' left.","src":"https://www.espn.com/soccer/team/stats/_/id/478/league/FIFA.WORLD"}]},"ENG":{"name":"England","nickname":"Three Lions","coach":"Thomas Tuchel","rank":4,"colors":{"p":"#FFFFFF","s":"#002366","ink":"#002366"},"flag":"linear-gradient(90deg,transparent 0 42%,#CE1124 42% 58%,transparent 58%),linear-gradient(180deg,transparent 0 36%,#CE1124 36% 64%,transparent 64%),#fff","formation":"4-2-3-1","lineupNote":"R16 vs Mexico, Jul 5 (3-2)","lineup":[{"num":1,"name":"Jordan Pickford","pos":"GK"},{"num":3,"name":"Nico O'Reilly","pos":"LB"},{"num":6,"name":"Marc Guehi","pos":"CB"},{"num":26,"name":"Jarell Quansah","pos":"CB"},{"num":2,"name":"Ezri Konsa","pos":"RB"},{"num":4,"name":"Declan Rice","pos":"DM"},{"num":8,"name":"Elliot Anderson","pos":"DM"},{"num":18,"name":"Anthony Gordon","pos":"LW"},{"num":10,"name":"Jude Bellingham","pos":"AM"},{"num":7,"name":"Bukayo Saka","pos":"RW"},{"num":9,"name":"Harry Kane","pos":"ST"}],"stars":[{"name":"Harry Kane","pos":"ST","club":"Bayern Munich","age":32,"num":9,"wcG":6,"note":"England's all-time World Cup scorer — passed Lineker's 10, then Pelé's career 12 with the brace against DR Congo. 85 goals in 119 caps.","src":"https://www.skysports.com/football/news/11095/13556951/world-cup-2026-golden-boot-race-lionel-messi-kylian-mbappe-erling-haaland-vinicius-junior-and-harry-kane-in-epic-battle-to-be-top-goalscorer"},{"name":"Jude Bellingham","pos":"AM","club":"Real Madrid","age":23,"num":10,"wcG":4,"wcA":1,"note":"Two goals in 98 seconds at the Azteca to break Mexico. Five goal contributions — tied for the most by an Englishman in a single World Cup since 1966.","src":"https://www.espn.com/soccer/story/_/id/49281972/fifa-world-cup-2026-stats-erling-haaland-7-lionel-messi-kylian-mbappe-cristiano-ronaldo-6-neymar-second-pele-jude-bellingham-first-diego-maradona"},{"name":"Bukayo Saka","pos":"RW","club":"Arsenal","age":24,"num":7,"wcG":0,"wcA":1,"note":"6 goals and 10 assists in Arsenal's 2025-26 title-winning league season. Minutes managed through the tournament with a lingering Achilles issue.","src":"https://www.espn.com/soccer/player/stats/_/id/280555/bukayo-saka"},{"name":"Anthony Gordon","pos":"LW","club":"Barcelona","age":25,"num":18,"wcG":0,"wcA":2,"note":"Both assists set up Kane's late brace in the 2-1 comeback against DR Congo. Completed his ~€80m move to Barcelona on July 1, mid-tournament.","src":"https://www.espn.com/soccer/player/stats/_/id/268782/anthony-gordon"}]},"ESP":{"name":"Spain","nickname":"La Roja","coach":"Luis de la Fuente","rank":2,"colors":{"p":"#AA151B","s":"#F1BF00","ink":"#F1BF00"},"flag":"linear-gradient(180deg,#AA151B 0 25%,#F1BF00 25% 75%,#AA151B 75%)","formation":"4-2-3-1","lineupNote":"R32 vs Austria, Jul 2 (3-0)","lineup":[{"num":23,"name":"Unai Simón","pos":"GK"},{"num":24,"name":"Marc Cucurella","pos":"LB"},{"num":22,"name":"Pau Cubarsí","pos":"CB"},{"num":14,"name":"Aymeric Laporte","pos":"CB"},{"num":12,"name":"Pedro Porro","pos":"RB"},{"num":16,"name":"Rodri","pos":"DM"},{"num":20,"name":"Pedri","pos":"CM"},{"num":15,"name":"Álex Baena","pos":"LW"},{"num":10,"name":"Dani Olmo","pos":"AM"},{"num":19,"name":"Lamine Yamal","pos":"RW"},{"num":21,"name":"Mikel Oyarzabal","pos":"ST"}],"stars":[{"name":"Lamine Yamal","pos":"RW","club":"FC Barcelona","age":18,"num":19,"wcG":1,"note":"Youngest Euro winner ever at 17, runner-up in the 2025 Ballon d'Or, two-time Kopa Trophy winner. 29 caps and 7 goals for Spain at 18.","src":"https://en.wikipedia.org/wiki/Lamine_Yamal"},{"name":"Mikel Oyarzabal","pos":"ST","club":"Real Sociedad","age":29,"num":21,"wcG":4,"wcA":1,"note":"Scored the Euro 2024 final winner against England. Four goals this tournament leading the line for La Roja; 29 goals in 57 caps.","src":"https://en.wikipedia.org/wiki/Mikel_Oyarzabal"},{"name":"Rodri","pos":"DM","club":"Manchester City","age":30,"num":16,"wcG":0,"note":"2024 Ballon d'Or winner and Euro 2024 Player of the Tournament. Spain hasn't lost a competitive match he finished since 2023.","src":"https://en.wikipedia.org/wiki/Rodri_(footballer,_born_1996)"},{"name":"Pedri","pos":"CM","club":"FC Barcelona","age":23,"num":20,"wcG":0,"note":"Euro 2020 Young Player of the Tournament, 2021 Golden Boy. The tempo-setter between Rodri and the front four; 45 caps at 23.","src":"https://en.wikipedia.org/wiki/Pedri"}]},"POR":{"name":"Portugal","nickname":"Seleção das Quinas","coach":"Roberto Martínez","rank":5,"colors":{"p":"#DA291C","s":"#046A38","ink":"#ffffff"},"flag":"linear-gradient(90deg,#046A38 0 40%,#DA291C 40%)","formation":"4-2-3-1","lineupNote":"R32 vs Croatia, Jul 2 (2-1)","lineup":[{"num":1,"name":"Diogo Costa","pos":"GK"},{"num":25,"name":"Nuno Mendes","pos":"LB"},{"num":13,"name":"Renato Veiga","pos":"CB"},{"num":3,"name":"Rúben Dias","pos":"CB"},{"num":20,"name":"João Cancelo","pos":"RB"},{"num":15,"name":"João Neves","pos":"CM"},{"num":23,"name":"Vitinha","pos":"CM"},{"num":17,"name":"Rafael Leão","pos":"LW"},{"num":8,"name":"Bruno Fernandes","pos":"AM"},{"num":18,"name":"Pedro Neto","pos":"RW"},{"num":7,"name":"Cristiano Ronaldo","pos":"ST"}],"stars":[{"name":"Cristiano Ronaldo","pos":"ST","club":"Al-Nassr","age":41,"num":7,"wcG":3,"wcA":0,"min":351,"note":"All-time men's international record holder: 232 caps, 146 goals. Became the oldest goalscorer in a World Cup knockout match with the penalty against Croatia, at 41.","src":"https://en.wikipedia.org/wiki/Cristiano_Ronaldo"},{"name":"Bruno Fernandes","pos":"AM","club":"Manchester United","age":31,"num":8,"wcG":0,"wcA":1,"min":333,"note":"Set a Premier League single-season assist record (21) in 2025-26 as United captain. 93 caps, 29 goals for Portugal.","src":"https://en.wikipedia.org/wiki/Bruno_Fernandes"},{"name":"Vitinha","pos":"CM","club":"Paris Saint-Germain","age":26,"num":23,"wcG":0,"wcA":0,"min":303,"note":"Back-to-back Champions League winner with PSG and Player of the Match in the 2026 final; third in the 2025 Ballon d'Or.","src":"https://en.wikipedia.org/wiki/Vitinha"},{"name":"João Neves","pos":"CM","club":"Paris Saint-Germain","age":21,"num":15,"wcG":1,"wcA":0,"min":301,"note":"Scored Portugal's opening goal of the tournament at 21. Two Champions League titles already; 26 caps.","src":"https://en.wikipedia.org/wiki/Jo%C3%A3o_Neves"}]},"NOR":{"name":"Norway","nickname":"Løvene","coach":"Ståle Solbakken","rank":31,"colors":{"p":"#BA0C2F","s":"#00205B","ink":"#ffffff"},"flag":"linear-gradient(90deg,transparent 0 28%,#00205B 28% 42%,transparent 42%),linear-gradient(180deg,transparent 0 38%,#00205B 38% 62%,transparent 62%),linear-gradient(90deg,transparent 0 22%,#fff 22% 48%,transparent 48%),linear-gradient(180deg,transparent 0 30%,#fff 30% 70%,transparent 70%),#BA0C2F","formation":"4-3-3","lineupNote":"R16 vs Brazil, Jul 5 (2-1)","lineup":[{"num":1,"name":"Ørjan Nyland","pos":"GK"},{"num":5,"name":"David Møller Wolfe","pos":"LB"},{"num":17,"name":"Torbjørn Heggem","pos":"CB"},{"num":3,"name":"Kristoffer Ajer","pos":"CB"},{"num":26,"name":"Julian Ryerson","pos":"RB"},{"num":6,"name":"Patrick Berg","pos":"DM"},{"num":8,"name":"Sander Berge","pos":"CM"},{"num":10,"name":"Martin Ødegaard","pos":"AM"},{"num":20,"name":"Antonio Nusa","pos":"LW"},{"num":9,"name":"Erling Haaland","pos":"ST"},{"num":7,"name":"Alexander Sørloth","pos":"RW"}],"stars":[{"name":"Erling Haaland","pos":"ST","club":"Manchester City","age":25,"num":9,"wcG":7,"note":"Both goals in the 2-1 shock of Brazil — Norway's first-ever World Cup quarterfinal. 16 goals in qualifying, a third straight Premier League Golden Boot, 62 in 54 caps.","src":"https://en.wikipedia.org/wiki/Erling_Haaland"},{"name":"Martin Ødegaard","pos":"AM","club":"Arsenal","age":27,"num":10,"wcA":3,"note":"Captain since 2021 and a Premier League champion with Arsenal in 2025-26. Three assists in his first three games this tournament after leading European qualifying with seven.","src":"https://en.wikipedia.org/wiki/Martin_%C3%98degaard"},{"name":"Antonio Nusa","pos":"LW","club":"RB Leipzig","age":21,"num":20,"wcG":1,"note":"The 'Norwegian Neymar'. Scored in the round-of-32 win over Ivory Coast; 9 goals in 29 caps at 21.","src":"https://en.wikipedia.org/wiki/Antonio_Nusa"},{"name":"Alexander Sørloth","pos":"RW","club":"Atlético Madrid","age":30,"num":7,"wcG":0,"note":"13 La Liga goals for Atlético in 2025-26 and 26 in 76 caps. The aerial focal point who drags defenders away from Haaland.","src":"https://en.wikipedia.org/wiki/Alexander_S%C3%B8rloth"}]},"MAR":{"name":"Morocco","nickname":"Atlas Lions","coach":"Mohamed Ouahbi","rank":7,"colors":{"p":"#C1272D","s":"#006233","ink":"#ffffff"},"flag":"radial-gradient(circle at 50% 50%,#006233 0 28%,#C1272D 29%)","formation":"4-2-3-1","lineupNote":"R16 vs Canada, Jul 4 (3-0)","lineup":[{"num":1,"name":"Yassine Bounou","pos":"GK"},{"num":3,"name":"Noussair Mazraoui","pos":"LB"},{"num":14,"name":"Issa Diop","pos":"CB"},{"num":25,"name":"Redouane Halhal","pos":"CB"},{"num":2,"name":"Achraf Hakimi","pos":"RB"},{"num":6,"name":"Ayyoub Bouaddi","pos":"DM"},{"num":23,"name":"Bilal El Khannouss","pos":"DM"},{"num":11,"name":"Ismaël Saibari","pos":"LW"},{"num":10,"name":"Brahim Díaz","pos":"AM"},{"num":8,"name":"Azzedine Ounahi","pos":"RW"},{"num":24,"name":"Neil El Aynaoui","pos":"ST"}],"stars":[{"name":"Achraf Hakimi","pos":"RB","club":"Paris Saint-Germain","age":27,"num":2,"wcG":1,"wcA":2,"note":"Captain, and the most World Cup appearances ever by an African player (15). Only the fourth defender since 1966 with 3+ career World Cup assists.","src":"https://www.espn.com/soccer/team/stats/_/id/2869/morocco"},{"name":"Brahim Díaz","pos":"AM","club":"Real Madrid","age":26,"num":10,"wcG":0,"wcA":4,"note":"First African player with four assists in a single World Cup — two of them in the R16 dismantling of Canada. Second in the tournament assist chart behind Olise.","src":"https://www.espn.com/soccer/team/stats/_/id/2869/morocco"},{"name":"Azzedine Ounahi","pos":"RW","club":"Girona","age":26,"num":8,"wcG":2,"wcA":0,"note":"The brace (50', 82') that beat Canada 3-0 in Houston and sent Morocco to a second straight deep run.","src":"https://www.espn.com/soccer/team/stats/_/id/2869/morocco"},{"name":"Yassine Bounou","pos":"GK","club":"Al-Hilal","age":35,"num":1,"wcG":0,"wcA":0,"note":"Montreal-born. Saved Summerville's penalty in the shootout that knocked out the Netherlands, then shut out the country of his birth in the R16.","src":"https://www.espn.com/soccer/report/_/gameId/760502"}]},"USA":{"name":"United States","nickname":"The Stars and Stripes","coach":"Mauricio Pochettino","rank":17,"colors":{"p":"#002868","s":"#BF0A30","ink":"#ffffff"},"flag":"linear-gradient(90deg,#3C3B6E 0 35%,transparent 35%),repeating-linear-gradient(180deg,#B22234 0 11%,#fff 11% 22%)","formation":"4-3-3","lineupNote":"R32 vs Bosnia, Jul 1 (2-0)","lineup":[{"num":24,"name":"Matt Freese","pos":"GK"},{"num":5,"name":"Antonee Robinson","pos":"LB"},{"num":13,"name":"Tim Ream","pos":"CB"},{"num":3,"name":"Chris Richards","pos":"CB"},{"num":16,"name":"Alex Freeman","pos":"RB"},{"num":4,"name":"Tyler Adams","pos":"DM"},{"num":2,"name":"Sergino Dest","pos":"CM"},{"num":8,"name":"Weston McKennie","pos":"CM"},{"num":17,"name":"Malik Tillman","pos":"LW"},{"num":20,"name":"Folarin Balogun","pos":"ST"},{"num":10,"name":"Christian Pulisic","pos":"RW"}],"stars":[{"name":"Christian Pulisic","pos":"RW","club":"AC Milan","age":27,"num":10,"wcG":0,"wcA":1,"note":"33 goals in 87 caps. His assist against Paraguay made him the all-time US World Cup assist leader with three across tournaments.","src":"https://www.npr.org/2026/06/19/nx-s1-5863602/2026-fifa-world-cup-usmnt-australia"},{"name":"Folarin Balogun","pos":"ST","club":"AS Monaco","age":25,"num":20,"wcG":3,"note":"Brace against Paraguay — the first multi-goal World Cup game by an American since 1930. Player of the Match in both group-stage wins.","src":"https://en.wikipedia.org/wiki/Folarin_Balogun"},{"name":"Malik Tillman","pos":"LW","club":"Bayer Leverkusen","age":24,"num":17,"wcG":1,"wcA":1,"note":"His free kick against Bosnia was the first direct free-kick goal for the US at a World Cup since Wynalda in 1994. Leads the team in ball recoveries.","src":"https://www.espn.com/soccer/story/_/id/49214102/tillman-having-great-world-cup-usmnt-never-tell-himself"},{"name":"Weston McKennie","pos":"CM","club":"Juventus","age":27,"num":8,"wcG":0,"note":"70 caps, 12 goals. The box-to-box engine of Pochettino's midfield three.","src":"https://en.wikipedia.org/wiki/Weston_McKennie"}]}},"topScorers":[{"name":"Lionel Messi","country":"ARG","goals":7,"assists":0},{"name":"Kylian Mbappé","country":"FRA","goals":7,"assists":2},{"name":"Erling Haaland","country":"NOR","goals":7},{"name":"Harry Kane","country":"ENG","goals":6},{"name":"Ousmane Dembélé","country":"FRA","goals":4,"assists":2},{"name":"Vinícius Júnior","country":"BRA","goals":4},{"name":"Ismaïla Sarr","country":"SEN","goals":4},{"name":"Mikel Oyarzabal","country":"ESP","goals":4,"assists":1},{"name":"Jude Bellingham","country":"ENG","goals":4,"assists":1},{"name":"Jonathan David","country":"CAN","goals":3},{"name":"Deniz Undav","country":"GER","goals":3},{"name":"Kai Havertz","country":"GER","goals":3},{"name":"Johan Manzambi","country":"SUI","goals":3},{"name":"Matheus Cunha","country":"BRA","goals":3},{"name":"Ismaël Saibari","country":"MAR","goals":3},{"name":"Brian Brobbey","country":"NED","goals":3},{"name":"Cody Gakpo","country":"NED","goals":3},{"name":"Elijah Just","country":"NZL","goals":3},{"name":"Julián Quiñones","country":"MEX","goals":3},{"name":"Raúl Jiménez","country":"MEX","goals":3},{"name":"Folarin Balogun","country":"USA","goals":3},{"name":"Cristiano Ronaldo","country":"POR","goals":3}],"gbNote":"Three players tied on seven — the first World Cup ever with a three-way race at the top. Assists are the first tiebreaker; official tables don't publish them, so verified counts are shown where known.","sources":[{"topic":"Knockout bracket, results & schedule (ESPN)","url":"https://www.espn.com/soccer/story/_/id/48939282/2026-fifa-world-cup-fixtures-results-match-schedule-group-stage-knockout-rounds-bracket"},{"topic":"Bracket cross-check (CBS)","url":"https://www.cbssports.com/soccer/news/2026-fifa-world-cup-bracket-round-of-32-results-round-of-16-matchups-final/"},{"topic":"Knockout stage (Wikipedia)","url":"https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_knockout_stage"},{"topic":"R16 reports (Al Jazeera)","url":"https://www.aljazeera.com/sports/2026/7/5/haaland-scores-twice-as-norway-stun-brazil-2-1-in-world-cup-2026-last-16"},{"topic":"Golden Boot standings (NBC)","url":"https://www.nbcsports.com/soccer/news/2026-world-cup-top-goalscorers-full-list-latest-on-race-for-the-golden-boot"},{"topic":"Golden Boot race (Sky)","url":"https://www.skysports.com/football/news/11095/13556951/world-cup-2026-golden-boot-race-lionel-messi-kylian-mbappe-erling-haaland-vinicius-junior-and-harry-kane-in-epic-battle-to-be-top-goalscorer"},{"topic":"Squads & shirt numbers (Wikipedia)","url":"https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_squads"},{"topic":"Match lineups (ESPN)","url":"https://www.espn.com/soccer/schedule/_/league/FIFA.WORLD"},{"topic":"FIFA Match Centre","url":"https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026"},{"topic":"Group-stage surprises (World Soccer Talk)","url":"https://worldsoccertalk.com/world-cup/world-cup-2026-full-list-of-the-16-teams-eliminated-in-the-group-stage/"}]};
+
+/* ---------- helpers ---------- */
+const $ = s => document.querySelector(s);
+const el = (tag, cls, html) => { const n=document.createElement(tag); if(cls)n.className=cls; if(html!=null)n.innerHTML=html; return n; };
+const esc = s => String(s??'').replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const teamOf = code => DATA.teams[code];
+const nameOf = code => teamOf(code) ? teamOf(code).name : (DATA.teamNames?.[code] || code);
+const flagOf = code => teamOf(code)?.flag || DATA.flags?.[code] || 'linear-gradient(#556,#334)';
+
+/* ---------- tabs ---------- */
+document.querySelectorAll('nav [data-view]').forEach(b=>{
+  b.addEventListener('click', ()=>{
+    document.querySelectorAll('nav [data-view]').forEach(x=>x.setAttribute('aria-selected', x===b));
+    document.querySelectorAll('.view').forEach(v=>v.classList.remove('on'));
+    $('#view-'+b.dataset.view).classList.add('on');
+  });
+});
+
+/* ---------- ticker ---------- */
+(function(){
+  const items = DATA.matches.filter(m=>m.status!=='upcoming').slice(-14).map(m=>
+    `<span class="tick-item"><span class="rd">${esc(m.round)}</span> ${esc(nameOf(m.a))} <span class="sc">${m.sa}–${m.sb}${m.pens?' <small>('+esc(m.pens)+' pens)</small>':''}</span> ${esc(nameOf(m.b))}</span>`
+  ).concat(DATA.matches.filter(m=>m.status==='upcoming').slice(0,10).map(m=>
+    `<span class="tick-item"><span class="rd">${esc(m.round)} · ${esc(m.date)}</span> ${esc(nameOf(m.a))} v ${esc(nameOf(m.b))} · ${esc(m.venue||'')}</span>`
+  ));
+  $('#tickerTrack').innerHTML = items.join('') + items.join('');
+})();
+
+/* ---------- formation coords ---------- */
+function formationCoords(formation){
+  // returns [{x,y}] for XI in lineup order: GK first, then defense→attack rows
+  const rows = formation.split('-').map(Number);
+  const pts = [{x:50, y:90}]; // GK
+  const yTop=16, yBot=76;                       // attack..defense band
+  const n = rows.length;
+  rows.forEach((count,i)=>{
+    const y = yBot - (yBot-yTop) * (i/(n-1||1));
+    for(let k=0;k<count;k++){
+      const x = (100/(count+1))*(k+1);
+      pts.push({x,y});
+    }
+  });
+  return pts;
+}
+
+/* ---------- pitch view ---------- */
+let currentTeam = DATA.defaultTeam || Object.keys(DATA.teams)[0];
+
+function renderRail(){
+  const rail = $('#teamRail'); rail.innerHTML='';
+  Object.entries(DATA.teams).forEach(([code,t])=>{
+    const b = el('button','chip');
+    b.setAttribute('role','tab');
+    b.setAttribute('aria-selected', code===currentTeam);
+    b.innerHTML = `<span class="flag" style="--fl:${t.flag}"></span>${esc(code)}`;
+    b.title = t.name;
+    b.addEventListener('click', ()=>{ currentTeam=code; renderRail(); renderTeam(); });
+    rail.appendChild(b);
+  });
+}
+
+function renderTeam(){
+  const t = teamOf(currentTeam);
+  const pins = $('#pins'); pins.innerHTML='';
+  const coords = formationCoords(t.formation);
+  const starNames = new Set((t.stars||[]).map(s=>s.name));
+  t.lineup.forEach((p,i)=>{
+    const c = coords[i] || {x:50,y:50};
+    const pin = el('div','pin'+(starNames.has(p.name)?' star':''));
+    pin.style.left = c.x+'%'; pin.style.top = c.y+'%';
+    const surname = p.name.split(' ').slice(-1)[0];
+    pin.innerHTML = `<span class="shadow"></span>
+      <button style="--kit:${t.colors.p};--kit-ink:${t.colors.ink||'#fff'}" aria-label="${esc(p.name)}">
+        <span class="shirt">${p.num??''}</span><span class="plate">${esc(surname)}</span>
+      </button>`;
+    pin.querySelector('button').addEventListener('click', ()=>openCard(p, t));
+    pins.appendChild(pin);
+  });
+  $('#teamInfo').innerHTML = `
+    <h2>${esc(t.name)}</h2>
+    <div class="nick">${esc(t.nickname||'')}</div>
+    <dl>
+      <dt>Coach</dt><dd>${esc(t.coach||'—')}</dd>
+      <dt>Formation</dt><dd>${esc(t.formation)}</dd>
+      <dt>FIFA rank</dt><dd>${t.rank??'—'}</dd>
+    </dl>`;
+}
+
+/* ---------- cards ---------- */
+function cardHTML(p, t, compact){
+  const star = (t.stars||[]).find(s=>s.name===p.name) || (p.wcG!=null ? p : null);
+  const s = star || p;
+  const stats = star ? `
+    <div class="statrow">
+      <div><b>${s.wcG??0}</b><span>WC26 goals</span></div>
+      <div><b>${s.wcA??'—'}</b><span>Assists</span></div>
+      <div><b>${s.min??'—'}</b><span>Minutes</span></div>
+    </div>` : `
+    <div class="statrow">
+      <div><b>${p.num??'—'}</b><span>Shirt</span></div>
+      <div><b>${esc(p.pos||'—')}</b><span>Position</span></div>
+      <div><b>${esc(t.formation)}</b><span>System</span></div>
+    </div>`;
+  const back = star ? `
+    <div class="cface back" style="--kit:${t.colors.p};--fl:${t.flag}">
+      <div class="bk">
+        <h3>${esc(s.name)}</h3>
+        <dl>
+          <dt>Team</dt><dd>${esc(t.name)}</dd>
+          <dt>Club</dt><dd>${esc(s.club||'—')}</dd>
+          <dt>Age</dt><dd>${s.age??'—'}</dd>
+          <dt>Position</dt><dd>${esc(s.pos||p.pos||'—')}</dd>
+        </dl>
+        <div class="note">${esc(s.note||'')}</div>
+        <div class="srcline">${s.src?`Stats source: <a href="${esc(s.src)}" target="_blank" rel="noopener">${esc(srcLabel(s.src))} ↗</a>`:'Lineup data — see footer sources'}</div>
+      </div>
+    </div>` : `
+    <div class="cface back" style="--kit:${t.colors.p};--fl:${t.flag}">
+      <div class="bk">
+        <h3>${esc(p.name)}</h3>
+        <dl>
+          <dt>Team</dt><dd>${esc(t.name)}</dd>
+          <dt>Shirt</dt><dd>${p.num??'—'}</dd>
+          <dt>Position</dt><dd>${esc(p.pos||'—')}</dd>
+        </dl>
+        <div class="note">Starting XI from ${esc(t.name)}'s last knockout match.</div>
+        <div class="srcline">Lineup data — see footer sources</div>
+      </div>
+    </div>`;
+  return `
+    <div class="cface front" style="--kit:${t.colors.p};--fl:${t.flag}">
+      <div class="top">
+        <div class="num">${p.num??s.num??''}</div>
+        <div><div class="pos">${esc(s.pos||p.pos||'')}</div><div class="crest"></div></div>
+      </div>
+      <div class="silhouette">
+        <span class="shirt" style="--kit:${t.colors.p};--kit-ink:${t.colors.ink||'#fff'}">${p.num??s.num??''}</span>
+      </div>
+      <h3>${esc(s.name||p.name)}</h3>
+      <div class="club">${esc(s.club||t.name)}</div>
+      ${stats}
+    </div>${back}`;
+}
+function srcLabel(url){
+  try{ return new URL(url).hostname.replace('www.',''); }catch(e){ return 'source'; }
+}
+
+const scene = $('#cardScene'), card = $('#card3d');
+let tiltRAF = null;
+function openCard(p, t){
+  card.className='card3d';
+  card.innerHTML = cardHTML(p, t);
+  scene.classList.add('on');
+}
+card.addEventListener('click', ()=>card.classList.toggle('flipped'));
+$('#cardClose').addEventListener('click', ()=>scene.classList.remove('on'));
+scene.addEventListener('click', e=>{ if(e.target===scene) scene.classList.remove('on'); });
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') scene.classList.remove('on'); });
+scene.addEventListener('mousemove', e=>{
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const r = card.getBoundingClientRect();
+  const dx = (e.clientX - (r.left+r.width/2)) / r.width;
+  const dy = (e.clientY - (r.top+r.height/2)) / r.height;
+  const flip = card.classList.contains('flipped') ? 180 : 0;
+  card.style.transform = `rotateY(${flip + dx*14}deg) rotateX(${-dy*12}deg)`;
+});
+scene.addEventListener('mouseleave', ()=>{ card.style.transform=''; });
+
+/* ---------- bracket ---------- */
+(function(){
+  const order = ['R32','R16','QF','SF','F'];
+  const titles = {R32:'Round of 32', R16:'Round of 16', QF:'Quarter-finals', SF:'Semi-finals', F:'<b>Final</b>'};
+  const wrap = $('#bracket');
+  order.forEach(rd=>{
+    const ms = DATA.matches.filter(m=>m.round===rd);
+    if(!ms.length) return;
+    const col = el('div','round-col');
+    col.appendChild(el('h3',null,titles[rd]));
+    const cells = el('div','mcells');
+    ms.forEach(m=>{
+      const up = m.status==='upcoming';
+      const cell = el('div','mcell'+(up?' upcoming':'')+(rd==='F'?' final-cell':''));
+      const aWin = !up && (m.sa>m.sb || m.pw===m.a);
+      const bWin = !up && (m.sb>m.sa || m.pw===m.b);
+      cell.innerHTML = `
+        <div class="meta"><span>${esc(m.date||'')}</span><span>${esc(m.venue||'')}</span></div>
+        <div class="mrow ${aWin?'win':''} ${bWin?'lose':''}"><span class="flag" style="--fl:${flagOf(m.a)}"></span><span class="tn">${esc(nameOf(m.a))}</span><span class="ms">${up?'':m.sa}</span></div>
+        <div class="mrow ${bWin?'win':''} ${aWin?'lose':''}"><span class="flag" style="--fl:${flagOf(m.b)}"></span><span class="tn">${esc(nameOf(m.b))}</span><span class="ms">${up?'':m.sb}</span></div>
+        ${m.pens?`<div class="meta" style="margin:4px 0 0">${esc(nameOf(m.pw))} win ${esc(m.pens)} on penalties</div>`:''}`;
+      cells.appendChild(cell);
+    });
+    col.appendChild(cells);
+    wrap.appendChild(col);
+  });
+})();
+
+/* ---------- golden boot ---------- */
+(function(){
+  const tb = $('#gbTable');
+  tb.innerHTML = `<tr><th>#</th><th>Player</th><th>Team</th><th>Goals</th><th>Assists</th></tr>` +
+    DATA.topScorers.map((s,i)=>`<tr>
+      <td class="n">${i+1}</td>
+      <td>${esc(s.name)}</td>
+      <td><span style="display:inline-flex;align-items:center;gap:7px"><span class="flag" style="--fl:${flagOf(s.country)}"></span>${esc(nameOf(s.country))}</span></td>
+      <td class="g">${s.goals}</td>
+      <td>${s.assists??'—'}</td>
+    </tr>`).join('');
+  $('#gbNote').textContent = DATA.gbNote || '';
+
+  const gal = $('#gallery');
+  Object.values(DATA.teams).forEach(t=>{
+    (t.stars||[]).forEach(s=>{
+      const holder = el('div','gcard-holder');
+      const g = el('div','gcard');
+      const asPlayer = t.lineup.find(p=>p.name===s.name) || {name:s.name,num:s.num,pos:s.pos};
+      g.innerHTML = cardHTML(asPlayer, t, true);
+      g.addEventListener('click', ()=>g.classList.toggle('flipped'));
+      holder.appendChild(g);
+      gal.appendChild(holder);
+    });
+  });
+})();
+
+/* ---------- footer sources ---------- */
+$('#srcFooter').innerHTML = `<span class="lbl">Sources · updated ${esc(DATA.updated)}</span>` +
+  DATA.sources.map(s=>`<a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.topic)}</a>`).join('') +
+  `<a href="about.html" style="margin-left:auto;color:var(--gold)">About this project</a>`;
+
+/* ---------- init ---------- */
+if(DATA.stageTag) $('#stageTag').innerHTML = DATA.stageTag;
+renderRail(); renderTeam();
+</script>

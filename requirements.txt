@@ -1,0 +1,7 @@
+pydantic-ai-slim[openai,mcp]
+fastmcp
+httpx
+beautifulsoup4
+html2text
+python-dotenv
+filelock

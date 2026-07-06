@@ -1,0 +1,647 @@
+# Vendored from D:/tooler/project_tools/serper_scrape_mcp.py (Mar 2026)
+# Used by darkfloor's researcher agent via MCPServerStdio. tracelight dep
+# replaced with stdlib logger.exception below.
+
+import os
+import asyncio
+import json
+from contextlib import asynccontextmanager
+from typing import Dict, List, Optional, Any, Literal, Callable
+from pydantic import BaseModel, Field
+from datetime import datetime, timezone
+import httpx
+from bs4 import BeautifulSoup, Comment
+import re
+from urllib.parse import urljoin, urlparse
+import html2text
+
+import logging
+import sys
+
+
+def log_exception_state(e: Exception, logger: logging.Logger) -> None:
+    """Drop-in for tracelight.log_exception_state. Stdlib-only fallback."""
+    logger.exception("captured exception state: %r", e)
+
+
+logger = logging.getLogger("darkfloor.serper-scraper")
+
+from fastmcp import FastMCP, Context
+MCP_AVAILABLE = True
+
+# pydantic-ai availability flag - imports are lazy to speed up server startup
+PYDANTIC_AI_AVAILABLE = True  # Assume available, will fail gracefully if not
+
+
+# --- Client Models ---
+
+class GoogleSearchRequest(BaseModel):
+    q: str = Field(..., description="Search query string")
+    gl: str = Field(..., description="Region code for search results in ISO 3166-1 alpha-2 format (e.g., 'us')")
+    hl: str = Field(..., description="Language code for search results in ISO 639-1 format (e.g., 'en')")
+    num: Optional[int] = Field(None, description="Number of results to return (default: 10)")
+    page: Optional[int] = Field(None, description="Page number of results to return (default: 1)")
+    tbs: Optional[str] = Field(None, description="Time-based search filter ('qdr:h' for past hour, 'qdr:d' for past day, 'qdr:w' for past week, 'qdr:m' for past month, 'qdr:y' for past year)")
+    location: Optional[str] = Field(None, description="Optional location for search results (e.g., 'SoHo, New York, United States', 'California, United States')")
+    autocorrect: Optional[bool] = Field(None, description="Whether to autocorrect spelling in query")
+
+
+class ScrapeRequest(BaseModel):
+    url: str = Field(..., description="The URL of the webpage to scrape.")
+    includeMarkdown: Optional[bool] = Field(None, description="Whether to include markdown content.")
+    process_with_llm: bool = Field(True, description="Whether to process the scraped content using an LLM to filter noise and extract key information.")
+    llm_instructions: Optional[str] = Field(None, description="Custom instructions for the LLM on how to process the content or what to look for. If process_with_llm is set to true, use this always.")
+    return_raw: bool = Field(False, description="Whether to include the raw scraped content in the response along with the processed content.")
+
+
+class BatchScrapeRequest(BaseModel):
+    urls: List[str] = Field(..., description="List of URLs to scrape in parallel.")
+    includeMarkdown: Optional[bool] = Field(None, description="Whether to include markdown content.")
+    process_with_llm: bool = Field(True, description="Whether to process the scraped content using an LLM to filter noise and extract key information.")
+    llm_instructions: Optional[str] = Field(None, description="Custom instructions for the LLM on how to process the content.")
+    return_raw: bool = Field(False, description="Whether to include the raw scraped content in the response along with the processed content.")
+
+
+class Link(BaseModel):
+    """Represents a link extracted from a webpage."""
+    text: str = Field(..., description="The visible text of the link")
+    url: str = Field(..., description="The URL the link points to")
+    is_external: bool = Field(..., description="Whether the link points to an external domain")
+
+
+class MetaTag(BaseModel):
+    name: Optional[str] = None
+    property: Optional[str] = None
+    content: Optional[str] = None
+
+
+# class JSONLD(BaseModel):
+#     raw: str
+#     parsed: Any
+
+
+class ScrapedContent(BaseModel):
+    """A section of content from the scraped page."""
+    type: str = Field(..., description="Type of content (heading, paragraph, list, etc)")
+    text: str = Field(..., description="The actual text content")
+    level: Optional[int] = Field(None, description="For headings, the level (1-6)")
+
+
+class ScrapeResult(BaseModel):
+    url: str
+    timestamp: str
+    title: Optional[str] = None
+    main_content: List[ScrapedContent] = Field([], description="The main visible content of the page in structured format")
+    links: List[Link] = Field([], description="Important links extracted from the page")
+    meta_description: Optional[str] = Field(None, description="Meta description of the page if available")
+    meta_tags: List[MetaTag] = []
+    # json_ld: List[JSONLD] = []
+    error: Optional[str] = None
+    processed_content: Optional[str] = Field(None, description="Content processed by the LLM to filter noise and extract key information")
+    processed_summary: Optional[str] = Field(None, description="A concise summary of the page content generated by the LLM")
+
+
+# --- Client Implementation ---
+
+class SerperScraperClient:
+    def __init__(self, serper_api_key: Optional[str] = None, use_llm: bool = False):
+        self.serper_api_key = serper_api_key
+        self.serper_api_url = "https://google.serper.dev/search"
+        self.headers = {
+            "X-API-KEY": serper_api_key,
+            "Content-Type": "application/json"
+        } if serper_api_key else {"Content-Type": "application/json"}
+        self.use_llm = use_llm and PYDANTIC_AI_AVAILABLE
+        logger.info(f"Initialized SerperScraper: Use LLM={self.use_llm}, PydanticAI={PYDANTIC_AI_AVAILABLE}")
+
+    async def google_search(self, request: GoogleSearchRequest) -> Dict:
+        """Perform a Google search using the Serper API."""
+        if not self.serper_api_key:
+            raise ValueError("Serper API key is required for search operations")
+
+        payload = request.model_dump(exclude_none=True)
+        logger.debug(f"`google_search`: f{payload}")
+        async with httpx.AsyncClient() as client:
+            response = await client.post(
+                self.serper_api_url,
+                headers=self.headers,
+                json=payload
+            )
+            response.raise_for_status()
+            return response.json()
+
+    async def _extract_meta_tags(self, soup: BeautifulSoup) -> List[MetaTag]:
+        """Extract only useful meta tags to minimize token usage."""
+        useful_meta_names = {
+            'description', 'keywords', 'author', 'robots', 'viewport', 
+            'theme-color', 'application-name'
+        }
+        
+        useful_meta_properties = {
+            'og:title', 'og:description', 'og:type', 'og:url', 'og:image',
+            'twitter:card', 'twitter:title', 'twitter:description'
+        }
+        
+        meta_tags = []
+        for tag in soup.find_all("meta"):
+            meta_tag = {}
+            
+            name = tag.get("name", "").lower()
+            property_attr = tag.get("property", "").lower()
+            content = tag.get("content")
+            
+            # Only include useful meta tags
+            if name in useful_meta_names and content:
+                meta_tag["name"] = name
+                meta_tag["content"] = content
+            elif property_attr in useful_meta_properties and content:
+                meta_tag["property"] = property_attr
+                meta_tag["content"] = content
+            
+            if meta_tag:
+                meta_tags.append(MetaTag(**meta_tag))
+        
+        return meta_tags
+    
+    # async def _extract_json_ld(self, html: str) -> List[JSONLD]:
+    #     """Extract JSON-LD metadata from the HTML."""
+    #     json_ld_list = []
+    #     pattern = re.compile(r'<script[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>', re.DOTALL)
+    #     for match in pattern.finditer(html):
+    #         json_str = match.group(1).strip()
+    #         try:
+    #             parsed = json.loads(json_str)
+    #             json_ld_list.append(JSONLD(raw=json_str, parsed=parsed))
+    #         except json.JSONDecodeError:
+    #             # Skip invalid JSON
+    #             pass
+    #     return json_ld_list
+    
+    def _is_visible_element(self, element) -> bool:
+        """Determine if an element would be visible to users."""
+        if element.name in ['script', 'style', 'meta', 'noscript', 'head']:
+            return False
+            
+        # Check for hidden elements
+        style = element.get('style', '')
+        if 'display:none' in style or 'visibility:hidden' in style:
+            return False
+            
+        # Check for comment nodes
+        if isinstance(element, Comment):
+            return False
+            
+        # Skip empty elements
+        if not element.get_text(strip=True):
+            return False
+            
+        return True
+        
+    def _remove_duplicate_content(self, content_list: List[ScrapedContent]) -> List[ScrapedContent]:
+        """Remove duplicate or near-duplicate content items."""
+        unique_content = []
+        seen_texts = set()
+        
+        for content in content_list:
+            # Normalize text for comparison
+            normalized_text = re.sub(r'\s+', ' ', content.text).strip().lower()
+            
+            # Skip if too short (likely not useful)
+            if len(normalized_text) < 5:
+                continue
+                
+            # Skip if duplicate or near-duplicate
+            if normalized_text in seen_texts:
+                continue
+                
+            # Check for near-duplicates (text contained within other texts)
+            is_duplicate = False
+            for seen_text in seen_texts:
+                # If this text is just a small part of an existing text, skip it
+                if len(normalized_text) < 50 and normalized_text in seen_text:
+                    is_duplicate = True
+                    break
+            
+            if not is_duplicate:
+                seen_texts.add(normalized_text)
+                unique_content.append(content)
+                
+        return unique_content
+        
+    def _extract_links(self, soup: BeautifulSoup, base_url: str) -> List[Link]:
+        """Extract important links from the page with smart filtering."""
+        links = []
+        base_domain = urlparse(base_url).netloc
+        
+        # Skip these common navigation/boilerplate link texts
+        skip_texts = {
+            'home', 'about', 'contact', 'privacy', 'terms', 'login', 'register', 
+            'subscribe', 'newsletter', 'cookies', 'sitemap', 'search', 'menu',
+            'skip to content', 'back to top', 'previous', 'next', 'more',
+            'click here', 'read more', 'learn more', 'view all', 'see all'
+        }
+        
+        for a_tag in soup.find_all('a', href=True):
+            href = a_tag.get('href', '').strip()
+            if not href or href.startswith('#') or href.startswith('javascript:'):
+                continue
+                
+            # Get the link text and clean it
+            link_text = a_tag.get_text(strip=True)
+            if not link_text or len(link_text) < 3:
+                continue
+                
+            # Skip common navigation links
+            if link_text.lower() in skip_texts:
+                continue
+                
+            # Skip social media and common external domains
+            if any(domain in href.lower() for domain in ['facebook.com', 'twitter.com', 'instagram.com', 'linkedin.com', 'youtube.com', 'tiktok.com']):
+                continue
+                
+            # Normalize the URL
+            full_url = urljoin(base_url, href)
+            
+            # Check if external link
+            link_domain = urlparse(full_url).netloc
+            is_external = link_domain != base_domain
+            
+            links.append(Link(
+                text=link_text,
+                url=full_url,
+                is_external=is_external
+            ))
+            
+        # Remove duplicates and prioritize
+        unique_links = []
+        seen_urls = set()
+        
+        # First pass: prioritize internal links (usually more relevant to content)
+        internal_links = [link for link in links if not link.is_external]
+        for link in internal_links[:15]:  # Max 15 internal links
+            if link.url not in seen_urls:
+                seen_urls.add(link.url)
+                unique_links.append(link)
+        
+        # Second pass: add external links if we have room
+        external_links = [link for link in links if link.is_external]
+        remaining_slots = 20 - len(unique_links)  # Max 20 total links
+        for link in external_links[:remaining_slots]:
+            if link.url not in seen_urls:
+                seen_urls.add(link.url)
+                unique_links.append(link)
+                
+        return unique_links
+        
+    def _extract_main_content(self, soup: BeautifulSoup) -> List[ScrapedContent]:
+        """Dead simple: clean HTML, convert to markdown, return everything"""
+        
+        # Remove only script/style/obvious navigation
+        for tag in soup("script", "style", "nav", "header", "footer"):
+            tag.decompose()
+        
+        # Convert to markdown
+        h = html2text.HTML2Text()
+        h.body_width = 0  # No line wrapping
+        h.ignore_links = False
+        h.ignore_images = False
+        h.ignore_tables = False
+        
+        markdown_content = h.handle(str(soup))
+        
+        # Return as single ScrapedContent item
+        return [ScrapedContent(
+            type="markdown",
+            text=markdown_content
+        )]
+
+    async def _process_with_llm(self, scraped_result: ScrapeResult, custom_instructions: Optional[str] = None) -> dict:
+        """Process scraped content with an LLM to filter noise and extract key information."""
+        logger.debug(f"`process_with_llm`: {custom_instructions}.... Content sections: {len(scraped_result.main_content)} Links: {len(scraped_result.links)}")
+        
+        # Lazy import pydantic-ai to speed up server startup
+        try:
+            from pydantic_ai.models.openai import OpenAIModel
+            from pydantic_ai.providers.openai import OpenAIProvider
+            from pydantic_ai.messages import ModelMessage, SystemPromptPart, UserPromptPart, TextPart
+            from pydantic_ai.models import ModelRequestParameters
+        except ImportError:
+            return {
+                "error": "pydantic-ai is not available. Install pydantic-ai to use LLM processing."
+            }
+        
+        # Get API key from environment or use a default provider
+        api_key = os.getenv("OPENAI_API_KEY") or os.getenv("OPENROUTER_API_KEY")
+        if not api_key:
+            return {
+                "error": "No API key found for LLM processing. Set OPENAI_API_KEY or OPENROUTER_API_KEY environment variable."
+            }
+        
+        try:
+            # Initialize the OpenAI model
+            model = OpenAIModel(
+                os.getenv("LLM_MODEL_NAME", "x-ai/grok-4.1-fast"),  # Default to a smaller model
+                provider=OpenAIProvider(
+                    base_url=os.getenv("LLM_BASE_URL", "https://openrouter.ai/api/v1"),
+                    api_key=api_key
+                )
+            )
+            
+            # Prepare the content
+            page_content = "\n\n".join([item.text for item in scraped_result.main_content])
+            links_content = "\n".join([f"- {link.text}: {link.url}" for link in scraped_result.links[:10]])  # Limit to 10 links
+            
+            # Default system prompt
+            system_prompt = custom_instructions or """
+            You are a content processor that filters out noise from web pages and extracts the most relevant information.
+            Your task is to:
+            1. Remove any advertisements, irrelevant UI elements, navigation text, etc.
+            2. Extract the core content of the page
+            3. Provide a concise summary of what the page is about
+            4. Highlight key information points
+            
+            Format your response as follows:
+            SUMMARY: [2-3 sentence summary of the page]
+            
+            CONTENT: [filtered and extracted main content]
+            """
+            
+            # Create the user prompt with the page content
+            user_prompt = f"""Process the following web page content from {scraped_result.url}:
+            
+Title: {scraped_result.title or 'No title'}
+
+Meta Description: {scraped_result.meta_description or 'None'}
+
+Page Content:
+{page_content}
+
+Important Links:
+{links_content}
+
+Please filter out the noise and extract the key information.
+"""
+            from pydantic_ai.messages import ModelRequest
+            # Create the request message
+            # messages = [
+            #     ModelMessage(parts=[
+            #         SystemPromptPart(content=system_prompt),
+            #         UserPromptPart(content=user_prompt)
+            #     ])
+            # ]
+            messages = [
+                ModelRequest(parts=[UserPromptPart(content=user_prompt)], instructions=system_prompt)
+            ]
+            from pydantic_ai.direct import model_request
+            # Process with the model
+            response = await model_request(
+                model,
+                messages,
+            )
+            
+            # Extract the processed content
+            processed_text = ""
+            for part in response.parts:
+                if isinstance(part, TextPart):
+                    processed_text += part.content
+            
+            # Parse the processed content to extract summary and main content
+            summary = ""
+            content = processed_text
+            if "SUMMARY:" in processed_text:
+                parts = processed_text.split("SUMMARY:", 1)
+                if len(parts) > 1:
+                    summary = parts[1].split("CONTENT:", 1)[0].strip()
+                    content = parts[1].split("CONTENT:", 1)[1].strip() if "CONTENT:" in parts[1] else parts[1].strip()
+            
+            return {
+                "processed_content": content,
+                "processed_summary": summary
+            }
+            
+        except Exception as e:
+            logger.error(f"Error processing content with LLM: {str(e)}")
+            return {"error": f"Failed to process content with LLM: {str(e)}"}
+
+    async def _scrape_single_url(self, url: str, include_markdown: bool = False) -> ScrapeResult:
+        """Scrape a single URL and return structured data focused on visible content."""
+        # Using datetime.now(timezone.utc) instead of deprecated datetime.utcnow()
+        timestamp = datetime.now(timezone.utc).isoformat()
+        
+        try:
+            async with httpx.AsyncClient(follow_redirects=True) as client:
+                headers = {
+                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+                }
+                response = await client.get(url, headers=headers)
+                response.raise_for_status()
+                html_content = response.text
+
+            soup = BeautifulSoup(html_content, 'html.parser')
+            
+            # Remove invisible elements
+            for invisible in soup.find_all(['script', 'style', 'meta', 'noscript']):
+                invisible.extract()
+            
+            # Fix for deprecated 'text' argument in find_all
+            for comment in soup.find_all(string=lambda s: isinstance(s, Comment)):
+                comment.extract()
+                
+            # Basic page information
+            title = soup.title.string if soup.title else None
+            meta_tags = await self._extract_meta_tags(soup)
+            # json_ld = await self._extract_json_ld(html_content)
+            
+            # Get meta description
+            meta_description = None
+            for tag in meta_tags:
+                if (tag.name == 'description' or tag.property == 'og:description') and tag.content:
+                    meta_description = tag.content
+                    break
+            
+            # Extract main content and links
+            main_content = self._extract_main_content(soup)
+            links = self._extract_links(soup, url)
+
+            return ScrapeResult(
+                url=url,
+                timestamp=timestamp,
+                title=title,
+                main_content=main_content,
+                links=links,
+                meta_description=meta_description,
+                meta_tags=meta_tags, 
+                # json_ld=json_ld
+            )
+        except Exception as e:
+            return ScrapeResult(
+                url=url,
+                timestamp=timestamp,
+                main_content=[],
+                links=[],
+                meta_tags=[],
+                # json_ld=[],
+                error=str(e)
+            )
+
+    async def scrape(self, request: ScrapeRequest) -> ScrapeResult:
+        """Scrape a single URL and return structured data with optional LLM processing. Use when you only need data from one URL at a time. Ideal for sequential research like following links. If you need to compare multiple souces, use batch_scrape.
+            IMPORTANT: Do not attempt to scrape binary files like PDF, images, videos, etc. Use other available tools to download and work with these file types.
+        """
+        result = await self._scrape_single_url(request.url, request.includeMarkdown or False)
+        
+        # Process with LLM if requested
+        if request.process_with_llm and self.use_llm:
+            llm_result = await self._process_with_llm(result, request.llm_instructions)
+            logger.debug(llm_result)
+            
+            if "error" in llm_result:
+                result.error = llm_result["error"]
+            else:
+                result.processed_content = "" # llm_result.get("processed_content")
+                result.processed_summary = "" # llm_result.get("processed_summary")
+                
+                # If raw content is not requested, clear the main_content
+                if not request.return_raw:
+                    # Keep the original main_content length for reference
+                    content_length = len(result.main_content)
+                    # Create a single processed content item
+                    result.main_content = [
+                        ScrapedContent(
+                            type='processed_content',
+                            text=f"LLM processed content from {content_length} original items.\n\n{llm_result.get('processed_content')}"
+                        )
+                    ]
+        elif request.process_with_llm and not self.use_llm:
+            result.error = "LLM processing was requested but is not available. Check server configuration."
+        
+        return result
+
+    async def batch_scrape(self, request: BatchScrapeRequest) -> List[ScrapeResult]:
+        """Scrape multiple URLs in parallel and return a list of results. Use when you need to analyze multiple relevant results after search. More efficient than multiple scrape calls, ideal for cross-comparison across sources.
+            IMPORTANT: Do not attempt to scrape binary files like PDF, images, videos, etc. Use other available tools to download and work with these file types.
+        """
+        tasks = []
+        for url in request.urls:
+            # Create a ScrapeRequest for each URL
+            single_request = ScrapeRequest(
+                url=url, 
+                includeMarkdown=request.includeMarkdown,
+                process_with_llm=request.process_with_llm,
+                llm_instructions=request.llm_instructions,
+                return_raw=request.return_raw
+            )
+            tasks.append(self.scrape(single_request))
+            
+        return await asyncio.gather(*tasks)
+
+
+# --- MCP Server Implementation ---
+
+@asynccontextmanager
+async def server_lifespan(server: FastMCP):
+    """Initialize SerperScraperClient on server startup."""
+    try:
+        serper_api_key = os.getenv("SERPER_API_KEY")
+        
+        # Check if LLM processing is available
+        api_key = os.getenv("OPENROUTER_API_KEY") or os.getenv("OPENAI_API_KEY")
+        use_llm = api_key is not None and PYDANTIC_AI_AVAILABLE
+        
+        if use_llm:
+            logger.info("LLM processing is enabled for scraper")
+        else:
+            logger.warning("LLM processing is disabled. Set OPENAI_API_KEY or OPENROUTER_API_KEY to enable it.")
+        
+        client = SerperScraperClient(serper_api_key=serper_api_key, use_llm=use_llm)
+    except Exception as e:
+        logger.error(f"Error Initializing serper scraper: {str(e)}")
+        yield {"client": None}
+    
+    try:
+        yield {"client": client}
+    finally:
+        # No cleanup needed for this client
+        pass
+
+
+# Middleware moved to agent_factory.py (process_tool_call parameter)
+# from middleware import ArgumentNormalizerMiddleware
+
+# Create the FastMCP server
+mcp = FastMCP("SerperScraperMCP", lifespan=server_lifespan)
+
+# Middleware moved to agent_factory.py (process_tool_call parameter on MCPServerStdio)
+# mcp.add_middleware(ArgumentNormalizerMiddleware(log_normalizations=True))
+
+# Register tools
+@mcp.tool()
+async def google_search(request: GoogleSearchRequest, ctx: Context) -> Dict:
+    """Perform a Google search using the Serper API."""
+    if "client" not in ctx.request_context.lifespan_context:
+        raise ValueError("SerperScraperClient not properly initialized")
+        
+    client = ctx.request_context.lifespan_context["client"]
+    try:
+        return await client.google_search(request)
+    except Exception as e:
+        await ctx.error(f"Error during Google search: {str(e)}")
+        log_exception_state(e, logger)
+        raise ValueError(f"Failed to perform Google search: {str(e)}")
+
+@mcp.tool()
+async def scrape(request: ScrapeRequest, ctx: Context) -> ScrapeResult:
+    """Scrape a single URL and return structured data with optional LLM processing. Use when you only need data from one URL at a time. Ideal for sequential research like following links. If you need to compare multiple souces, use batch_scrape.
+    
+    If process_with_llm is True, the content will be processed by an LLM to filter noise
+    and extract key information. Custom instructions can be provided to guide the LLM processing.
+    Set return_raw to True to include both raw and processed content in the response."""
+    if "client" not in ctx.request_context.lifespan_context:
+        raise ValueError("SerperScraperClient not properly initialized")
+
+    client = ctx.request_context.lifespan_context["client"]
+    try:
+        await ctx.info(f"Scraping URL: {request.url} with LLM processing: {request.process_with_llm}")
+        return await client.scrape(request)
+    except Exception as e:
+        await ctx.error(f"Error during web scraping: {str(e)}")
+        log_exception_state(e, logger)
+        raise ValueError(f"Failed to scrape URL: {str(e)}")
+
+@mcp.tool()
+async def batch_scrape(request: BatchScrapeRequest, ctx: Context) -> List[ScrapeResult]:
+    """Scrape multiple URLs in parallel and return a list of results. Use when you need to analyze multiple relevant results after search. More efficient than multiple scrape calls, ideal for cross-comparison across sources.
+    
+    If process_with_llm is True, the content will be processed by an LLM to filter noise
+    and extract key information. Custom instructions can be provided to guide the LLM processing.
+    Set return_raw to True to include both raw and processed content in the response."""
+    if "client" not in ctx.request_context.lifespan_context:
+        raise ValueError("SerperScraperClient not properly initialized")
+        
+    client = ctx.request_context.lifespan_context["client"]
+    try:
+        total_urls = len(request.urls)
+        await ctx.info(f"Starting batch scrape of {total_urls} URLs with LLM processing: {request.process_with_llm}")
+        
+        # Start the scraping operation
+        results = await client.batch_scrape(request)
+        
+        # Count successful and failed results
+        success_count = sum(1 for r in results if not r.error)
+        error_count = sum(1 for r in results if r.error)
+        
+        await ctx.info(f"Completed batch scrape: {success_count} successful, {error_count} failed")
+        return results
+    except Exception as e:
+        await ctx.error(f"Error during batch web scraping: {str(e)}")
+        log_exception_state(e, logger)
+        raise ValueError(f"Failed to execute batch scrape: {str(e)}")
+
+
+def main():
+    """Run the MCP server when this module is executed as a script."""
+    mcp.run()
+    
+
+if __name__ == "__main__":
+    main()
