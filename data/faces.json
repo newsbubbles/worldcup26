@@ -1,0 +1,536 @@
+{
+ "Emiliano Martínez": {
+  "img": "img/ARG/emiliano-martinez.jpg",
+  "credit": "u/reepers_hellcat",
+  "license": "CC BY 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:St._Louis_City_vs_Aston_Villa_(Jul_2025)_14_(Emiliano_Mart%C3%ADnez).jpg"
+ },
+ "Lisandro Martínez": {
+  "img": "img/ARG/lisandro-martinez.jpg",
+  "credit": "Ardfern",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Lisandro_Martinez_2022.jpg"
+ },
+ "Cristian Romero": {
+  "img": "img/ARG/cristian-romero.jpg",
+  "credit": "Hossein Zohrevand",
+  "license": "CC BY 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Cristian_Romero_WC2022.jpg"
+ },
+ "Facundo Medina": {
+  "img": "img/ARG/facundo-medina.jpg",
+  "credit": "Paté kroute",
+  "license": "CC0",
+  "src": "https://commons.wikimedia.org/wiki/File:Facundo_M%C3%A9dina_ASSE_RCL_2425.jpg"
+ },
+ "Alexis Mac Allister": {
+  "img": "img/ARG/alexis-mac-allister.jpg",
+  "credit": "Timmy96",
+  "license": "CC0",
+  "src": "https://commons.wikimedia.org/wiki/File:Alexis_Mac_Allister_04012026_(3).jpg"
+ },
+ "Nahuel Molina": {
+  "img": "img/ARG/nahuel-molina.jpg",
+  "credit": "Carlos Figueroa Rojas",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Universidad_Cat%C3%B3lica_-_Rosario_Central_20190313_04.jpg"
+ },
+ "Julián Álvarez": {
+  "img": "img/ARG/julian-alvarez.jpg",
+  "credit": "Argentina.gob.ar",
+  "license": "CC BY 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Argentina_national_football_team_-_2_-_2022_(Juli%C3%A1n_%C3%81lvarez).jpg"
+ },
+ "Lionel Messi": {
+  "img": "img/ARG/lionel-messi.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Lionel_Messi_NE_Revolution_Inter_Miami_7.9.25-055.jpg"
+ },
+ "Enzo Fernández": {
+  "img": "img/ARG/enzo-fernandez.jpg",
+  "credit": "The White House",
+  "license": "Public domain",
+  "src": "https://commons.wikimedia.org/wiki/File:Enzo_Fern%C3%A1ndez_2025_FIFA_Club_World_Cup_Final.jpg"
+ },
+ "Lautaro Martínez": {
+  "img": "img/ARG/lautaro-martinez.jpg",
+  "credit": "Agencia de Noticias ANDES",
+  "license": "CC BY-SA 2.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Lautaro_Martinez_ARGENTINA_VS_VENEZUELA_2017.jpg"
+ },
+ "Thiago Almada": {
+  "img": "img/ARG/thiago-almada.jpg",
+  "credit": "Paté kroute",
+  "license": "CC0",
+  "src": "https://commons.wikimedia.org/wiki/File:Almada_asse_ol_2425.png"
+ },
+ "Rodrigo De Paul": {
+  "img": "img/ARG/rodrigo-de-paul.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Rodrigo_De_Paul_NYCFC_Miami_24_Sep_2025-018_(cropped).jpg"
+ },
+ "Mike Maignan": {
+  "img": "img/FRA/mike-maignan.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Mike_Maignan_France_v_Senegal_16_June_2026-211.jpg"
+ },
+ "Lucas Digne": {
+  "img": "img/FRA/lucas-digne.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Lucas_Digne_France_v_Senegal_16_June_2026-275_(cropped).jpg"
+ },
+ "Dayot Upamecano": {
+  "img": "img/FRA/dayot-upamecano.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Dayot_Upamecano_France_v_Senegal_16_June_2026-402_(cropped).jpg"
+ },
+ "Adrien Rabiot": {
+  "img": "img/FRA/adrien-rabiot.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Adrien_Rabiot_France_v_Senegal_16_June_2026-371_(cropped).jpg"
+ },
+ "William Saliba": {
+  "img": "img/FRA/william-saliba.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:William_Saliba_France_v_Senegal_16_June_2026-336_(cropped).jpg"
+ },
+ "Bradley Barcola": {
+  "img": "img/FRA/bradley-barcola.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Bradley_Barcola_France_v_Senegal_16_June_2026-398.jpg"
+ },
+ "Manu Koné": {
+  "img": "img/FRA/manu-kone.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Manu_Kone_France_v_Senegal_16_June_2026-406_(cropped).jpg"
+ },
+ "Jules Koundé": {
+  "img": "img/FRA/jules-kounde.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Jules_Kounde_France_v_Senegal_16_June_2026-449_(cropped).jpg"
+ },
+ "Ousmane Dembélé": {
+  "img": "img/FRA/ousmane-dembele.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Ousmane_Dembele_France_v_Senegal_16_June_2026-341_(cropped).jpg"
+ },
+ "Jordan Pickford": {
+  "img": "img/ENG/jordan-pickford.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Jordan_Pickford_England_v_Ghana_23_June_2026-049.jpg"
+ },
+ "Michael Olise": {
+  "img": "img/FRA/michael-olise.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Michael_Olise_France_v_Senegal_16_June_2026-307_(cropped).jpg"
+ },
+ "Marc Guehi": {
+  "img": "img/ENG/marc-guehi.jpg",
+  "credit": "User:YantsImages",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Marc_Gu%C3%A9hi_at_2026_FIFA_World_Cup_by_YantsImages_(cropped).jpg"
+ },
+ "Jarell Quansah": {
+  "img": "img/ENG/jarell-quansah.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Jarell_Quansah_England_v_Ghana_23_June_2026-045.jpg"
+ },
+ "Nico O'Reilly": {
+  "img": "img/ENG/nico-o-reilly.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Nico_O%27Reilly_England_v_Ghana_23_June_2026-043_(cropped).jpg"
+ },
+ "Ezri Konsa": {
+  "img": "img/ENG/ezri-konsa.jpg",
+  "credit": "YantsImages",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Team_England_England_v_Ghana_at_2026_Fifa_World_Cup_by_YantsImages_03_(Ezri_Konsa).jpg"
+ },
+ "Kylian Mbappé": {
+  "img": "img/FRA/kylian-mbappe.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Kylian_Mbappe_France_v_Senegal_16_June_2026-391_(cropped).jpg"
+ },
+ "Declan Rice": {
+  "img": "img/ENG/declan-rice.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Declan_Rice_England_v_Ghana_23_June_2026-150.jpg"
+ },
+ "Bukayo Saka": {
+  "img": "img/ENG/bukayo-saka.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Bukayo_Saka_England_v_Ghana_23_June_2026-057_(cropped).jpg"
+ },
+ "Jude Bellingham": {
+  "img": "img/ENG/jude-bellingham.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Jude_Bellingham_England_v_Ghana_23_June_2026-061_(cropped).jpg"
+ },
+ "Elliot Anderson": {
+  "img": "img/ENG/elliot-anderson.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Elliot_Anderson_England_v_Ghana_23_June_2026-059_(cropped).jpg"
+ },
+ "Unai Simón": {
+  "img": "img/ESP/unai-simon.jpg",
+  "credit": "Biso",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Unai_Sim%C3%B3n_2025_(cropped).jpg"
+ },
+ "Harry Kane": {
+  "img": "img/ENG/harry-kane.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Harry_Kane_England_v_Ghana_23_June_2026-219_(cropped).jpg"
+ },
+ "Pau Cubarsí": {
+  "img": "img/ESP/pau-cubarsi.jpg",
+  "credit": "Biso",
+  "license": "CC BY 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Pau_Cubars%C3%AD_(cropped).jpg"
+ },
+ "Marc Cucurella": {
+  "img": "img/ESP/marc-cucurella.jpg",
+  "credit": "Biso",
+  "license": "CC BY 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Spain_football_team_in_202_(Marc_Cucurella).jpg"
+ },
+ "Aymeric Laporte": {
+  "img": "img/ESP/aymeric-laporte.jpg",
+  "credit": "Mohammadreza Abbasi",
+  "license": "CC BY 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Aymeric_Laporte_2023_(cropped)_2.jpg"
+ },
+ "Álex Baena": {
+  "img": "img/ESP/alex-baena.jpg",
+  "credit": "Pedro  Semitiel",
+  "license": "CC BY 2.0",
+  "src": "https://commons.wikimedia.org/wiki/File:%C3%81lex_Baena_2019.jpg"
+ },
+ "Pedro Porro": {
+  "img": "img/ESP/pedro-porro.jpg",
+  "credit": "Sporting Clube de Portugal",
+  "license": "CC BY 3.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Pedro_Porro_2021.png"
+ },
+ "Pedri": {
+  "img": "img/ESP/pedri.jpg",
+  "credit": "Biso",
+  "license": "CC BY 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Pedri.jpg"
+ },
+ "Lamine Yamal": {
+  "img": "img/ESP/lamine-yamal.jpg",
+  "credit": "中国新闻社",
+  "license": "CC BY 3.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Lamine_Yamal_a_Xina_(2025).png"
+ },
+ "Dani Olmo": {
+  "img": "img/ESP/dani-olmo.jpg",
+  "credit": "crop by M-B",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Dani_Olmo_2022.jpg"
+ },
+ "Diogo Costa": {
+  "img": "img/POR/diogo-costa.jpg",
+  "credit": "YantsImages",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Portugal_national_football_team_0866_(Diogo_Costa).jpg"
+ },
+ "Rúben Dias": {
+  "img": "img/POR/ruben-dias.jpg",
+  "credit": "YantsImages",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Portugal_national_football_team_0866_(R%C3%BAben_Dias).jpg"
+ },
+ "Mikel Oyarzabal": {
+  "img": "img/ESP/mikel-oyarzabal.jpg",
+  "credit": "Rolandhino1",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:UEFA_EURO_qualifiers_Sweden_vs_Spain_20191015_108_(cropped).jpg"
+ },
+ "Renato Veiga": {
+  "img": "img/POR/renato-veiga.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Renato_Veiga_USMNT_v_Portugal_Mar_31_2026-20.jpg"
+ },
+ "João Neves": {
+  "img": "img/POR/joao-neves.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Jo%C3%A3o_Neves_USMNT_v_Portugal_Mar_31_2026-18_(cropped).jpg"
+ },
+ "Rafael Leão": {
+  "img": "img/POR/rafael-leao.jpg",
+  "credit": "Agência Lusa",
+  "license": "CC BY 3.0",
+  "src": "https://commons.wikimedia.org/wiki/File:RafaelLe%C3%A3oPortugal23.jpg"
+ },
+ "João Cancelo": {
+  "img": "img/POR/joao-cancelo.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Jo%C3%A3o_Cancelo_USMNT_v_Portugal_Mar_31_2026-30_(cropped).jpg"
+ },
+ "Bruno Fernandes": {
+  "img": "img/POR/bruno-fernandes.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Bruno_Fernandes_USMNT_v_Portugal_Mar_31_2026-27_(cropped).jpg"
+ },
+ "Vitinha": {
+  "img": "img/POR/vitinha.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Vitinha_USMNT_v_Portugal_Mar_31_2026-50_(cropped).jpg"
+ },
+ "Pedro Neto": {
+  "img": "img/POR/pedro-neto.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Pedro_Neto_USMNT_v_Portugal_Mar_31_2026-48_(cropped).jpg"
+ },
+ "Ørjan Nyland": {
+  "img": "img/NOR/rjan-nyland.jpg",
+  "credit": "MichaelEmilio",
+  "license": "CC BY 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Norway_Italy_-_June_2025_A_10_(cropped).jpg"
+ },
+ "Cristiano Ronaldo": {
+  "img": "img/POR/cristiano-ronaldo.jpg",
+  "credit": "YantsImages",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Cristiano_Ronaldo_2275_(cropped).jpg"
+ },
+ "Torbjørn Heggem": {
+  "img": "img/NOR/torbjrn-heggem.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Torbj%C3%B8rn_Heggem_Morocco_v_Norway_7_June_2026-50.jpg"
+ },
+ "Kristoffer Ajer": {
+  "img": "img/NOR/kristoffer-ajer.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Kristoffer_Ajer_Morocco_v_Norway_7_June_2026-7.jpg"
+ },
+ "Patrick Berg": {
+  "img": "img/NOR/patrick-berg.jpg",
+  "credit": "MichaelEmilio",
+  "license": "CC BY 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Norway_Italy_-_June_2025_A_14_(cropped).jpg"
+ },
+ "Sander Berge": {
+  "img": "img/NOR/sander-berge.jpg",
+  "credit": "MichaelEmilio",
+  "license": "CC BY 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Norway_Italy_-_June_2025_E_25_(cropped).jpg"
+ },
+ "David Møller Wolfe": {
+  "img": "img/NOR/david-mller-wolfe.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:David_M%C3%B8ller_Wolfe_Morocco_v_Norway_7_June_2026-97_(cropped).jpg"
+ },
+ "Julian Ryerson": {
+  "img": "img/NOR/julian-ryerson.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Julian_Ryerson_Morocco_v_Norway_7_June_2026-200_(cropped).jpg"
+ },
+ "Martin Ødegaard": {
+  "img": "img/NOR/martin-degaard.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Martin_Odegaard_Morocco_v_Norway_7_June_2026-56_(cropped).jpg"
+ },
+ "Antonio Nusa": {
+  "img": "img/NOR/antonio-nusa.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Antonio_Nusa_Morocco_v_Norway_7_June_2026-110_(cropped).jpg"
+ },
+ "Erling Haaland": {
+  "img": "img/NOR/erling-haaland.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Erling_Haaland_France_v_Norway_26_June_26-008.jpg"
+ },
+ "Noussair Mazraoui": {
+  "img": "img/MAR/noussair-mazraoui.jpg",
+  "credit": "YantsImages",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Noussair_Mazraoui_at_2026_FIFA_World_Cup_by_YantsImages_(cropped).jpg"
+ },
+ "Alexander Sørloth": {
+  "img": "img/NOR/alexander-srloth.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Alexander_Sorloth_Morocco_v_Norway_7_June_2026-58_(cropped).jpg"
+ },
+ "Yassine Bounou": {
+  "img": "img/MAR/yassine-bounou.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Yassine_Bounou_Brazil_V_Morocco_13_June_2026-169.jpg"
+ },
+ "Redouane Halhal": {
+  "img": "img/MAR/redouane-halhal.jpg",
+  "credit": "Abdelali Bentarki",
+  "license": "CC BY 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Redouane_Halhal_vs_Paraguay_(cropped).jpg"
+ },
+ "Achraf Hakimi": {
+  "img": "img/MAR/achraf-hakimi.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Achraf_Hakimi_Morocco_v_Norway_7_June_2026-16.jpg"
+ },
+ "Bilal El Khannouss": {
+  "img": "img/MAR/bilal-el-khannouss.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Bilal_El_Khannouss_Brazil_V_Morocco_13_June_2026-91.jpg"
+ },
+ "Ismaël Saibari": {
+  "img": "img/MAR/ismael-saibari.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Ismael_Saibari_Brazil_V_Morocco_13_June_2026-152.jpg"
+ },
+ "Brahim Díaz": {
+  "img": "img/MAR/brahim-diaz.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Brahim_Diaz_Morocco_v_Norway_7_June_2026-36_(cropped_3-4).jpg"
+ },
+ "Ayyoub Bouaddi": {
+  "img": "img/MAR/ayyoub-bouaddi.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Ayyoub_Bouaddi_Morocco_v_Norway_7_June_2026-71_(cropped).jpg"
+ },
+ "Neil El Aynaoui": {
+  "img": "img/MAR/neil-el-aynaoui.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Neil_El_Aynaoui_Neil_El_Aynaoui_Morocco_v_Norway_7_June_2026-13_(cropped).jpg"
+ },
+ "Azzedine Ounahi": {
+  "img": "img/MAR/azzedine-ounahi.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Azzedine_Ounahi_Brazil_V_Morocco_13_June_2026-159_(cropped).jpg"
+ },
+ "Matt Freese": {
+  "img": "img/USA/matt-freese.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Matt_Freese_NYCFC_v_Cincinnati_22_Apr_26-40_(cropped).jpg"
+ },
+ "Antonee Robinson": {
+  "img": "img/USA/antonee-robinson.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Antonee_Robinson_Australia_v_USA_19_June_2026-24_(cropped).jpg"
+ },
+ "Tim Ream": {
+  "img": "img/USA/tim-ream.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Tim_Ream_USMNT_v_Belgium_Mar_28_2026-66.jpg"
+ },
+ "Alex Freeman": {
+  "img": "img/USA/alex-freeman.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Alex_Freeman_Australia_v_USA_19_June_2026-205_(cropped).jpg"
+ },
+ "Sergino Dest": {
+  "img": "img/USA/sergino-dest.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Sergino_Dest_Australia_v_USA_19_June_2026-50.jpg"
+ },
+ "Tyler Adams": {
+  "img": "img/USA/tyler-adams.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Tyler_Adams_Australia_v_USA_19_June_2026-32.jpg"
+ },
+ "Weston McKennie": {
+  "img": "img/USA/weston-mckennie.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Weston_McKennie_Australia_v_USA_19_June_2026-219.jpg"
+ },
+ "Christian Pulisic": {
+  "img": "img/USA/christian-pulisic.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Christian_Pulisic_USMNT_v_Belgium_Mar_28_2026-73_(cropped).jpg"
+ },
+ "Malik Tillman": {
+  "img": "img/USA/malik-tillman.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Malik_Tillman_Australia_v_USA_19_June_2026-143_(cropped).jpg"
+ },
+ "Folarin Balogun": {
+  "img": "img/USA/folarin-balogun.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Folarin_Balogun_Australia_v_USA_19_June_2026-64.jpg"
+ },
+ "Anthony Gordon": {
+  "img": "img/ENG/anthony-gordon.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Anthony_Gordon_England_v_Ghana_23_June_2026-017_(cropped).jpg"
+ },
+ "Rodri": {
+  "img": "img/ESP/rodri.jpg",
+  "credit": "Rolandhino1",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:RODRI_-_SWE_vs_ESP_-_UEFA_EURO_2020_QUALIFIERS_-_2019.10.15_(cropped).jpg"
+ },
+ "Nuno Mendes": {
+  "img": "img/POR/nuno-mendes.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Nuno_Mendes_USMNT_v_Portugal_Mar_31_2026-239_(cropped).jpg"
+ },
+ "Issa Diop": {
+  "img": "img/MAR/issa-diop.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Issa_Diop_Morocco_v_Norway_7_June_2026-161_(cropped).jpg"
+ },
+ "Chris Richards": {
+  "img": "img/USA/chris-richards.jpg",
+  "credit": "Bryan Berlin",
+  "license": "CC BY-SA 4.0",
+  "src": "https://commons.wikimedia.org/wiki/File:Chris_Richards_Australia_v_USA_19_June_2026-54_(cropped).jpg"
+ }
+}

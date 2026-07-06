@@ -340,6 +340,34 @@ footer{
 }
 footer .lbl{font-family:var(--disp);font-weight:500;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase}
 
+/* ============ FACES ============ */
+.shirt.has-face{padding:0;overflow:visible;background:var(--kit,#222);position:relative}
+.shirt.has-face img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:50% 22%;display:block}
+.shirt.has-face b{
+  position:absolute;right:-4px;bottom:-4px;min-width:17px;height:17px;padding:0 3px;
+  border-radius:9px;background:var(--kit,#111);color:var(--kit-ink,#fff);
+  font-family:var(--disp);font-weight:700;font-size:11px;line-height:1;
+  display:grid;place-items:center;border:1.5px solid rgba(7,11,18,.72);
+}
+.pin.star .shirt.has-face img{box-shadow:inset 0 0 0 2px var(--gold-hi)}
+.portrait{
+  width:132px;height:132px;border-radius:50%;overflow:visible;position:relative;
+  background:var(--night);box-shadow:0 12px 28px -10px rgba(0,0,0,.75);
+}
+.portrait img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:50% 20%;
+  display:block;border:3px solid rgba(233,236,242,.22)}
+.portrait.star img{border-color:var(--gold-hi);box-shadow:0 0 24px rgba(201,162,39,.4)}
+.portrait .pnum{
+  position:absolute;right:-4px;bottom:-2px;min-width:32px;height:32px;padding:0 7px;
+  border-radius:16px;background:var(--kit,#111);color:var(--kit-ink,#fff);
+  font-family:var(--disp);font-weight:700;font-size:18px;line-height:1;
+  display:grid;place-items:center;border:2px solid var(--night-3);
+}
+.gcard .portrait{width:94px;height:94px}
+.gcard .portrait .pnum{min-width:24px;height:24px;font-size:14px;border-width:2px}
+.photocredit{font-size:10.5px;color:var(--ink-dim);margin-top:8px;line-height:1.45}
+.photocredit a{color:var(--gold-hi)}
+
 @media (max-width: 760px){
   .world{width:88vw;top:60%}
   .team-info{position:static;max-width:none;text-align:left;margin:10px 16px;order:2}
@@ -433,6 +461,10 @@ const esc = s => String(s??'').replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>
 const teamOf = code => DATA.teams[code];
 const nameOf = code => teamOf(code) ? teamOf(code).name : (DATA.teamNames?.[code] || code);
 const flagOf = code => teamOf(code)?.flag || DATA.flags?.[code] || 'linear-gradient(#556,#334)';
+const faceOf = name => (DATA.faces && DATA.faces[name]) || null;
+const photoCredit = name => { const f=faceOf(name); return f&&f.credit
+  ? `<div class="photocredit">Photo: ${esc(f.credit)} · ${esc(f.license)}${f.src?` · <a href="${esc(f.src)}" target="_blank" rel="noopener">source ↗</a>`:''}</div>`
+  : ''; };
 
 /* ---------- tabs ---------- */
 document.querySelectorAll('nav [data-view]').forEach(b=>{
@@ -496,9 +528,13 @@ function renderTeam(){
     const pin = el('div','pin'+(starNames.has(p.name)?' star':''));
     pin.style.left = c.x+'%'; pin.style.top = c.y+'%';
     const surname = p.name.split(' ').slice(-1)[0];
+    const pf = faceOf(p.name);
+    const badge = pf
+      ? `<span class="shirt has-face" style="--kit:${t.colors.p};--kit-ink:${t.colors.ink||'#fff'}"><img src="${esc(pf.img)}" alt="" loading="lazy"><b>${p.num??''}</b></span>`
+      : `<span class="shirt" style="--kit:${t.colors.p};--kit-ink:${t.colors.ink||'#fff'}">${p.num??''}</span>`;
     pin.innerHTML = `<span class="shadow"></span>
-      <button style="--kit:${t.colors.p};--kit-ink:${t.colors.ink||'#fff'}" aria-label="${esc(p.name)}">
-        <span class="shirt">${p.num??''}</span><span class="plate">${esc(surname)}</span>
+      <button aria-label="${esc(p.name)}">
+        ${badge}<span class="plate">${esc(surname)}</span>
       </button>`;
     pin.querySelector('button').addEventListener('click', ()=>openCard(p, t));
     pins.appendChild(pin);
@@ -540,6 +576,7 @@ function cardHTML(p, t, compact){
         </dl>
         <div class="note">${esc(s.note||'')}</div>
         <div class="srcline">${s.src?`Stats source: <a href="${esc(s.src)}" target="_blank" rel="noopener">${esc(srcLabel(s.src))} ↗</a>`:'Lineup data — see footer sources'}</div>
+        ${photoCredit(s.name)}
       </div>
     </div>` : `
     <div class="cface back" style="--kit:${t.colors.p};--fl:${t.flag}">
@@ -552,6 +589,7 @@ function cardHTML(p, t, compact){
         </dl>
         <div class="note">Starting XI from ${esc(t.name)}'s last knockout match.</div>
         <div class="srcline">Lineup data — see footer sources</div>
+        ${photoCredit(p.name)}
       </div>
     </div>`;
   return `
@@ -561,7 +599,9 @@ function cardHTML(p, t, compact){
         <div><div class="pos">${esc(s.pos||p.pos||'')}</div><div class="crest"></div></div>
       </div>
       <div class="silhouette">
-        <span class="shirt" style="--kit:${t.colors.p};--kit-ink:${t.colors.ink||'#fff'}">${p.num??s.num??''}</span>
+        ${(()=>{const f=faceOf(s.name||p.name),num=p.num??s.num??'';return f
+          ? `<div class="portrait ${star?'star':''}"><img src="${esc(f.img)}" alt="${esc(s.name||p.name)}"><span class="pnum" style="--kit:${t.colors.p};--kit-ink:${t.colors.ink||'#fff'}">${num}</span></div>`
+          : `<span class="shirt" style="--kit:${t.colors.p};--kit-ink:${t.colors.ink||'#fff'}">${num}</span>`;})()}
       </div>
       <h3>${esc(s.name||p.name)}</h3>
       <div class="club">${esc(s.club||t.name)}</div>

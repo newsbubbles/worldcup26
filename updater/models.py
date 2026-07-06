@@ -6,7 +6,7 @@ verbatim. Everything the updater stages or commits validates against these model
 
 from __future__ import annotations
 
-from typing import Dict, List, Literal, Optional
+from typing import Any, Dict, List, Literal, Optional
 
 from pydantic import BaseModel, Field, field_validator, model_validator
 
@@ -120,6 +120,7 @@ class WorldCupData(BaseModel):
     topScorers: List[TopScorer] = Field(..., min_length=5)
     gbNote: str = ""
     sources: List[Source] = Field(..., min_length=1)
+    faces: Dict[str, Any] = Field(default_factory=dict, description="player name -> {img, credit, license, src}; injected at build time, not stored in worldcup.json")
 
     @model_validator(mode="after")
     def _codes_resolve(self) -> "WorldCupData":
