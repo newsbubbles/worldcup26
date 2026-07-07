@@ -51,6 +51,41 @@ def _load_faces(inline: bool) -> dict:
     return out
 
 
+def _winner(m: dict) -> str | None:
+    if m.get("pw"):
+        return m["pw"]
+    if m.get("sa") is None or m.get("sb") is None:
+        return None
+    if m["sa"] > m["sb"]:
+        return m["a"]
+    if m["sb"] > m["sa"]:
+        return m["b"]
+    return None
+
+
+def resolve_bracket(data: dict) -> dict:
+    """Fill two-team placeholder slots (code 'W-XXXYYY') with the actual winner of
+    the recorded XXX-vs-YYY match. Deterministic structure, not model judgment —
+    keeps the QF/SF/F tree honest and consistent with the results the agents record.
+    Operates on a copy; the stored file keeps placeholders so researchers can still
+    see which slots are undecided."""
+    import copy
+    data = copy.deepcopy(data)
+    played = {frozenset((m["a"], m["b"])): m for m in data["matches"] if m["status"] == "played"}
+
+    def resolve(code: str) -> str:
+        if isinstance(code, str) and code.startswith("W-") and len(code) == 8:
+            c1, c2 = code[2:5], code[5:8]
+            m = played.get(frozenset((c1, c2)))
+            if m and (w := _winner(m)):
+                return w
+        return code
+
+    for m in data["matches"]:
+        m["a"], m["b"] = resolve(m["a"]), resolve(m["b"])
+    return data
+
+
 def render_index(data: dict) -> str:
     template = TEMPLATE.read_text(encoding="utf-8")
     if MARKER not in template:
@@ -62,6 +97,7 @@ def render_index(data: dict) -> str:
 def build(data: dict | None = None, inline: bool = False) -> Path:
     if data is None:
         data = json.loads(DATA_FILE.read_text(encoding="utf-8"))
+    data = resolve_bracket(data)
     data = {**data, "faces": _load_faces(inline)}
 
     from .models import WorldCupData
@@ -86,6 +122,7 @@ def build_inline_string(data: dict | None = None) -> str:
     """Return the fully self-contained index HTML (portraits inlined) — for the Artifact."""
     if data is None:
         data = json.loads(DATA_FILE.read_text(encoding="utf-8"))
+    data = resolve_bracket(data)
     data = {**data, "faces": _load_faces(inline=True)}
     from .models import WorldCupData
     WorldCupData.model_validate(data)

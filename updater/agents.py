@@ -23,7 +23,7 @@ from typing import List
 from pydantic import BaseModel, Field
 from pydantic_ai import Agent
 from pydantic_ai.mcp import MCPToolset, StdioTransport
-from pydantic_ai.models.openai import OpenAIChatModel
+from pydantic_ai.models.openai import OpenAIChatModel, OpenAIChatModelSettings
 from pydantic_ai.providers.openai import OpenAIProvider
 
 from .datastore_mcp import make_datastore_server
@@ -32,6 +32,26 @@ from .store import Store
 
 ROOT = Path(__file__).resolve().parent.parent
 SERPER_SCRIPT = ROOT / "vendor" / "serper-scraper" / "serper_scrape_mcp.py"
+
+# Two OpenRouter quirks bite kimi-k2.5 here, both fixed via extra_body:
+#   1. Load-balancing routes to third-party providers that return
+#      finish_reason='error' on tool-heavy payloads — pin to first-party Moonshot.
+#   2. kimi-k2.5 runs with "thinking" on, and Moonshot rejects the tool_choice:
+#      'required' that pydantic-ai uses for structured output while thinking is
+#      enabled — so disable reasoning.
+_OPENROUTER_PROVIDERS = ["moonshotai", "novita"]
+
+
+def researcher_settings() -> OpenAIChatModelSettings | None:
+    base = os.environ.get("LLM_BASE_URL", "https://openrouter.ai/api/v1")
+    if "openrouter" not in base:
+        return None
+    return OpenAIChatModelSettings(
+        extra_body={
+            "provider": {"order": _OPENROUTER_PROVIDERS, "allow_fallbacks": False},
+            "reasoning": {"enabled": False},
+        }
+    )
 
 
 class RunReport(BaseModel):
@@ -95,5 +115,6 @@ def make_researcher(instructions: str, model_name: str | None = None) -> Agent:
         toolsets=[serper_toolset(), datastore_toolset(Store())],
         output_type=RunReport,
         instructions=instructions,
+        model_settings=researcher_settings(),
         retries=3,
     )

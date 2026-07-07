@@ -1,21 +1,51 @@
 {
- "updated": "2026-07-06",
- "stageTag": "Knockout Stage · <b>Round of 16</b> · North America",
+ "updated": "2026-07-07",
+ "stageTag": "Knockout Stage · <b>Quarter-finals</b> · North America",
  "defaultTeam": "ARG",
  "teamNames": {
-  "CAN": "Canada", "RSA": "South Africa", "BRA": "Brazil", "JPN": "Japan",
-  "GER": "Germany", "PAR": "Paraguay", "NED": "Netherlands", "MAR": "Morocco",
-  "CIV": "Ivory Coast", "NOR": "Norway", "FRA": "France", "SWE": "Sweden",
-  "MEX": "Mexico", "ECU": "Ecuador", "ENG": "England", "COD": "DR Congo",
-  "BEL": "Belgium", "SEN": "Senegal", "USA": "United States", "BIH": "Bosnia",
-  "ESP": "Spain", "AUT": "Austria", "POR": "Portugal", "CRO": "Croatia",
-  "SUI": "Switzerland", "ALG": "Algeria", "AUS": "Australia", "EGY": "Egypt",
-  "ARG": "Argentina", "CPV": "Cape Verde", "COL": "Colombia", "GHA": "Ghana",
+  "CAN": "Canada",
+  "RSA": "South Africa",
+  "BRA": "Brazil",
+  "JPN": "Japan",
+  "GER": "Germany",
+  "PAR": "Paraguay",
+  "NED": "Netherlands",
+  "MAR": "Morocco",
+  "CIV": "Ivory Coast",
+  "NOR": "Norway",
+  "FRA": "France",
+  "SWE": "Sweden",
+  "MEX": "Mexico",
+  "ECU": "Ecuador",
+  "ENG": "England",
+  "COD": "DR Congo",
+  "BEL": "Belgium",
+  "SEN": "Senegal",
+  "USA": "United States",
+  "BIH": "Bosnia",
+  "ESP": "Spain",
+  "AUT": "Austria",
+  "POR": "Portugal",
+  "CRO": "Croatia",
+  "SUI": "Switzerland",
+  "ALG": "Algeria",
+  "AUS": "Australia",
+  "EGY": "Egypt",
+  "ARG": "Argentina",
+  "CPV": "Cape Verde",
+  "COL": "Colombia",
+  "GHA": "Ghana",
   "NZL": "New Zealand",
-  "W-PORESP": "POR / ESP winner", "W-USABEL": "USA / BEL winner",
-  "W-ARGEGY": "ARG / EGY winner", "W-SUICOL": "SUI / COL winner",
-  "W-QF1": "QF1 winner", "W-QF2": "QF2 winner", "W-QF3": "QF3 winner", "W-QF4": "QF4 winner",
-  "W-SF1": "SF1 winner", "W-SF2": "SF2 winner"
+  "W-PORESP": "POR / ESP winner",
+  "W-USABEL": "USA / BEL winner",
+  "W-ARGEGY": "ARG / EGY winner",
+  "W-SUICOL": "SUI / COL winner",
+  "W-QF1": "QF1 winner",
+  "W-QF2": "QF2 winner",
+  "W-QF3": "QF3 winner",
+  "W-QF4": "QF4 winner",
+  "W-SF1": "SF1 winner",
+  "W-SF2": "SF2 winner"
  },
  "flags": {
   "CAN": "linear-gradient(90deg,#D80621 0 25%,#fff 25% 75%,#D80621 75%)",
@@ -45,347 +75,1484 @@
   "NZL": "linear-gradient(135deg,#012169 0 100%)"
  },
  "matches": [
-  {"round":"R32","a":"CAN","b":"RSA","sa":1,"sb":0,"date":"Jun 28","venue":"SoFi Stadium, LA","status":"played"},
-  {"round":"R32","a":"BRA","b":"JPN","sa":2,"sb":1,"date":"Jun 29","venue":"NRG Stadium, Houston","status":"played"},
-  {"round":"R32","a":"GER","b":"PAR","sa":1,"sb":1,"pens":"3-4","pw":"PAR","date":"Jun 29","venue":"Gillette, Foxborough","status":"played"},
-  {"round":"R32","a":"NED","b":"MAR","sa":1,"sb":1,"pens":"2-3","pw":"MAR","date":"Jun 29","venue":"Estadio BBVA, Monterrey","status":"played"},
-  {"round":"R32","a":"CIV","b":"NOR","sa":1,"sb":2,"date":"Jun 30","venue":"AT&T Stadium, Dallas","status":"played"},
-  {"round":"R32","a":"FRA","b":"SWE","sa":3,"sb":0,"date":"Jun 30","venue":"MetLife, New Jersey","status":"played"},
-  {"round":"R32","a":"MEX","b":"ECU","sa":2,"sb":0,"date":"Jun 30","venue":"Estadio Azteca, CDMX","status":"played"},
-  {"round":"R32","a":"ENG","b":"COD","sa":2,"sb":1,"date":"Jul 1","venue":"Mercedes-Benz, Atlanta","status":"played"},
-  {"round":"R32","a":"BEL","b":"SEN","sa":3,"sb":2,"date":"Jul 1","venue":"Lumen Field, Seattle","status":"played"},
-  {"round":"R32","a":"USA","b":"BIH","sa":2,"sb":0,"date":"Jul 1","venue":"Levi's Stadium, SF Bay","status":"played"},
-  {"round":"R32","a":"ESP","b":"AUT","sa":3,"sb":0,"date":"Jul 2","venue":"SoFi Stadium, LA","status":"played"},
-  {"round":"R32","a":"POR","b":"CRO","sa":2,"sb":1,"date":"Jul 2","venue":"BMO Field, Toronto","status":"played"},
-  {"round":"R32","a":"SUI","b":"ALG","sa":2,"sb":0,"date":"Jul 2","venue":"BC Place, Vancouver","status":"played"},
-  {"round":"R32","a":"AUS","b":"EGY","sa":1,"sb":1,"pens":"2-4","pw":"EGY","date":"Jul 3","venue":"AT&T Stadium, Dallas","status":"played"},
-  {"round":"R32","a":"ARG","b":"CPV","sa":3,"sb":2,"date":"Jul 3","venue":"Hard Rock, Miami","status":"played"},
-  {"round":"R32","a":"COL","b":"GHA","sa":1,"sb":0,"date":"Jul 3","venue":"Arrowhead, Kansas City","status":"played"},
-  {"round":"R16","a":"CAN","b":"MAR","sa":0,"sb":3,"date":"Jul 4","venue":"NRG Stadium, Houston","status":"played"},
-  {"round":"R16","a":"PAR","b":"FRA","sa":0,"sb":1,"date":"Jul 4","venue":"Lincoln Financial, Philly","status":"played"},
-  {"round":"R16","a":"BRA","b":"NOR","sa":1,"sb":2,"date":"Jul 5","venue":"MetLife, New Jersey","status":"played"},
-  {"round":"R16","a":"MEX","b":"ENG","sa":2,"sb":3,"date":"Jul 5","venue":"Estadio Azteca, CDMX","status":"played"},
-  {"round":"R16","a":"POR","b":"ESP","date":"Jul 6","venue":"AT&T Stadium, Dallas","status":"upcoming"},
-  {"round":"R16","a":"USA","b":"BEL","date":"Jul 6","venue":"Lumen Field, Seattle","status":"upcoming"},
-  {"round":"R16","a":"ARG","b":"EGY","date":"Jul 7","venue":"Mercedes-Benz, Atlanta","status":"upcoming"},
-  {"round":"R16","a":"SUI","b":"COL","date":"Jul 7","venue":"BC Place, Vancouver","status":"upcoming"},
-  {"round":"QF","a":"FRA","b":"MAR","date":"Jul 9","venue":"Gillette, Foxborough","status":"upcoming"},
-  {"round":"QF","a":"W-PORESP","b":"W-USABEL","date":"Jul 10","venue":"SoFi Stadium, LA","status":"upcoming"},
-  {"round":"QF","a":"NOR","b":"ENG","date":"Jul 11","venue":"Hard Rock, Miami","status":"upcoming"},
-  {"round":"QF","a":"W-ARGEGY","b":"W-SUICOL","date":"Jul 11","venue":"Arrowhead, Kansas City","status":"upcoming"},
-  {"round":"SF","a":"W-QF1","b":"W-QF2","date":"Jul 14","venue":"AT&T Stadium, Dallas","status":"upcoming"},
-  {"round":"SF","a":"W-QF3","b":"W-QF4","date":"Jul 15","venue":"Mercedes-Benz, Atlanta","status":"upcoming"},
-  {"round":"F","a":"W-SF1","b":"W-SF2","date":"Jul 19","venue":"MetLife, New Jersey","status":"upcoming"}
+  {
+   "round": "R32",
+   "a": "CAN",
+   "b": "RSA",
+   "sa": 1,
+   "sb": 0,
+   "date": "Jun 28",
+   "venue": "SoFi Stadium, LA",
+   "status": "played"
+  },
+  {
+   "round": "R32",
+   "a": "BRA",
+   "b": "JPN",
+   "sa": 2,
+   "sb": 1,
+   "date": "Jun 29",
+   "venue": "NRG Stadium, Houston",
+   "status": "played"
+  },
+  {
+   "round": "R32",
+   "a": "GER",
+   "b": "PAR",
+   "sa": 1,
+   "sb": 1,
+   "pens": "3-4",
+   "pw": "PAR",
+   "date": "Jun 29",
+   "venue": "Gillette, Foxborough",
+   "status": "played"
+  },
+  {
+   "round": "R32",
+   "a": "NED",
+   "b": "MAR",
+   "sa": 1,
+   "sb": 1,
+   "pens": "2-3",
+   "pw": "MAR",
+   "date": "Jun 29",
+   "venue": "Estadio BBVA, Monterrey",
+   "status": "played"
+  },
+  {
+   "round": "R32",
+   "a": "CIV",
+   "b": "NOR",
+   "sa": 1,
+   "sb": 2,
+   "date": "Jun 30",
+   "venue": "AT&T Stadium, Dallas",
+   "status": "played"
+  },
+  {
+   "round": "R32",
+   "a": "FRA",
+   "b": "SWE",
+   "sa": 3,
+   "sb": 0,
+   "date": "Jun 30",
+   "venue": "MetLife, New Jersey",
+   "status": "played"
+  },
+  {
+   "round": "R32",
+   "a": "MEX",
+   "b": "ECU",
+   "sa": 2,
+   "sb": 0,
+   "date": "Jun 30",
+   "venue": "Estadio Azteca, CDMX",
+   "status": "played"
+  },
+  {
+   "round": "R32",
+   "a": "ENG",
+   "b": "COD",
+   "sa": 2,
+   "sb": 1,
+   "date": "Jul 1",
+   "venue": "Mercedes-Benz, Atlanta",
+   "status": "played"
+  },
+  {
+   "round": "R32",
+   "a": "BEL",
+   "b": "SEN",
+   "sa": 3,
+   "sb": 2,
+   "date": "Jul 1",
+   "venue": "Lumen Field, Seattle",
+   "status": "played"
+  },
+  {
+   "round": "R32",
+   "a": "USA",
+   "b": "BIH",
+   "sa": 2,
+   "sb": 0,
+   "date": "Jul 1",
+   "venue": "Levi's Stadium, SF Bay",
+   "status": "played"
+  },
+  {
+   "round": "R32",
+   "a": "ESP",
+   "b": "AUT",
+   "sa": 3,
+   "sb": 0,
+   "date": "Jul 2",
+   "venue": "SoFi Stadium, LA",
+   "status": "played"
+  },
+  {
+   "round": "R32",
+   "a": "POR",
+   "b": "CRO",
+   "sa": 2,
+   "sb": 1,
+   "date": "Jul 2",
+   "venue": "BMO Field, Toronto",
+   "status": "played"
+  },
+  {
+   "round": "R32",
+   "a": "SUI",
+   "b": "ALG",
+   "sa": 2,
+   "sb": 0,
+   "date": "Jul 2",
+   "venue": "BC Place, Vancouver",
+   "status": "played"
+  },
+  {
+   "round": "R32",
+   "a": "AUS",
+   "b": "EGY",
+   "sa": 1,
+   "sb": 1,
+   "pens": "2-4",
+   "pw": "EGY",
+   "date": "Jul 3",
+   "venue": "AT&T Stadium, Dallas",
+   "status": "played"
+  },
+  {
+   "round": "R32",
+   "a": "ARG",
+   "b": "CPV",
+   "sa": 3,
+   "sb": 2,
+   "date": "Jul 3",
+   "venue": "Hard Rock, Miami",
+   "status": "played"
+  },
+  {
+   "round": "R32",
+   "a": "COL",
+   "b": "GHA",
+   "sa": 1,
+   "sb": 0,
+   "date": "Jul 3",
+   "venue": "Arrowhead, Kansas City",
+   "status": "played"
+  },
+  {
+   "round": "R16",
+   "a": "CAN",
+   "b": "MAR",
+   "sa": 0,
+   "sb": 3,
+   "date": "Jul 4",
+   "venue": "NRG Stadium, Houston",
+   "status": "played"
+  },
+  {
+   "round": "R16",
+   "a": "PAR",
+   "b": "FRA",
+   "sa": 0,
+   "sb": 1,
+   "date": "Jul 4",
+   "venue": "Lincoln Financial, Philly",
+   "status": "played"
+  },
+  {
+   "round": "R16",
+   "a": "BRA",
+   "b": "NOR",
+   "sa": 1,
+   "sb": 2,
+   "date": "Jul 5",
+   "venue": "MetLife, New Jersey",
+   "status": "played"
+  },
+  {
+   "round": "R16",
+   "a": "MEX",
+   "b": "ENG",
+   "sa": 2,
+   "sb": 3,
+   "date": "Jul 5",
+   "venue": "Estadio Azteca, CDMX",
+   "status": "played"
+  },
+  {
+   "round": "R16",
+   "a": "POR",
+   "b": "ESP",
+   "date": "Jul 6",
+   "venue": "AT&T Stadium, Dallas",
+   "status": "played",
+   "sa": 0,
+   "sb": 1
+  },
+  {
+   "round": "R16",
+   "a": "USA",
+   "b": "BEL",
+   "date": "Jul 6",
+   "venue": "Lumen Field, Seattle",
+   "status": "played",
+   "sa": 1,
+   "sb": 4
+  },
+  {
+   "round": "R16",
+   "a": "ARG",
+   "b": "EGY",
+   "date": "Jul 7",
+   "venue": "Mercedes-Benz, Atlanta",
+   "status": "played",
+   "sa": 3,
+   "sb": 2
+  },
+  {
+   "round": "R16",
+   "a": "SUI",
+   "b": "COL",
+   "date": "Jul 7",
+   "venue": "BC Place, Vancouver",
+   "status": "upcoming"
+  },
+  {
+   "round": "QF",
+   "a": "FRA",
+   "b": "MAR",
+   "date": "Jul 9",
+   "venue": "Gillette, Foxborough",
+   "status": "upcoming"
+  },
+  {
+   "round": "QF",
+   "a": "W-PORESP",
+   "b": "W-USABEL",
+   "date": "Jul 10",
+   "venue": "SoFi Stadium, LA",
+   "status": "upcoming"
+  },
+  {
+   "round": "QF",
+   "a": "NOR",
+   "b": "ENG",
+   "date": "Jul 11",
+   "venue": "Hard Rock, Miami",
+   "status": "upcoming"
+  },
+  {
+   "round": "QF",
+   "a": "W-ARGEGY",
+   "b": "W-SUICOL",
+   "date": "Jul 11",
+   "venue": "Arrowhead, Kansas City",
+   "status": "upcoming"
+  },
+  {
+   "round": "SF",
+   "a": "W-QF1",
+   "b": "W-QF2",
+   "date": "Jul 14",
+   "venue": "AT&T Stadium, Dallas",
+   "status": "upcoming"
+  },
+  {
+   "round": "SF",
+   "a": "W-QF3",
+   "b": "W-QF4",
+   "date": "Jul 15",
+   "venue": "Mercedes-Benz, Atlanta",
+   "status": "upcoming"
+  },
+  {
+   "round": "F",
+   "a": "W-SF1",
+   "b": "W-SF2",
+   "date": "Jul 19",
+   "venue": "MetLife, New Jersey",
+   "status": "upcoming"
+  }
  ],
  "teams": {
   "ARG": {
-   "name": "Argentina", "nickname": "La Albiceleste", "coach": "Lionel Scaloni", "rank": 1,
-   "colors": {"p": "#75AADB", "s": "#FFFFFF", "ink": "#0e2f55"},
+   "name": "Argentina",
+   "nickname": "La Albiceleste",
+   "coach": "Lionel Scaloni",
+   "rank": 1,
+   "colors": {
+    "p": "#75AADB",
+    "s": "#FFFFFF",
+    "ink": "#0e2f55"
+   },
    "flag": "linear-gradient(180deg,#74ACDF 0 33%,#fff 33% 66%,#74ACDF 66%)",
    "formation": "4-4-2",
    "lineupNote": "R32 vs Cape Verde, Jul 3 (3-2 aet)",
    "lineup": [
-    {"num": 23, "name": "Emiliano Martínez", "pos": "GK"},
-    {"num": 25, "name": "Facundo Medina", "pos": "LB"},
-    {"num": 6, "name": "Lisandro Martínez", "pos": "CB"},
-    {"num": 13, "name": "Cristian Romero", "pos": "CB"},
-    {"num": 26, "name": "Nahuel Molina", "pos": "RB"},
-    {"num": 20, "name": "Alexis Mac Allister", "pos": "CM"},
-    {"num": 24, "name": "Enzo Fernández", "pos": "CM"},
-    {"num": 7, "name": "Rodrigo De Paul", "pos": "CM"},
-    {"num": 16, "name": "Thiago Almada", "pos": "AM"},
-    {"num": 10, "name": "Lionel Messi", "pos": "FW"},
-    {"num": 22, "name": "Lautaro Martínez", "pos": "ST"}
+    {
+     "num": 23,
+     "name": "Emiliano Martínez",
+     "pos": "GK"
+    },
+    {
+     "num": 25,
+     "name": "Facundo Medina",
+     "pos": "LB"
+    },
+    {
+     "num": 6,
+     "name": "Lisandro Martínez",
+     "pos": "CB"
+    },
+    {
+     "num": 13,
+     "name": "Cristian Romero",
+     "pos": "CB"
+    },
+    {
+     "num": 26,
+     "name": "Nahuel Molina",
+     "pos": "RB"
+    },
+    {
+     "num": 20,
+     "name": "Alexis Mac Allister",
+     "pos": "CM"
+    },
+    {
+     "num": 24,
+     "name": "Enzo Fernández",
+     "pos": "CM"
+    },
+    {
+     "num": 7,
+     "name": "Rodrigo De Paul",
+     "pos": "CM"
+    },
+    {
+     "num": 16,
+     "name": "Thiago Almada",
+     "pos": "AM"
+    },
+    {
+     "num": 10,
+     "name": "Lionel Messi",
+     "pos": "FW"
+    },
+    {
+     "num": 22,
+     "name": "Lautaro Martínez",
+     "pos": "ST"
+    }
    ],
    "stars": [
-    {"name": "Lionel Messi", "pos": "FW", "club": "Inter Miami CF", "age": 39, "num": 10, "wcG": 7, "wcA": 0, "min": 319,
-     "note": "All-time World Cup top scorer: 20 career WC goals in 30 apps. First player with 7+ goals in two separate World Cups (2022, 2026). 199 caps, 117 Argentina goals. Captain.",
-     "src": "https://www.messivsronaldo.app/international-stats/world-cup-stats/"},
-    {"name": "Lautaro Martínez", "pos": "ST", "club": "Inter Milan", "age": 28, "num": 22, "wcG": 1,
+    {
+     "name": "Lionel Messi",
+     "pos": "FW",
+     "club": "Inter Miami CF",
+     "age": 39,
+     "num": 10,
+     "wcG": 8,
+     "wcA": 1,
+     "min": 411,
+     "note": "All-time World Cup top scorer: 21 career WC goals in 30 apps. First player with 7+ goals in two separate World Cups (2022, 2026). 199 caps, 117 Argentina goals. Captain.",
+     "src": "https://www.foxsports.com/soccer/lionel-messi-player"
+    },
+    {
+     "name": "Lautaro Martínez",
+     "pos": "ST",
+     "club": "Inter Milan",
+     "age": 28,
+     "num": 22,
+     "wcG": 1,
+     "wcA": null,
+     "min": null,
      "note": "Argentina's No. 9: 77 caps, 37 international goals. Started all four matches this tournament; scored in the 92nd vs Cape Verde before Messi's corner forced the extra-time winner.",
-     "src": "https://www.espn.com/soccer/team/stats/_/id/202/arg.argentina"},
-    {"name": "Julián Álvarez", "pos": "FW", "club": "Atlético Madrid", "age": 26, "num": 9, "wcG": 0,
+     "src": "https://www.espn.com/soccer/team/stats/_/id/202/arg.argentina"
+    },
+    {
+     "name": "Julián Álvarez",
+     "pos": "FW",
+     "club": "Atlético Madrid",
+     "age": 26,
+     "num": 9,
+     "wcG": 0,
+     "wcA": null,
+     "min": null,
      "note": "2022 World Cup winner, 51 caps and 14 goals. Scaloni's impact sub this tournament — four appearances off the bench, including 63' for Lautaro in the R32.",
-     "src": "https://www.espn.com/soccer/team/stats/_/id/202/arg.argentina"},
-    {"name": "Alexis Mac Allister", "pos": "CM", "club": "Liverpool", "age": 27, "num": 20, "wcG": 0, "wcA": 1,
+     "src": "https://www.espn.com/soccer/team/stats/_/id/202/arg.argentina"
+    },
+    {
+     "name": "Alexis Mac Allister",
+     "pos": "CM",
+     "club": "Liverpool",
+     "age": 27,
+     "num": 20,
+     "wcG": 0,
+     "wcA": 1,
+     "min": null,
      "note": "2022 World Cup winner. Played the full 120 minutes of the R32 win with an assist and 107 touches. The metronome of Scaloni's midfield.",
-     "src": "https://www.espn.com/soccer/player-stats/_/gameId/760500"}
+     "src": "https://www.espn.com/soccer/player-stats/_/gameId/760500"
+    }
    ]
   },
   "FRA": {
-   "name": "France", "nickname": "Les Bleus", "coach": "Didier Deschamps", "rank": 3,
-   "colors": {"p": "#21304E", "s": "#FFFFFF", "ink": "#ffffff"},
+   "name": "France",
+   "nickname": "Les Bleus",
+   "coach": "Didier Deschamps",
+   "rank": 3,
+   "colors": {
+    "p": "#21304E",
+    "s": "#FFFFFF",
+    "ink": "#ffffff"
+   },
    "flag": "linear-gradient(90deg,#0055A4 0 33%,#fff 33% 66%,#EF4135 66%)",
    "formation": "4-2-3-1",
    "lineupNote": "R16 vs Paraguay, Jul 4 (1-0)",
    "lineup": [
-    {"num": 16, "name": "Mike Maignan", "pos": "GK"},
-    {"num": 3, "name": "Lucas Digne", "pos": "LB"},
-    {"num": 4, "name": "Dayot Upamecano", "pos": "CB"},
-    {"num": 17, "name": "William Saliba", "pos": "CB"},
-    {"num": 5, "name": "Jules Koundé", "pos": "RB"},
-    {"num": 6, "name": "Manu Koné", "pos": "DM"},
-    {"num": 14, "name": "Adrien Rabiot", "pos": "DM"},
-    {"num": 12, "name": "Bradley Barcola", "pos": "LW"},
-    {"num": 11, "name": "Michael Olise", "pos": "AM"},
-    {"num": 7, "name": "Ousmane Dembélé", "pos": "RW"},
-    {"num": 10, "name": "Kylian Mbappé", "pos": "ST"}
+    {
+     "num": 16,
+     "name": "Mike Maignan",
+     "pos": "GK"
+    },
+    {
+     "num": 3,
+     "name": "Lucas Digne",
+     "pos": "LB"
+    },
+    {
+     "num": 4,
+     "name": "Dayot Upamecano",
+     "pos": "CB"
+    },
+    {
+     "num": 17,
+     "name": "William Saliba",
+     "pos": "CB"
+    },
+    {
+     "num": 5,
+     "name": "Jules Koundé",
+     "pos": "RB"
+    },
+    {
+     "num": 6,
+     "name": "Manu Koné",
+     "pos": "DM"
+    },
+    {
+     "num": 14,
+     "name": "Adrien Rabiot",
+     "pos": "DM"
+    },
+    {
+     "num": 12,
+     "name": "Bradley Barcola",
+     "pos": "LW"
+    },
+    {
+     "num": 11,
+     "name": "Michael Olise",
+     "pos": "AM"
+    },
+    {
+     "num": 7,
+     "name": "Ousmane Dembélé",
+     "pos": "RW"
+    },
+    {
+     "num": 10,
+     "name": "Kylian Mbappé",
+     "pos": "ST"
+    }
    ],
    "stars": [
-    {"name": "Kylian Mbappé", "pos": "ST", "club": "Real Madrid", "age": 27, "num": 10, "wcG": 7, "wcA": 2,
+    {
+     "name": "Kylian Mbappé",
+     "pos": "ST",
+     "club": "Real Madrid",
+     "age": 27,
+     "num": 10,
+     "wcG": 7,
+     "wcA": 2,
+     "min": null,
      "note": "19 career World Cup goals — the Paraguay penalty was his 19th. Tournament co-leading 7 goals, including a brace against Sweden in the round of 32.",
-     "src": "https://www.espn.com/soccer/player/_/id/231388/kylian-mbappe"},
-    {"name": "Ousmane Dembélé", "pos": "RW", "club": "Paris Saint-Germain", "age": 29, "num": 7, "wcG": 4, "wcA": 2,
+     "src": "https://www.foxsports.com/soccer/kylian-mbappe-2-player"
+    },
+    {
+     "name": "Ousmane Dembélé",
+     "pos": "RW",
+     "club": "Paris Saint-Germain",
+     "age": 29,
+     "num": 7,
+     "wcG": 4,
+     "wcA": 2,
+     "min": null,
      "note": "Reigning 2025 Ballon d'Or winner. Hat trick against Norway in the 4-1 group-stage win.",
-     "src": "https://www.espn.com/soccer/player/_/id/229744/ousmane-dembele"},
-    {"name": "Michael Olise", "pos": "AM", "club": "Bayern Munich", "age": 24, "num": 11, "wcG": 0, "wcA": 5,
+     "src": "https://www.foxsports.com/soccer/ousmane-dembele-player"
+    },
+    {
+     "name": "Michael Olise",
+     "pos": "AM",
+     "club": "Bayern Munich",
+     "age": 24,
+     "num": 11,
+     "wcG": 0,
+     "wcA": 5,
+     "min": null,
      "note": "5 assists this World Cup — first to that tally since Hässler in 1994. Bundesliga Player of the Season 2025-26 (15 goals, 15 assists).",
-     "src": "https://en.wikipedia.org/wiki/Michael_Olise"},
-    {"name": "Bradley Barcola", "pos": "LW", "club": "Paris Saint-Germain", "age": 23, "num": 12, "wcG": 2, "wcA": 1,
+     "src": "https://en.wikipedia.org/wiki/Michael_Olise"
+    },
+    {
+     "name": "Bradley Barcola",
+     "pos": "LW",
+     "club": "Paris Saint-Germain",
+     "age": 23,
+     "num": 12,
+     "wcG": 2,
+     "wcA": 1,
+     "min": null,
      "note": "Goals against Senegal in the group and Sweden in the round of 32. The direct, vertical outlet on Deschamps' left.",
-     "src": "https://www.espn.com/soccer/team/stats/_/id/478/league/FIFA.WORLD"}
+     "src": "https://www.foxsports.com/soccer/fifa-world-cup/stats?category=standard&sort=g&season=2026&sortOrder=desc"
+    }
    ]
   },
   "ENG": {
-   "name": "England", "nickname": "Three Lions", "coach": "Thomas Tuchel", "rank": 4,
-   "colors": {"p": "#FFFFFF", "s": "#002366", "ink": "#002366"},
+   "name": "England",
+   "nickname": "Three Lions",
+   "coach": "Thomas Tuchel",
+   "rank": 4,
+   "colors": {
+    "p": "#FFFFFF",
+    "s": "#002366",
+    "ink": "#002366"
+   },
    "flag": "linear-gradient(90deg,transparent 0 42%,#CE1124 42% 58%,transparent 58%),linear-gradient(180deg,transparent 0 36%,#CE1124 36% 64%,transparent 64%),#fff",
    "formation": "4-2-3-1",
    "lineupNote": "R16 vs Mexico, Jul 5 (3-2)",
    "lineup": [
-    {"num": 1, "name": "Jordan Pickford", "pos": "GK"},
-    {"num": 3, "name": "Nico O'Reilly", "pos": "LB"},
-    {"num": 6, "name": "Marc Guehi", "pos": "CB"},
-    {"num": 26, "name": "Jarell Quansah", "pos": "CB"},
-    {"num": 2, "name": "Ezri Konsa", "pos": "RB"},
-    {"num": 4, "name": "Declan Rice", "pos": "DM"},
-    {"num": 8, "name": "Elliot Anderson", "pos": "DM"},
-    {"num": 18, "name": "Anthony Gordon", "pos": "LW"},
-    {"num": 10, "name": "Jude Bellingham", "pos": "AM"},
-    {"num": 7, "name": "Bukayo Saka", "pos": "RW"},
-    {"num": 9, "name": "Harry Kane", "pos": "ST"}
+    {
+     "num": 1,
+     "name": "Jordan Pickford",
+     "pos": "GK"
+    },
+    {
+     "num": 3,
+     "name": "Nico O'Reilly",
+     "pos": "LB"
+    },
+    {
+     "num": 6,
+     "name": "Marc Guehi",
+     "pos": "CB"
+    },
+    {
+     "num": 26,
+     "name": "Jarell Quansah",
+     "pos": "CB"
+    },
+    {
+     "num": 2,
+     "name": "Ezri Konsa",
+     "pos": "RB"
+    },
+    {
+     "num": 4,
+     "name": "Declan Rice",
+     "pos": "DM"
+    },
+    {
+     "num": 8,
+     "name": "Elliot Anderson",
+     "pos": "DM"
+    },
+    {
+     "num": 18,
+     "name": "Anthony Gordon",
+     "pos": "LW"
+    },
+    {
+     "num": 10,
+     "name": "Jude Bellingham",
+     "pos": "AM"
+    },
+    {
+     "num": 7,
+     "name": "Bukayo Saka",
+     "pos": "RW"
+    },
+    {
+     "num": 9,
+     "name": "Harry Kane",
+     "pos": "ST"
+    }
    ],
    "stars": [
-    {"name": "Harry Kane", "pos": "ST", "club": "Bayern Munich", "age": 32, "num": 9, "wcG": 6,
+    {
+     "name": "Harry Kane",
+     "pos": "ST",
+     "club": "Bayern Munich",
+     "age": 32,
+     "num": 9,
+     "wcG": 6,
+     "wcA": 1,
+     "min": null,
      "note": "England's all-time World Cup scorer — passed Lineker's 10, then Pelé's career 12 with the brace against DR Congo. 85 goals in 119 caps.",
-     "src": "https://www.skysports.com/football/news/11095/13556951/world-cup-2026-golden-boot-race-lionel-messi-kylian-mbappe-erling-haaland-vinicius-junior-and-harry-kane-in-epic-battle-to-be-top-goalscorer"},
-    {"name": "Jude Bellingham", "pos": "AM", "club": "Real Madrid", "age": 23, "num": 10, "wcG": 4, "wcA": 1,
+     "src": "https://www.foxsports.com/soccer/harry-kane-player"
+    },
+    {
+     "name": "Jude Bellingham",
+     "pos": "AM",
+     "club": "Real Madrid",
+     "age": 23,
+     "num": 10,
+     "wcG": 4,
+     "wcA": 1,
+     "min": null,
      "note": "Two goals in 98 seconds at the Azteca to break Mexico. Five goal contributions — tied for the most by an Englishman in a single World Cup since 1966.",
-     "src": "https://www.espn.com/soccer/story/_/id/49281972/fifa-world-cup-2026-stats-erling-haaland-7-lionel-messi-kylian-mbappe-cristiano-ronaldo-6-neymar-second-pele-jude-bellingham-first-diego-maradona"},
-    {"name": "Bukayo Saka", "pos": "RW", "club": "Arsenal", "age": 24, "num": 7, "wcG": 0, "wcA": 1,
+     "src": "https://www.foxsports.com/soccer/jude-bellingham-player"
+    },
+    {
+     "name": "Bukayo Saka",
+     "pos": "RW",
+     "club": "Arsenal",
+     "age": 24,
+     "num": 7,
+     "wcG": 0,
+     "wcA": 1,
+     "min": null,
      "note": "6 goals and 10 assists in Arsenal's 2025-26 title-winning league season. Minutes managed through the tournament with a lingering Achilles issue.",
-     "src": "https://www.espn.com/soccer/player/stats/_/id/280555/bukayo-saka"},
-    {"name": "Anthony Gordon", "pos": "LW", "club": "Barcelona", "age": 25, "num": 18, "wcG": 0, "wcA": 2,
+     "src": "https://www.espn.com/soccer/player/stats/_/id/280555/bukayo-saka"
+    },
+    {
+     "name": "Anthony Gordon",
+     "pos": "LW",
+     "club": "Barcelona",
+     "age": 25,
+     "num": 18,
+     "wcG": 0,
+     "wcA": 2,
+     "min": null,
      "note": "Both assists set up Kane's late brace in the 2-1 comeback against DR Congo. Completed his ~€80m move to Barcelona on July 1, mid-tournament.",
-     "src": "https://www.espn.com/soccer/player/stats/_/id/268782/anthony-gordon"}
+     "src": "https://www.espn.com/soccer/player/stats/_/id/268782/anthony-gordon"
+    }
    ]
   },
   "ESP": {
-   "name": "Spain", "nickname": "La Roja", "coach": "Luis de la Fuente", "rank": 2,
-   "colors": {"p": "#AA151B", "s": "#F1BF00", "ink": "#F1BF00"},
+   "name": "Spain",
+   "nickname": "La Roja",
+   "coach": "Luis de la Fuente",
+   "rank": 2,
+   "colors": {
+    "p": "#AA151B",
+    "s": "#F1BF00",
+    "ink": "#F1BF00"
+   },
    "flag": "linear-gradient(180deg,#AA151B 0 25%,#F1BF00 25% 75%,#AA151B 75%)",
    "formation": "4-2-3-1",
-   "lineupNote": "R32 vs Austria, Jul 2 (3-0)",
+   "lineupNote": "R16 vs Portugal, Jul 6 (1-0)",
    "lineup": [
-    {"num": 23, "name": "Unai Simón", "pos": "GK"},
-    {"num": 24, "name": "Marc Cucurella", "pos": "LB"},
-    {"num": 22, "name": "Pau Cubarsí", "pos": "CB"},
-    {"num": 14, "name": "Aymeric Laporte", "pos": "CB"},
-    {"num": 12, "name": "Pedro Porro", "pos": "RB"},
-    {"num": 16, "name": "Rodri", "pos": "DM"},
-    {"num": 20, "name": "Pedri", "pos": "CM"},
-    {"num": 15, "name": "Álex Baena", "pos": "LW"},
-    {"num": 10, "name": "Dani Olmo", "pos": "AM"},
-    {"num": 19, "name": "Lamine Yamal", "pos": "RW"},
-    {"num": 21, "name": "Mikel Oyarzabal", "pos": "ST"}
+    {
+     "num": 23,
+     "name": "Unai Simón",
+     "pos": "GK"
+    },
+    {
+     "num": 24,
+     "name": "Marc Cucurella",
+     "pos": "LB"
+    },
+    {
+     "num": 14,
+     "name": "Aymeric Laporte",
+     "pos": "CB"
+    },
+    {
+     "num": 22,
+     "name": "Pau Cubarsí",
+     "pos": "CB"
+    },
+    {
+     "num": 12,
+     "name": "Pedro Porro",
+     "pos": "RB"
+    },
+    {
+     "num": 16,
+     "name": "Rodri",
+     "pos": "DM"
+    },
+    {
+     "num": 20,
+     "name": "Pedri",
+     "pos": "CM"
+    },
+    {
+     "num": 15,
+     "name": "Álex Baena",
+     "pos": "LW"
+    },
+    {
+     "num": 10,
+     "name": "Dani Olmo",
+     "pos": "AM"
+    },
+    {
+     "num": 19,
+     "name": "Lamine Yamal",
+     "pos": "RW"
+    },
+    {
+     "num": 21,
+     "name": "Mikel Oyarzabal",
+     "pos": "ST"
+    }
    ],
    "stars": [
-    {"name": "Lamine Yamal", "pos": "RW", "club": "FC Barcelona", "age": 18, "num": 19, "wcG": 1,
+    {
+     "name": "Lamine Yamal",
+     "pos": "RW",
+     "club": "FC Barcelona",
+     "age": 18,
+     "num": 19,
+     "wcG": 1,
+     "wcA": null,
+     "min": null,
      "note": "Youngest Euro winner ever at 17, runner-up in the 2025 Ballon d'Or, two-time Kopa Trophy winner. 29 caps and 7 goals for Spain at 18.",
-     "src": "https://en.wikipedia.org/wiki/Lamine_Yamal"},
-    {"name": "Mikel Oyarzabal", "pos": "ST", "club": "Real Sociedad", "age": 29, "num": 21, "wcG": 4, "wcA": 1,
+     "src": "https://en.wikipedia.org/wiki/Lamine_Yamal"
+    },
+    {
+     "name": "Mikel Oyarzabal",
+     "pos": "ST",
+     "club": "Real Sociedad",
+     "age": 29,
+     "num": 21,
+     "wcG": 4,
+     "wcA": 1,
+     "min": null,
      "note": "Scored the Euro 2024 final winner against England. Four goals this tournament leading the line for La Roja; 29 goals in 57 caps.",
-     "src": "https://en.wikipedia.org/wiki/Mikel_Oyarzabal"},
-    {"name": "Rodri", "pos": "DM", "club": "Manchester City", "age": 30, "num": 16, "wcG": 0,
+     "src": "https://www.foxsports.com/soccer/mikel-oyarzabal-player"
+    },
+    {
+     "name": "Rodri",
+     "pos": "DM",
+     "club": "Manchester City",
+     "age": 30,
+     "num": 16,
+     "wcG": 0,
+     "wcA": null,
+     "min": null,
      "note": "2024 Ballon d'Or winner and Euro 2024 Player of the Tournament. Spain hasn't lost a competitive match he finished since 2023.",
-     "src": "https://en.wikipedia.org/wiki/Rodri_(footballer,_born_1996)"},
-    {"name": "Pedri", "pos": "CM", "club": "FC Barcelona", "age": 23, "num": 20, "wcG": 0,
+     "src": "https://en.wikipedia.org/wiki/Rodri_(footballer,_born_1996)"
+    },
+    {
+     "name": "Pedri",
+     "pos": "CM",
+     "club": "FC Barcelona",
+     "age": 23,
+     "num": 20,
+     "wcG": 0,
+     "wcA": null,
+     "min": null,
      "note": "Euro 2020 Young Player of the Tournament, 2021 Golden Boy. The tempo-setter between Rodri and the front four; 45 caps at 23.",
-     "src": "https://en.wikipedia.org/wiki/Pedri"}
+     "src": "https://en.wikipedia.org/wiki/Pedri"
+    }
    ]
   },
   "POR": {
-   "name": "Portugal", "nickname": "Seleção das Quinas", "coach": "Roberto Martínez", "rank": 5,
-   "colors": {"p": "#DA291C", "s": "#046A38", "ink": "#ffffff"},
+   "name": "Portugal",
+   "nickname": "Seleção das Quinas",
+   "coach": "Roberto Martínez",
+   "rank": 5,
+   "colors": {
+    "p": "#DA291C",
+    "s": "#046A38",
+    "ink": "#ffffff"
+   },
    "flag": "linear-gradient(90deg,#046A38 0 40%,#DA291C 40%)",
    "formation": "4-2-3-1",
-   "lineupNote": "R32 vs Croatia, Jul 2 (2-1)",
+   "lineupNote": "R16 vs Spain, Jul 6 (0-1)",
    "lineup": [
-    {"num": 1, "name": "Diogo Costa", "pos": "GK"},
-    {"num": 25, "name": "Nuno Mendes", "pos": "LB"},
-    {"num": 13, "name": "Renato Veiga", "pos": "CB"},
-    {"num": 3, "name": "Rúben Dias", "pos": "CB"},
-    {"num": 20, "name": "João Cancelo", "pos": "RB"},
-    {"num": 15, "name": "João Neves", "pos": "CM"},
-    {"num": 23, "name": "Vitinha", "pos": "CM"},
-    {"num": 17, "name": "Rafael Leão", "pos": "LW"},
-    {"num": 8, "name": "Bruno Fernandes", "pos": "AM"},
-    {"num": 18, "name": "Pedro Neto", "pos": "RW"},
-    {"num": 7, "name": "Cristiano Ronaldo", "pos": "ST"}
+    {
+     "num": 1,
+     "name": "Diogo Costa",
+     "pos": "GK"
+    },
+    {
+     "num": 25,
+     "name": "Nuno Mendes",
+     "pos": "LB"
+    },
+    {
+     "num": 13,
+     "name": "Renato Veiga",
+     "pos": "CB"
+    },
+    {
+     "num": 3,
+     "name": "Rúben Dias",
+     "pos": "CB"
+    },
+    {
+     "num": 20,
+     "name": "João Cancelo",
+     "pos": "RB"
+    },
+    {
+     "num": 23,
+     "name": "Vitinha",
+     "pos": "DM"
+    },
+    {
+     "num": 15,
+     "name": "João Neves",
+     "pos": "DM"
+    },
+    {
+     "num": 11,
+     "name": "João Félix",
+     "pos": "LW"
+    },
+    {
+     "num": 8,
+     "name": "Bruno Fernandes",
+     "pos": "AM"
+    },
+    {
+     "num": 18,
+     "name": "Pedro Neto",
+     "pos": "RW"
+    },
+    {
+     "num": 7,
+     "name": "Cristiano Ronaldo",
+     "pos": "ST"
+    }
    ],
    "stars": [
-    {"name": "Cristiano Ronaldo", "pos": "ST", "club": "Al-Nassr", "age": 41, "num": 7, "wcG": 3, "wcA": 0, "min": 351,
+    {
+     "name": "Cristiano Ronaldo",
+     "pos": "ST",
+     "club": "Al-Nassr",
+     "age": 41,
+     "num": 7,
+     "wcG": 3,
+     "wcA": null,
+     "min": 441,
      "note": "All-time men's international record holder: 232 caps, 146 goals. Became the oldest goalscorer in a World Cup knockout match with the penalty against Croatia, at 41.",
-     "src": "https://en.wikipedia.org/wiki/Cristiano_Ronaldo"},
-    {"name": "Bruno Fernandes", "pos": "AM", "club": "Manchester United", "age": 31, "num": 8, "wcG": 0, "wcA": 1, "min": 333,
+     "src": "https://www.foxsports.com/soccer/cristiano-ronaldo-player"
+    },
+    {
+     "name": "Bruno Fernandes",
+     "pos": "AM",
+     "club": "Manchester United",
+     "age": 31,
+     "num": 8,
+     "wcG": 0,
+     "wcA": 1,
+     "min": 333,
      "note": "Set a Premier League single-season assist record (21) in 2025-26 as United captain. 93 caps, 29 goals for Portugal.",
-     "src": "https://en.wikipedia.org/wiki/Bruno_Fernandes"},
-    {"name": "Vitinha", "pos": "CM", "club": "Paris Saint-Germain", "age": 26, "num": 23, "wcG": 0, "wcA": 0, "min": 303,
+     "src": "https://en.wikipedia.org/wiki/Bruno_Fernandes"
+    },
+    {
+     "name": "Vitinha",
+     "pos": "CM",
+     "club": "Paris Saint-Germain",
+     "age": 26,
+     "num": 23,
+     "wcG": 0,
+     "wcA": null,
+     "min": 303,
      "note": "Back-to-back Champions League winner with PSG and Player of the Match in the 2026 final; third in the 2025 Ballon d'Or.",
-     "src": "https://en.wikipedia.org/wiki/Vitinha"},
-    {"name": "João Neves", "pos": "CM", "club": "Paris Saint-Germain", "age": 21, "num": 15, "wcG": 1, "wcA": 0, "min": 301,
+     "src": "https://en.wikipedia.org/wiki/Vitinha"
+    },
+    {
+     "name": "João Neves",
+     "pos": "CM",
+     "club": "Paris Saint-Germain",
+     "age": 21,
+     "num": 15,
+     "wcG": 1,
+     "wcA": null,
+     "min": 301,
      "note": "Scored Portugal's opening goal of the tournament at 21. Two Champions League titles already; 26 caps.",
-     "src": "https://en.wikipedia.org/wiki/Jo%C3%A3o_Neves"}
+     "src": "https://en.wikipedia.org/wiki/Jo%C3%A3o_Neves"
+    }
    ]
   },
   "NOR": {
-   "name": "Norway", "nickname": "Løvene", "coach": "Ståle Solbakken", "rank": 31,
-   "colors": {"p": "#BA0C2F", "s": "#00205B", "ink": "#ffffff"},
+   "name": "Norway",
+   "nickname": "Løvene",
+   "coach": "Ståle Solbakken",
+   "rank": 31,
+   "colors": {
+    "p": "#BA0C2F",
+    "s": "#00205B",
+    "ink": "#ffffff"
+   },
    "flag": "linear-gradient(90deg,transparent 0 28%,#00205B 28% 42%,transparent 42%),linear-gradient(180deg,transparent 0 38%,#00205B 38% 62%,transparent 62%),linear-gradient(90deg,transparent 0 22%,#fff 22% 48%,transparent 48%),linear-gradient(180deg,transparent 0 30%,#fff 30% 70%,transparent 70%),#BA0C2F",
    "formation": "4-3-3",
    "lineupNote": "R16 vs Brazil, Jul 5 (2-1)",
    "lineup": [
-    {"num": 1, "name": "Ørjan Nyland", "pos": "GK"},
-    {"num": 5, "name": "David Møller Wolfe", "pos": "LB"},
-    {"num": 17, "name": "Torbjørn Heggem", "pos": "CB"},
-    {"num": 3, "name": "Kristoffer Ajer", "pos": "CB"},
-    {"num": 26, "name": "Julian Ryerson", "pos": "RB"},
-    {"num": 6, "name": "Patrick Berg", "pos": "DM"},
-    {"num": 8, "name": "Sander Berge", "pos": "CM"},
-    {"num": 10, "name": "Martin Ødegaard", "pos": "AM"},
-    {"num": 20, "name": "Antonio Nusa", "pos": "LW"},
-    {"num": 9, "name": "Erling Haaland", "pos": "ST"},
-    {"num": 7, "name": "Alexander Sørloth", "pos": "RW"}
+    {
+     "num": 1,
+     "name": "Ørjan Nyland",
+     "pos": "GK"
+    },
+    {
+     "num": 5,
+     "name": "David Møller Wolfe",
+     "pos": "LB"
+    },
+    {
+     "num": 17,
+     "name": "Torbjørn Heggem",
+     "pos": "CB"
+    },
+    {
+     "num": 3,
+     "name": "Kristoffer Ajer",
+     "pos": "CB"
+    },
+    {
+     "num": 26,
+     "name": "Julian Ryerson",
+     "pos": "RB"
+    },
+    {
+     "num": 6,
+     "name": "Patrick Berg",
+     "pos": "DM"
+    },
+    {
+     "num": 8,
+     "name": "Sander Berge",
+     "pos": "CM"
+    },
+    {
+     "num": 10,
+     "name": "Martin Ødegaard",
+     "pos": "AM"
+    },
+    {
+     "num": 20,
+     "name": "Antonio Nusa",
+     "pos": "LW"
+    },
+    {
+     "num": 9,
+     "name": "Erling Haaland",
+     "pos": "ST"
+    },
+    {
+     "num": 7,
+     "name": "Alexander Sørloth",
+     "pos": "RW"
+    }
    ],
    "stars": [
-    {"name": "Erling Haaland", "pos": "ST", "club": "Manchester City", "age": 25, "num": 9, "wcG": 7,
+    {
+     "name": "Erling Haaland",
+     "pos": "ST",
+     "club": "Manchester City",
+     "age": 25,
+     "num": 9,
+     "wcG": 7,
+     "wcA": null,
+     "min": null,
      "note": "Both goals in the 2-1 shock of Brazil — Norway's first-ever World Cup quarterfinal. 16 goals in qualifying, a third straight Premier League Golden Boot, 62 in 54 caps.",
-     "src": "https://en.wikipedia.org/wiki/Erling_Haaland"},
-    {"name": "Martin Ødegaard", "pos": "AM", "club": "Arsenal", "age": 27, "num": 10, "wcA": 3,
+     "src": "https://www.foxsports.com/soccer/erling-haaland-player"
+    },
+    {
+     "name": "Martin Ødegaard",
+     "pos": "AM",
+     "club": "Arsenal",
+     "age": 27,
+     "num": 10,
+     "wcG": 0,
+     "wcA": 3,
+     "min": null,
      "note": "Captain since 2021 and a Premier League champion with Arsenal in 2025-26. Three assists in his first three games this tournament after leading European qualifying with seven.",
-     "src": "https://en.wikipedia.org/wiki/Martin_%C3%98degaard"},
-    {"name": "Antonio Nusa", "pos": "LW", "club": "RB Leipzig", "age": 21, "num": 20, "wcG": 1,
+     "src": "https://en.wikipedia.org/wiki/Martin_%C3%98degaard"
+    },
+    {
+     "name": "Antonio Nusa",
+     "pos": "LW",
+     "club": "RB Leipzig",
+     "age": 21,
+     "num": 20,
+     "wcG": 1,
+     "wcA": null,
+     "min": null,
      "note": "The 'Norwegian Neymar'. Scored in the round-of-32 win over Ivory Coast; 9 goals in 29 caps at 21.",
-     "src": "https://en.wikipedia.org/wiki/Antonio_Nusa"},
-    {"name": "Alexander Sørloth", "pos": "RW", "club": "Atlético Madrid", "age": 30, "num": 7, "wcG": 0,
+     "src": "https://en.wikipedia.org/wiki/Antonio_Nusa"
+    },
+    {
+     "name": "Alexander Sørloth",
+     "pos": "RW",
+     "club": "Atlético Madrid",
+     "age": 30,
+     "num": 7,
+     "wcG": 0,
+     "wcA": null,
+     "min": null,
      "note": "13 La Liga goals for Atlético in 2025-26 and 26 in 76 caps. The aerial focal point who drags defenders away from Haaland.",
-     "src": "https://en.wikipedia.org/wiki/Alexander_S%C3%B8rloth"}
+     "src": "https://en.wikipedia.org/wiki/Alexander_S%C3%B8rloth"
+    }
    ]
   },
   "MAR": {
-   "name": "Morocco", "nickname": "Atlas Lions", "coach": "Mohamed Ouahbi", "rank": 7,
-   "colors": {"p": "#C1272D", "s": "#006233", "ink": "#ffffff"},
+   "name": "Morocco",
+   "nickname": "Atlas Lions",
+   "coach": "Mohamed Ouahbi",
+   "rank": 7,
+   "colors": {
+    "p": "#C1272D",
+    "s": "#006233",
+    "ink": "#ffffff"
+   },
    "flag": "radial-gradient(circle at 50% 50%,#006233 0 28%,#C1272D 29%)",
    "formation": "4-2-3-1",
    "lineupNote": "R16 vs Canada, Jul 4 (3-0)",
    "lineup": [
-    {"num": 1, "name": "Yassine Bounou", "pos": "GK"},
-    {"num": 3, "name": "Noussair Mazraoui", "pos": "LB"},
-    {"num": 14, "name": "Issa Diop", "pos": "CB"},
-    {"num": 25, "name": "Redouane Halhal", "pos": "CB"},
-    {"num": 2, "name": "Achraf Hakimi", "pos": "RB"},
-    {"num": 6, "name": "Ayyoub Bouaddi", "pos": "DM"},
-    {"num": 23, "name": "Bilal El Khannouss", "pos": "DM"},
-    {"num": 11, "name": "Ismaël Saibari", "pos": "LW"},
-    {"num": 10, "name": "Brahim Díaz", "pos": "AM"},
-    {"num": 8, "name": "Azzedine Ounahi", "pos": "RW"},
-    {"num": 24, "name": "Neil El Aynaoui", "pos": "ST"}
+    {
+     "num": 1,
+     "name": "Yassine Bounou",
+     "pos": "GK"
+    },
+    {
+     "num": 3,
+     "name": "Noussair Mazraoui",
+     "pos": "LB"
+    },
+    {
+     "num": 14,
+     "name": "Issa Diop",
+     "pos": "CB"
+    },
+    {
+     "num": 25,
+     "name": "Redouane Halhal",
+     "pos": "CB"
+    },
+    {
+     "num": 2,
+     "name": "Achraf Hakimi",
+     "pos": "RB"
+    },
+    {
+     "num": 6,
+     "name": "Ayyoub Bouaddi",
+     "pos": "DM"
+    },
+    {
+     "num": 23,
+     "name": "Bilal El Khannouss",
+     "pos": "DM"
+    },
+    {
+     "num": 11,
+     "name": "Ismaël Saibari",
+     "pos": "LW"
+    },
+    {
+     "num": 10,
+     "name": "Brahim Díaz",
+     "pos": "AM"
+    },
+    {
+     "num": 8,
+     "name": "Azzedine Ounahi",
+     "pos": "RW"
+    },
+    {
+     "num": 24,
+     "name": "Neil El Aynaoui",
+     "pos": "ST"
+    }
    ],
    "stars": [
-    {"name": "Achraf Hakimi", "pos": "RB", "club": "Paris Saint-Germain", "age": 27, "num": 2, "wcG": 1, "wcA": 2,
+    {
+     "name": "Achraf Hakimi",
+     "pos": "RB",
+     "club": "Paris Saint-Germain",
+     "age": 27,
+     "num": 2,
+     "wcG": 1,
+     "wcA": 2,
+     "min": null,
      "note": "Captain, and the most World Cup appearances ever by an African player (15). Only the fourth defender since 1966 with 3+ career World Cup assists.",
-     "src": "https://www.espn.com/soccer/team/stats/_/id/2869/morocco"},
-    {"name": "Brahim Díaz", "pos": "AM", "club": "Real Madrid", "age": 26, "num": 10, "wcG": 0, "wcA": 4,
+     "src": "https://www.espn.com/soccer/team/stats/_/id/2869/morocco"
+    },
+    {
+     "name": "Brahim Díaz",
+     "pos": "AM",
+     "club": "Real Madrid",
+     "age": 26,
+     "num": 10,
+     "wcG": 0,
+     "wcA": 4,
+     "min": null,
      "note": "First African player with four assists in a single World Cup — two of them in the R16 dismantling of Canada. Second in the tournament assist chart behind Olise.",
-     "src": "https://www.espn.com/soccer/team/stats/_/id/2869/morocco"},
-    {"name": "Azzedine Ounahi", "pos": "RW", "club": "Girona", "age": 26, "num": 8, "wcG": 2, "wcA": 0,
+     "src": "https://www.espn.com/soccer/team/stats/_/id/2869/morocco"
+    },
+    {
+     "name": "Azzedine Ounahi",
+     "pos": "RW",
+     "club": "Girona",
+     "age": 26,
+     "num": 8,
+     "wcG": 2,
+     "wcA": null,
+     "min": null,
      "note": "The brace (50', 82') that beat Canada 3-0 in Houston and sent Morocco to a second straight deep run.",
-     "src": "https://www.espn.com/soccer/team/stats/_/id/2869/morocco"},
-    {"name": "Yassine Bounou", "pos": "GK", "club": "Al-Hilal", "age": 35, "num": 1, "wcG": 0, "wcA": 0,
+     "src": "https://www.espn.com/soccer/team/stats/_/id/2869/morocco"
+    },
+    {
+     "name": "Yassine Bounou",
+     "pos": "GK",
+     "club": "Al-Hilal",
+     "age": 35,
+     "num": 1,
+     "wcG": 0,
+     "wcA": null,
+     "min": null,
      "note": "Montreal-born. Saved Summerville's penalty in the shootout that knocked out the Netherlands, then shut out the country of his birth in the R16.",
-     "src": "https://www.espn.com/soccer/report/_/gameId/760502"}
+     "src": "https://www.espn.com/soccer/report/_/gameId/760502"
+    }
    ]
   },
   "USA": {
-   "name": "United States", "nickname": "The Stars and Stripes", "coach": "Mauricio Pochettino", "rank": 17,
-   "colors": {"p": "#002868", "s": "#BF0A30", "ink": "#ffffff"},
+   "name": "United States",
+   "nickname": "The Stars and Stripes",
+   "coach": "Mauricio Pochettino",
+   "rank": 17,
+   "colors": {
+    "p": "#002868",
+    "s": "#BF0A30",
+    "ink": "#ffffff"
+   },
    "flag": "linear-gradient(90deg,#3C3B6E 0 35%,transparent 35%),repeating-linear-gradient(180deg,#B22234 0 11%,#fff 11% 22%)",
    "formation": "4-3-3",
    "lineupNote": "R32 vs Bosnia, Jul 1 (2-0)",
    "lineup": [
-    {"num": 24, "name": "Matt Freese", "pos": "GK"},
-    {"num": 5, "name": "Antonee Robinson", "pos": "LB"},
-    {"num": 13, "name": "Tim Ream", "pos": "CB"},
-    {"num": 3, "name": "Chris Richards", "pos": "CB"},
-    {"num": 16, "name": "Alex Freeman", "pos": "RB"},
-    {"num": 4, "name": "Tyler Adams", "pos": "DM"},
-    {"num": 2, "name": "Sergino Dest", "pos": "CM"},
-    {"num": 8, "name": "Weston McKennie", "pos": "CM"},
-    {"num": 17, "name": "Malik Tillman", "pos": "LW"},
-    {"num": 20, "name": "Folarin Balogun", "pos": "ST"},
-    {"num": 10, "name": "Christian Pulisic", "pos": "RW"}
+    {
+     "num": 24,
+     "name": "Matt Freese",
+     "pos": "GK"
+    },
+    {
+     "num": 5,
+     "name": "Antonee Robinson",
+     "pos": "LB"
+    },
+    {
+     "num": 13,
+     "name": "Tim Ream",
+     "pos": "CB"
+    },
+    {
+     "num": 3,
+     "name": "Chris Richards",
+     "pos": "CB"
+    },
+    {
+     "num": 16,
+     "name": "Alex Freeman",
+     "pos": "RB"
+    },
+    {
+     "num": 4,
+     "name": "Tyler Adams",
+     "pos": "DM"
+    },
+    {
+     "num": 2,
+     "name": "Sergino Dest",
+     "pos": "CM"
+    },
+    {
+     "num": 8,
+     "name": "Weston McKennie",
+     "pos": "CM"
+    },
+    {
+     "num": 17,
+     "name": "Malik Tillman",
+     "pos": "LW"
+    },
+    {
+     "num": 20,
+     "name": "Folarin Balogun",
+     "pos": "ST"
+    },
+    {
+     "num": 10,
+     "name": "Christian Pulisic",
+     "pos": "RW"
+    }
    ],
    "stars": [
-    {"name": "Christian Pulisic", "pos": "RW", "club": "AC Milan", "age": 27, "num": 10, "wcG": 0, "wcA": 1,
+    {
+     "name": "Christian Pulisic",
+     "pos": "RW",
+     "club": "AC Milan",
+     "age": 27,
+     "num": 10,
+     "wcG": 0,
+     "wcA": 1,
+     "min": null,
      "note": "33 goals in 87 caps. His assist against Paraguay made him the all-time US World Cup assist leader with three across tournaments.",
-     "src": "https://www.npr.org/2026/06/19/nx-s1-5863602/2026-fifa-world-cup-usmnt-australia"},
-    {"name": "Folarin Balogun", "pos": "ST", "club": "AS Monaco", "age": 25, "num": 20, "wcG": 3,
+     "src": "https://www.npr.org/2026/06/19/nx-s1-5863602/2026-fifa-world-cup-usmnt-australia"
+    },
+    {
+     "name": "Folarin Balogun",
+     "pos": "ST",
+     "club": "AS Monaco",
+     "age": 25,
+     "num": 20,
+     "wcG": 3,
+     "wcA": null,
+     "min": null,
      "note": "Brace against Paraguay — the first multi-goal World Cup game by an American since 1930. Player of the Match in both group-stage wins.",
-     "src": "https://en.wikipedia.org/wiki/Folarin_Balogun"},
-    {"name": "Malik Tillman", "pos": "LW", "club": "Bayer Leverkusen", "age": 24, "num": 17, "wcG": 1, "wcA": 1,
+     "src": "https://www.foxsports.com/soccer/folarin-balogun-player"
+    },
+    {
+     "name": "Malik Tillman",
+     "pos": "LW",
+     "club": "Bayer Leverkusen",
+     "age": 24,
+     "num": 17,
+     "wcG": 1,
+     "wcA": 1,
+     "min": null,
      "note": "His free kick against Bosnia was the first direct free-kick goal for the US at a World Cup since Wynalda in 1994. Leads the team in ball recoveries.",
-     "src": "https://www.espn.com/soccer/story/_/id/49214102/tillman-having-great-world-cup-usmnt-never-tell-himself"},
-    {"name": "Weston McKennie", "pos": "CM", "club": "Juventus", "age": 27, "num": 8, "wcG": 0,
+     "src": "https://www.espn.com/soccer/story/_/id/49214102/tillman-having-great-world-cup-usmnt-never-tell-himself"
+    },
+    {
+     "name": "Weston McKennie",
+     "pos": "CM",
+     "club": "Juventus",
+     "age": 27,
+     "num": 8,
+     "wcG": 0,
+     "wcA": null,
+     "min": null,
      "note": "70 caps, 12 goals. The box-to-box engine of Pochettino's midfield three.",
-     "src": "https://en.wikipedia.org/wiki/Weston_McKennie"}
+     "src": "https://en.wikipedia.org/wiki/Weston_McKennie"
+    }
    ]
   }
  },
  "topScorers": [
-  {"name": "Lionel Messi", "country": "ARG", "goals": 7, "assists": 0},
-  {"name": "Kylian Mbappé", "country": "FRA", "goals": 7, "assists": 2},
-  {"name": "Erling Haaland", "country": "NOR", "goals": 7},
-  {"name": "Harry Kane", "country": "ENG", "goals": 6},
-  {"name": "Ousmane Dembélé", "country": "FRA", "goals": 4, "assists": 2},
-  {"name": "Vinícius Júnior", "country": "BRA", "goals": 4},
-  {"name": "Ismaïla Sarr", "country": "SEN", "goals": 4},
-  {"name": "Mikel Oyarzabal", "country": "ESP", "goals": 4, "assists": 1},
-  {"name": "Jude Bellingham", "country": "ENG", "goals": 4, "assists": 1},
-  {"name": "Jonathan David", "country": "CAN", "goals": 3},
-  {"name": "Deniz Undav", "country": "GER", "goals": 3},
-  {"name": "Kai Havertz", "country": "GER", "goals": 3},
-  {"name": "Johan Manzambi", "country": "SUI", "goals": 3},
-  {"name": "Matheus Cunha", "country": "BRA", "goals": 3},
-  {"name": "Ismaël Saibari", "country": "MAR", "goals": 3},
-  {"name": "Brian Brobbey", "country": "NED", "goals": 3},
-  {"name": "Cody Gakpo", "country": "NED", "goals": 3},
-  {"name": "Elijah Just", "country": "NZL", "goals": 3},
-  {"name": "Julián Quiñones", "country": "MEX", "goals": 3},
-  {"name": "Raúl Jiménez", "country": "MEX", "goals": 3},
-  {"name": "Folarin Balogun", "country": "USA", "goals": 3},
-  {"name": "Cristiano Ronaldo", "country": "POR", "goals": 3}
+  {
+   "name": "Lionel Messi",
+   "country": "ARG",
+   "goals": 8,
+   "assists": 1
+  },
+  {
+   "name": "Kylian Mbappé",
+   "country": "FRA",
+   "goals": 7,
+   "assists": 2
+  },
+  {
+   "name": "Erling Haaland",
+   "country": "NOR",
+   "goals": 7,
+   "assists": null
+  },
+  {
+   "name": "Harry Kane",
+   "country": "ENG",
+   "goals": 6,
+   "assists": 1
+  },
+  {
+   "name": "Ousmane Dembélé",
+   "country": "FRA",
+   "goals": 4,
+   "assists": 2
+  },
+  {
+   "name": "Ismaïla Sarr",
+   "country": "SEN",
+   "goals": 4,
+   "assists": 1
+  },
+  {
+   "name": "Mikel Oyarzabal",
+   "country": "ESP",
+   "goals": 4,
+   "assists": 1
+  },
+  {
+   "name": "Jude Bellingham",
+   "country": "ENG",
+   "goals": 4,
+   "assists": 1
+  },
+  {
+   "name": "Vinícius Júnior",
+   "country": "BRA",
+   "goals": 4,
+   "assists": 1
+  },
+  {
+   "name": "Julián Quiñones",
+   "country": "MEX",
+   "goals": 4,
+   "assists": 1
+  },
+  {
+   "name": "Deniz Undav",
+   "country": "GER",
+   "goals": 3,
+   "assists": 2
+  },
+  {
+   "name": "Johan Manzambi",
+   "country": "SUI",
+   "goals": 3,
+   "assists": 2
+  },
+  {
+   "name": "Matheus Cunha",
+   "country": "BRA",
+   "goals": 3,
+   "assists": null
+  },
+  {
+   "name": "Ismaël Saibari",
+   "country": "MAR",
+   "goals": 3,
+   "assists": null
+  },
+  {
+   "name": "Brian Brobbey",
+   "country": "NED",
+   "goals": 3,
+   "assists": null
+  },
+  {
+   "name": "Cody Gakpo",
+   "country": "NED",
+   "goals": 3,
+   "assists": 1
+  },
+  {
+   "name": "Elijah Just",
+   "country": "NZL",
+   "goals": 3,
+   "assists": null
+  },
+  {
+   "name": "Raúl Jiménez",
+   "country": "MEX",
+   "goals": 3,
+   "assists": null
+  },
+  {
+   "name": "Folarin Balogun",
+   "country": "USA",
+   "goals": 3,
+   "assists": null
+  },
+  {
+   "name": "Kai Havertz",
+   "country": "GER",
+   "goals": 3,
+   "assists": null
+  },
+  {
+   "name": "Romelu Lukaku",
+   "country": "BEL",
+   "goals": 3,
+   "assists": 1
+  },
+  {
+   "name": "Jonathan David",
+   "country": "CAN",
+   "goals": 3,
+   "assists": null
+  },
+  {
+   "name": "Cristiano Ronaldo",
+   "country": "POR",
+   "goals": 3,
+   "assists": null
+  },
+  {
+   "name": "Yoane Wissa",
+   "country": "COD",
+   "goals": 3,
+   "assists": null
+  }
  ],
- "gbNote": "Three players tied on seven — the first World Cup ever with a three-way race at the top. Assists are the first tiebreaker; official tables don't publish them, so verified counts are shown where known.",
+ "gbNote": "Messi moves clear with 8 goals after his equalizer against Egypt. Mbappé and Haaland tied on 7 goals, with Mbappé leading on assists (2-0) as first tiebreaker. First World Cup ever with three players on 7+ goals heading into quarter-finals.",
  "sources": [
-  {"topic": "Knockout bracket, results & schedule (ESPN)", "url": "https://www.espn.com/soccer/story/_/id/48939282/2026-fifa-world-cup-fixtures-results-match-schedule-group-stage-knockout-rounds-bracket"},
-  {"topic": "Bracket cross-check (CBS)", "url": "https://www.cbssports.com/soccer/news/2026-fifa-world-cup-bracket-round-of-32-results-round-of-16-matchups-final/"},
-  {"topic": "Knockout stage (Wikipedia)", "url": "https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_knockout_stage"},
-  {"topic": "R16 reports (Al Jazeera)", "url": "https://www.aljazeera.com/sports/2026/7/5/haaland-scores-twice-as-norway-stun-brazil-2-1-in-world-cup-2026-last-16"},
-  {"topic": "Golden Boot standings (NBC)", "url": "https://www.nbcsports.com/soccer/news/2026-world-cup-top-goalscorers-full-list-latest-on-race-for-the-golden-boot"},
-  {"topic": "Golden Boot race (Sky)", "url": "https://www.skysports.com/football/news/11095/13556951/world-cup-2026-golden-boot-race-lionel-messi-kylian-mbappe-erling-haaland-vinicius-junior-and-harry-kane-in-epic-battle-to-be-top-goalscorer"},
-  {"topic": "Squads & shirt numbers (Wikipedia)", "url": "https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_squads"},
-  {"topic": "Match lineups (ESPN)", "url": "https://www.espn.com/soccer/schedule/_/league/FIFA.WORLD"},
-  {"topic": "FIFA Match Centre", "url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026"},
-  {"topic": "Group-stage surprises (World Soccer Talk)", "url": "https://worldsoccertalk.com/world-cup/world-cup-2026-full-list-of-the-16-teams-eliminated-in-the-group-stage/"}
+  {
+   "topic": "Knockout bracket, results & schedule (ESPN)",
+   "url": "https://www.espn.com/soccer/story/_/id/48939282/2026-fifa-world-cup-fixtures-results-match-schedule-group-stage-knockout-rounds-bracket"
+  },
+  {
+   "topic": "Bracket cross-check (CBS)",
+   "url": "https://www.cbssports.com/soccer/news/2026-fifa-world-cup-bracket-round-of-32-results-round-of-16-matchups-final/"
+  },
+  {
+   "topic": "Knockout stage (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_knockout_stage"
+  },
+  {
+   "topic": "R16 reports (Al Jazeera)",
+   "url": "https://www.aljazeera.com/sports/2026/7/5/haaland-scores-twice-as-norway-stun-brazil-2-1-in-world-cup-2026-last-16"
+  },
+  {
+   "topic": "Golden Boot standings (NBC)",
+   "url": "https://www.nbcsports.com/soccer/news/2026-world-cup-top-goalscorers-full-list-latest-on-race-for-the-golden-boot"
+  },
+  {
+   "topic": "Golden Boot race (Sky)",
+   "url": "https://www.skysports.com/football/news/11095/13556951/world-cup-2026-golden-boot-race-lionel-messi-kylian-mbappe-erling-haaland-vinicius-junior-and-harry-kane-in-epic-battle-to-be-top-goalscorer"
+  },
+  {
+   "topic": "Squads & shirt numbers (Wikipedia)",
+   "url": "https://en.wikipedia.org/wiki/2026_FIFA_World_Cup_squads"
+  },
+  {
+   "topic": "Match lineups (ESPN)",
+   "url": "https://www.espn.com/soccer/schedule/_/league/FIFA.WORLD"
+  },
+  {
+   "topic": "FIFA Match Centre",
+   "url": "https://www.fifa.com/en/tournaments/mens/worldcup/canadamexicousa2026"
+  },
+  {
+   "topic": "Group-stage surprises (World Soccer Talk)",
+   "url": "https://worldsoccertalk.com/world-cup/world-cup-2026-full-list-of-the-16-teams-eliminated-in-the-group-stage/"
+  },
+  {
+   "topic": "R16 POR–ESP",
+   "url": "https://www.theguardian.com/football/live/2026/jul/06/portugal-v-spain-world-cup-2026-last-16-live"
+  },
+  {
+   "topic": "POR lineup",
+   "url": "https://www.prizepicks.com/playbook-article/portugal-vs-spain-lineups-confirmed-world-cup-yamal-ronaldo-starting"
+  },
+  {
+   "topic": "R16 USA–BEL",
+   "url": "https://www.cbssports.com/soccer/news/usmnt-belgium-live-updates-world-cup-2026-score-result/live/"
+  },
+  {
+   "topic": "R16 ARG–EGY",
+   "url": "https://www.theguardian.com/football/live/2026/jul/07/argentina-v-egypt-world-cup-2026-last-16-live"
+  },
+  {
+   "topic": "Golden Boot standings",
+   "url": "https://www.foxsports.com/soccer/fifa-world-cup/stats?category=standard&sort=g&season=2026&sortOrder=desc"
+  }
  ]
 }

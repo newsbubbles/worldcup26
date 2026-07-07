@@ -23,8 +23,15 @@ from dotenv import load_dotenv
 ROOT = Path(__file__).resolve().parent.parent
 load_dotenv(ROOT / ".env")
 
+from pydantic_ai.usage import UsageLimits  # noqa: E402
+
 from .agents import RunReport, make_researcher  # noqa: E402  (env must load first)
 from .store import Store  # noqa: E402
+
+# A thorough refresh reads a snapshot, searches + cross-checks two sources per game
+# or player, then stages and commits — comfortably more than pydantic-ai's default
+# 50. High enough for a full round, low enough to still trip a runaway loop.
+RUN_LIMITS = UsageLimits(request_limit=120)
 
 TODAY = dt.date.today().isoformat()
 
@@ -68,9 +75,11 @@ Mission: the knockout bracket.
    '2026 FIFA World Cup knockout stage' page). Scrape at least two sources per result.
 3. report_match_result for each newly played match (scores, pens/pw if a shootout,
    venue, short date like 'Jul 7').
-4. When a round completes, replace placeholder codes in the next round's fixtures
-   with the real team codes via report_match_result on those fixtures, and update
-   set_stage_tag (e.g. 'Knockout Stage · <b>Quarter-finals</b> · North America').
+4. Do NOT touch the QF/SF/F fixtures or their 'W-...' placeholder codes. Bracket
+   advancement into later rounds is computed automatically from the results you
+   record — your only match writes are the RESULTS of games that were actually
+   played. When an entire round has finished, update set_stage_tag to the next
+   round (e.g. 'Knockout Stage · <b>Quarter-finals</b> · North America').
 5. commit_update with a summary of the matchday.""",
 
     "stats": PREAMBLE + """
@@ -106,22 +115,47 @@ Mission: starting lineups and formations for the teams listed in the task messag
 }
 
 
-async def run_role(role: str, extra: str, sem: asyncio.Semaphore) -> RunReport:
+_TRANSIENT = ("finish_reason", "'error'", "rate limit", "429", "500", "502", "503",
+              "overloaded", "timeout", "temporarily")
+
+
+def _is_transient(exc: BaseException) -> bool:
+    """OpenRouter's cheap endpoints intermittently return a non-standard
+    finish_reason='error' or a 5xx/429 under load. Those are worth another swing;
+    a schema/logic error is not."""
+    msg = str(exc).lower()
+    return any(sig in msg for sig in _TRANSIENT)
+
+
+async def run_role(role: str, extra: str, sem: asyncio.Semaphore, attempts: int = 4) -> RunReport:
     async with sem:
-        agent = make_researcher(MISSIONS[role])
         task = {"bracket": "Run the bracket refresh now.",
                 "stats": "Run the stats refresh now.",
                 "squads": f"Refresh lineups for these teams: {extra}."}[role]
-        print(f"[{role}] starting", flush=True)
-        result = await agent.run(task)
-        report = result.output
-        print(f"[{role}] done: committed={report.committed} — {report.summary}", flush=True)
-        return report
+        for attempt in range(1, attempts + 1):
+            agent = make_researcher(MISSIONS[role])  # fresh agent + MCP copies per swing
+            print(f"[{role}] starting (attempt {attempt}/{attempts})", flush=True)
+            try:
+                result = await agent.run(task, usage_limits=RUN_LIMITS)
+            except Exception as e:  # noqa: BLE001 — provider transients are opaque
+                if attempt < attempts and _is_transient(e):
+                    backoff = 4 * attempt
+                    print(f"[{role}] transient provider error ({type(e).__name__}); "
+                          f"retrying in {backoff}s", flush=True)
+                    await asyncio.sleep(backoff)
+                    continue
+                raise
+            report = result.output
+            print(f"[{role}] done: committed={report.committed} — {report.summary}", flush=True)
+            return report
 
 
 def alive_teams() -> list[str]:
-    """Teams with entries that still appear in an upcoming match (or all, pre-seed)."""
-    data = Store().load()
+    """Teams with entries still in an upcoming match. Resolve the bracket first so a
+    round's winners (whose next fixture is still a 'W-...' placeholder in the raw
+    file) are counted as alive."""
+    from .build import resolve_bracket
+    data = resolve_bracket(Store().load())
     upcoming = {c for m in data["matches"] if m["status"] == "upcoming" for c in (m["a"], m["b"])}
     alive = [code for code in data["teams"] if code in upcoming]
     return alive or list(data["teams"])
