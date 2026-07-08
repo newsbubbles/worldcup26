@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-07",
+ "updated": "2026-07-08",
  "stageTag": "Knockout Stage · <b>Quarter-finals</b> · North America",
  "defaultTeam": "ARG",
  "teamNames": {
@@ -317,7 +317,11 @@
    "b": "COL",
    "date": "Jul 7",
    "venue": "BC Place, Vancouver",
-   "status": "upcoming"
+   "status": "played",
+   "sa": 0,
+   "sb": 0,
+   "pens": "4-3",
+   "pw": "SUI"
   },
   {
    "round": "QF",
@@ -389,7 +393,7 @@
    },
    "flag": "linear-gradient(180deg,#74ACDF 0 33%,#fff 33% 66%,#74ACDF 66%)",
    "formation": "4-4-2",
-   "lineupNote": "R32 vs Cape Verde, Jul 3 (3-2 aet)",
+   "lineupNote": "R16 vs Egypt, Jul 7 (3-2)",
    "lineup": [
     {
      "num": 23,
@@ -397,18 +401,18 @@
      "pos": "GK"
     },
     {
-     "num": 25,
-     "name": "Facundo Medina",
+     "num": 3,
+     "name": "Nicolás Tagliafico",
      "pos": "LB"
-    },
-    {
-     "num": 6,
-     "name": "Lisandro Martínez",
-     "pos": "CB"
     },
     {
      "num": 13,
      "name": "Cristian Romero",
+     "pos": "CB"
+    },
+    {
+     "num": 6,
+     "name": "Lisandro Martínez",
      "pos": "CB"
     },
     {
@@ -417,8 +421,13 @@
      "pos": "RB"
     },
     {
-     "num": 20,
-     "name": "Alexis Mac Allister",
+     "num": 7,
+     "name": "Rodrigo De Paul",
+     "pos": "CM"
+    },
+    {
+     "num": 5,
+     "name": "Leandro Paredes",
      "pos": "CM"
     },
     {
@@ -427,14 +436,9 @@
      "pos": "CM"
     },
     {
-     "num": 7,
-     "name": "Rodrigo De Paul",
+     "num": 20,
+     "name": "Alexis Mac Allister",
      "pos": "CM"
-    },
-    {
-     "num": 16,
-     "name": "Thiago Almada",
-     "pos": "AM"
     },
     {
      "num": 10,
@@ -442,8 +446,8 @@
      "pos": "FW"
     },
     {
-     "num": 22,
-     "name": "Lautaro Martínez",
+     "num": 9,
+     "name": "Julián Álvarez",
      "pos": "ST"
     }
    ],
@@ -571,10 +575,10 @@
    "stars": [
     {
      "name": "Kylian Mbappé",
-     "pos": "ST",
-     "club": "Real Madrid",
-     "age": 27,
-     "num": 10,
+     "pos": "",
+     "club": "",
+     "age": null,
+     "num": null,
      "wcG": 7,
      "wcA": 2,
      "min": null,
@@ -583,10 +587,10 @@
     },
     {
      "name": "Ousmane Dembélé",
-     "pos": "RW",
-     "club": "Paris Saint-Germain",
-     "age": 29,
-     "num": 7,
+     "pos": "",
+     "club": "",
+     "age": null,
+     "num": null,
      "wcG": 4,
      "wcA": 2,
      "min": null,
@@ -595,27 +599,27 @@
     },
     {
      "name": "Michael Olise",
-     "pos": "AM",
-     "club": "Bayern Munich",
-     "age": 24,
-     "num": 11,
+     "pos": "",
+     "club": "",
+     "age": null,
+     "num": null,
      "wcG": 0,
      "wcA": 5,
      "min": null,
      "note": "5 assists this World Cup — first to that tally since Hässler in 1994. Bundesliga Player of the Season 2025-26 (15 goals, 15 assists).",
-     "src": "https://en.wikipedia.org/wiki/Michael_Olise"
+     "src": "https://www.vanguardngr.com/2026/07/full-list-olise-tops-assists-chart-at-2026-world-cup/"
     },
     {
      "name": "Bradley Barcola",
-     "pos": "LW",
-     "club": "Paris Saint-Germain",
-     "age": 23,
-     "num": 12,
+     "pos": "",
+     "club": "",
+     "age": null,
+     "num": null,
      "wcG": 2,
      "wcA": 1,
      "min": null,
      "note": "Goals against Senegal in the group and Sweden in the round of 32. The direct, vertical outlet on Deschamps' left.",
-     "src": "https://www.foxsports.com/soccer/fifa-world-cup/stats?category=standard&sort=g&season=2026&sortOrder=desc"
+     "src": "https://sports.yahoo.com/articles/2026-world-cup-golden-boot-140505849.html"
     }
    ]
   },
@@ -645,7 +649,7 @@
     },
     {
      "num": 6,
-     "name": "Marc Guehi",
+     "name": "Marc Guéhi",
      "pos": "CB"
     },
     {
@@ -1055,48 +1059,48 @@
    "stars": [
     {
      "name": "Erling Haaland",
-     "pos": "ST",
-     "club": "Manchester City",
-     "age": 25,
-     "num": 9,
+     "pos": "",
+     "club": "",
+     "age": null,
+     "num": null,
      "wcG": 7,
-     "wcA": null,
+     "wcA": 0,
      "min": null,
      "note": "Both goals in the 2-1 shock of Brazil — Norway's first-ever World Cup quarterfinal. 16 goals in qualifying, a third straight Premier League Golden Boot, 62 in 54 caps.",
      "src": "https://www.foxsports.com/soccer/erling-haaland-player"
     },
     {
      "name": "Martin Ødegaard",
-     "pos": "AM",
-     "club": "Arsenal",
-     "age": 27,
-     "num": 10,
+     "pos": "",
+     "club": "",
+     "age": null,
+     "num": null,
      "wcG": 0,
      "wcA": 3,
      "min": null,
      "note": "Captain since 2021 and a Premier League champion with Arsenal in 2025-26. Three assists in his first three games this tournament after leading European qualifying with seven.",
-     "src": "https://en.wikipedia.org/wiki/Martin_%C3%98degaard"
+     "src": "https://dailycannon.com/2026/07/odegaard-assist-norway-ivory-coast/"
     },
     {
      "name": "Antonio Nusa",
-     "pos": "LW",
-     "club": "RB Leipzig",
-     "age": 21,
-     "num": 20,
+     "pos": "",
+     "club": "",
+     "age": null,
+     "num": null,
      "wcG": 1,
-     "wcA": null,
+     "wcA": 0,
      "min": null,
      "note": "The 'Norwegian Neymar'. Scored in the round-of-32 win over Ivory Coast; 9 goals in 29 caps at 21.",
      "src": "https://en.wikipedia.org/wiki/Antonio_Nusa"
     },
     {
      "name": "Alexander Sørloth",
-     "pos": "RW",
-     "club": "Atlético Madrid",
-     "age": 30,
-     "num": 7,
+     "pos": "",
+     "club": "",
+     "age": null,
+     "num": null,
      "wcG": 0,
-     "wcA": null,
+     "wcA": 0,
      "min": null,
      "note": "13 La Liga goals for Atlético in 2025-26 and 26 in 76 caps. The aerial focal point who drags defenders away from Haaland.",
      "src": "https://en.wikipedia.org/wiki/Alexander_S%C3%B8rloth"
@@ -1143,6 +1147,11 @@
      "pos": "RB"
     },
     {
+     "num": 24,
+     "name": "Neil El Aynaoui",
+     "pos": "DM"
+    },
+    {
      "num": 6,
      "name": "Ayyoub Bouaddi",
      "pos": "DM"
@@ -1150,11 +1159,6 @@
     {
      "num": 23,
      "name": "Bilal El Khannouss",
-     "pos": "DM"
-    },
-    {
-     "num": 11,
-     "name": "Ismaël Saibari",
      "pos": "LW"
     },
     {
@@ -1168,59 +1172,59 @@
      "pos": "RW"
     },
     {
-     "num": 24,
-     "name": "Neil El Aynaoui",
+     "num": 11,
+     "name": "Ismaël Saibari",
      "pos": "ST"
     }
    ],
    "stars": [
     {
      "name": "Achraf Hakimi",
-     "pos": "RB",
-     "club": "Paris Saint-Germain",
-     "age": 27,
-     "num": 2,
+     "pos": "",
+     "club": "",
+     "age": null,
+     "num": null,
      "wcG": 1,
      "wcA": 2,
      "min": null,
      "note": "Captain, and the most World Cup appearances ever by an African player (15). Only the fourth defender since 1966 with 3+ career World Cup assists.",
-     "src": "https://www.espn.com/soccer/team/stats/_/id/2869/morocco"
+     "src": "https://cryptobriefing.com/ounahi-scores-first-world-cup-goal-hakimi-assist-morocco/"
     },
     {
      "name": "Brahim Díaz",
-     "pos": "AM",
-     "club": "Real Madrid",
-     "age": 26,
-     "num": 10,
+     "pos": "",
+     "club": "",
+     "age": null,
+     "num": null,
      "wcG": 0,
      "wcA": 4,
      "min": null,
      "note": "First African player with four assists in a single World Cup — two of them in the R16 dismantling of Canada. Second in the tournament assist chart behind Olise.",
-     "src": "https://www.espn.com/soccer/team/stats/_/id/2869/morocco"
+     "src": "https://www.moroccoworldnews.com/2026/07/327237/world-cup-2026-brahim-diaz-makes-history-with-four-assists-for-morocco/"
     },
     {
      "name": "Azzedine Ounahi",
-     "pos": "RW",
-     "club": "Girona",
-     "age": 26,
-     "num": 8,
+     "pos": "",
+     "club": "",
+     "age": null,
+     "num": null,
      "wcG": 2,
-     "wcA": null,
+     "wcA": 0,
      "min": null,
      "note": "The brace (50', 82') that beat Canada 3-0 in Houston and sent Morocco to a second straight deep run.",
-     "src": "https://www.espn.com/soccer/team/stats/_/id/2869/morocco"
+     "src": "https://rg.org/en-ca/news/soccer/ounahi-leads-morocco-past-canada-world-cup"
     },
     {
      "name": "Yassine Bounou",
-     "pos": "GK",
-     "club": "Al-Hilal",
-     "age": 35,
-     "num": 1,
+     "pos": "",
+     "club": "",
+     "age": null,
+     "num": null,
      "wcG": 0,
-     "wcA": null,
+     "wcA": 0,
      "min": null,
-     "note": "Montreal-born. Saved Summerville's penalty in the shootout that knocked out the Netherlands, then shut out the country of his birth in the R16.",
-     "src": "https://www.espn.com/soccer/report/_/gameId/760502"
+     "note": "Montreal-born. Kept a clean sheet against the country of his birth (Canada) in the R16. First African goalkeeper with 3+ clean sheets in a single World Cup edition.",
+     "src": "https://alhilal.com/en/news/with-a-clean-sheet-bounou-leads-morocco-to-the-world-cup-quarterfinals"
     }
    ]
   },
@@ -1363,7 +1367,7 @@
    "name": "Erling Haaland",
    "country": "NOR",
    "goals": 7,
-   "assists": null
+   "assists": 0
   },
   {
    "name": "Harry Kane",
@@ -1423,19 +1427,19 @@
    "name": "Matheus Cunha",
    "country": "BRA",
    "goals": 3,
-   "assists": null
+   "assists": 0
   },
   {
    "name": "Ismaël Saibari",
    "country": "MAR",
    "goals": 3,
-   "assists": null
+   "assists": 0
   },
   {
    "name": "Brian Brobbey",
    "country": "NED",
    "goals": 3,
-   "assists": null
+   "assists": 0
   },
   {
    "name": "Cody Gakpo",
@@ -1447,25 +1451,25 @@
    "name": "Elijah Just",
    "country": "NZL",
    "goals": 3,
-   "assists": null
+   "assists": 0
   },
   {
    "name": "Raúl Jiménez",
    "country": "MEX",
    "goals": 3,
-   "assists": null
+   "assists": 0
   },
   {
    "name": "Folarin Balogun",
    "country": "USA",
    "goals": 3,
-   "assists": null
+   "assists": 0
   },
   {
    "name": "Kai Havertz",
    "country": "GER",
    "goals": 3,
-   "assists": null
+   "assists": 0
   },
   {
    "name": "Romelu Lukaku",
@@ -1477,22 +1481,22 @@
    "name": "Jonathan David",
    "country": "CAN",
    "goals": 3,
-   "assists": null
+   "assists": 0
   },
   {
    "name": "Cristiano Ronaldo",
    "country": "POR",
    "goals": 3,
-   "assists": null
+   "assists": 0
   },
   {
    "name": "Yoane Wissa",
    "country": "COD",
    "goals": 3,
-   "assists": null
+   "assists": 0
   }
  ],
- "gbNote": "Messi moves clear with 8 goals after his equalizer against Egypt. Mbappé and Haaland tied on 7 goals, with Mbappé leading on assists (2-0) as first tiebreaker. First World Cup ever with three players on 7+ goals heading into quarter-finals.",
+ "gbNote": "Messi leads with 8 goals after his equalizer against Egypt. Mbappé (7G, 2A) ahead of Haaland (7G, 0A) on assists as first tiebreaker. First World Cup ever with three players on 7+ goals heading into quarter-finals.",
  "sources": [
   {
    "topic": "Knockout bracket, results & schedule (ESPN)",
@@ -1553,6 +1557,34 @@
   {
    "topic": "Golden Boot standings",
    "url": "https://www.foxsports.com/soccer/fifa-world-cup/stats?category=standard&sort=g&season=2026&sortOrder=desc"
+  },
+  {
+   "topic": "R16 SUI–COL",
+   "url": "https://www.usatoday.com/story/sports/soccer/worldcup/2026/07/07/switzerland-colombia-world-cup-live-score-lineups-watch-highlights/90830460007/"
+  },
+  {
+   "topic": "Golden Boot standings",
+   "url": "https://www.sbnation.com/fifa-world-cup/1118693/world-cup-2026-golden-boot-standings"
+  },
+  {
+   "topic": "ARG lineup",
+   "url": "https://www.prizepicks.com/playbook-article/argentina-vs-egypt-lineups-confirmed-starting-xis-world-cup-round-of-16"
+  },
+  {
+   "topic": "FRA lineup",
+   "url": "https://lastwordonsports.com/football/2026/07/04/france-vs-paraguay-confirmed-lineups-july/"
+  },
+  {
+   "topic": "ENG lineup",
+   "url": "https://www.prizepicks.com/playbook-article/mexico-vs-england-lineups-confirmed-starting-xis-world-cup-tonight"
+  },
+  {
+   "topic": "NOR lineup",
+   "url": "https://www.prizepicks.com/playbook-article/brazil-vs-norway-lineups-confirmed-starting-xis-world-cup-today"
+  },
+  {
+   "topic": "MAR lineup",
+   "url": "https://www.prizepicks.com/playbook-article/canada-vs-morocco-lineups-confirmed-starting-xis-world-cup-today"
   }
  ]
 }
