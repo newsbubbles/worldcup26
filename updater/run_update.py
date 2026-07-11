@@ -75,11 +75,11 @@ Mission: the knockout bracket.
    '2026 FIFA World Cup knockout stage' page). Scrape at least two sources per result.
 3. report_match_result for each newly played match (scores, pens/pw if a shootout,
    venue, short date like 'Jul 7').
-4. Do NOT touch the QF/SF/F fixtures or their 'W-...' placeholder codes. Bracket
-   advancement into later rounds is computed automatically from the results you
-   record — your only match writes are the RESULTS of games that were actually
-   played. When an entire round has finished, update set_stage_tag to the next
-   round (e.g. 'Knockout Stage · <b>Quarter-finals</b> · North America').
+4. Your ONLY writes are the RESULTS of games that were actually played
+   (report_match_result). Do NOT set the stage tag and do NOT edit fixtures for
+   games that haven't happened — bracket advancement and the stage label are both
+   computed automatically from the results you record. Report a quarter-final with
+   the real team codes (e.g. ESP, BEL); it fills the right slot on its own.
 5. commit_update with a summary of the matchday.""",
 
     "stats": PREAMBLE + """

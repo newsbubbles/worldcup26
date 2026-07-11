@@ -1,6 +1,6 @@
 {
- "updated": "2026-07-08",
- "stageTag": "Knockout Stage · <b>Quarter-finals</b> · North America",
+ "updated": "2026-07-11",
+ "stageTag": "Knockout Stage · <b>Semi-finals</b> · North America",
  "defaultTeam": "ARG",
  "teamNames": {
   "CAN": "Canada",
@@ -328,16 +328,10 @@
    "a": "FRA",
    "b": "MAR",
    "date": "Jul 9",
-   "venue": "Gillette, Foxborough",
-   "status": "upcoming"
-  },
-  {
-   "round": "QF",
-   "a": "W-PORESP",
-   "b": "W-USABEL",
-   "date": "Jul 10",
-   "venue": "SoFi Stadium, LA",
-   "status": "upcoming"
+   "venue": "Gillette Stadium, Foxborough",
+   "status": "played",
+   "sa": 2,
+   "sb": 0
   },
   {
    "round": "QF",
@@ -378,6 +372,16 @@
    "date": "Jul 19",
    "venue": "MetLife, New Jersey",
    "status": "upcoming"
+  },
+  {
+   "round": "QF",
+   "a": "ESP",
+   "b": "BEL",
+   "sa": 2,
+   "sb": 1,
+   "date": "Jul 10",
+   "venue": "SoFi Stadium, Los Angeles",
+   "status": "played"
   }
  ],
  "teams": {
@@ -579,10 +583,10 @@
      "club": "",
      "age": null,
      "num": null,
-     "wcG": 7,
-     "wcA": 2,
-     "min": null,
-     "note": "19 career World Cup goals — the Paraguay penalty was his 19th. Tournament co-leading 7 goals, including a brace against Sweden in the round of 32.",
+     "wcG": 8,
+     "wcA": 3,
+     "min": 519,
+     "note": "20 career World Cup goals. Brace against Morocco (60', 66') moved him to 8 goals, tying Messi for the Golden Boot lead. Penalty saved by Bounou in the first half.",
      "src": "https://www.foxsports.com/soccer/kylian-mbappe-2-player"
     },
     {
@@ -591,10 +595,10 @@
      "club": "",
      "age": null,
      "num": null,
-     "wcG": 4,
+     "wcG": 5,
      "wcA": 2,
-     "min": null,
-     "note": "Reigning 2025 Ballon d'Or winner. Hat trick against Norway in the 4-1 group-stage win.",
+     "min": 492,
+     "note": "Scored against Morocco (66') for his 5th goal of the tournament. Hat trick against Norway in group stage.",
      "src": "https://www.foxsports.com/soccer/ousmane-dembele-player"
     },
     {
@@ -606,7 +610,7 @@
      "wcG": 0,
      "wcA": 5,
      "min": null,
-     "note": "5 assists this World Cup — first to that tally since Hässler in 1994. Bundesliga Player of the Season 2025-26 (15 goals, 15 assists).",
+     "note": "5 assists this World Cup — first to that tally since Hässler in 1994.",
      "src": "https://www.vanguardngr.com/2026/07/full-list-olise-tops-assists-chart-at-2026-world-cup/"
     },
     {
@@ -618,7 +622,7 @@
      "wcG": 2,
      "wcA": 1,
      "min": null,
-     "note": "Goals against Senegal in the group and Sweden in the round of 32. The direct, vertical outlet on Deschamps' left.",
+     "note": "Goals against Senegal and Sweden.",
      "src": "https://sports.yahoo.com/articles/2026-world-cup-golden-boot-140505849.html"
     }
    ]
@@ -1352,16 +1356,16 @@
  },
  "topScorers": [
   {
+   "name": "Kylian Mbappé",
+   "country": "FRA",
+   "goals": 8,
+   "assists": 3
+  },
+  {
    "name": "Lionel Messi",
    "country": "ARG",
    "goals": 8,
    "assists": 1
-  },
-  {
-   "name": "Kylian Mbappé",
-   "country": "FRA",
-   "goals": 7,
-   "assists": 2
   },
   {
    "name": "Erling Haaland",
@@ -1378,7 +1382,7 @@
   {
    "name": "Ousmane Dembélé",
    "country": "FRA",
-   "goals": 4,
+   "goals": 5,
    "assists": 2
   },
   {
@@ -1496,7 +1500,7 @@
    "assists": 0
   }
  ],
- "gbNote": "Messi leads with 8 goals after his equalizer against Egypt. Mbappé (7G, 2A) ahead of Haaland (7G, 0A) on assists as first tiebreaker. First World Cup ever with three players on 7+ goals heading into quarter-finals.",
+ "gbNote": "Mbappé (8G, 3A) leads Messi (8G, 1A) on assists as first tiebreaker. First World Cup ever with two players on 8+ goals heading into semi-finals. Haaland (7G) remains one back.",
  "sources": [
   {
    "topic": "Knockout bracket, results & schedule (ESPN)",
@@ -1585,6 +1589,18 @@
   {
    "topic": "MAR lineup",
    "url": "https://www.prizepicks.com/playbook-article/canada-vs-morocco-lineups-confirmed-starting-xis-world-cup-today"
+  },
+  {
+   "topic": "QF FRA–MAR",
+   "url": "https://www.usatoday.com/story/sports/soccer/worldcup/2026/07/09/france-morocco-world-cup-live-score-mbappe-lineups-mbappe-channel-watch/90855183007/"
+  },
+  {
+   "topic": "QF ESP–BEL",
+   "url": "https://www.nytimes.com/athletic/live-blogs/spain-vs-belgium-live-updates-world-cup-2026-score-result/ah8Ki22aj3Bn/"
+  },
+  {
+   "topic": "Golden Boot standings",
+   "url": "https://www.foxsports.com/soccer/fifa-world-cup/stats?category=standard&sort=g&season=2026&sortOrder=desc&groupId=12"
   }
  ]
 }

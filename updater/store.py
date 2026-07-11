@@ -18,6 +18,7 @@ from typing import Any
 from filelock import FileLock
 from pydantic import ValidationError
 
+from .bracket import find_fixture
 from .models import LineupPlayer, StarPlayer, TopScorer, WorldCupData
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -108,11 +109,7 @@ class Store:
                     f"placeholder slot (e.g. a QF winner), use the existing placeholder code "
                     f"from get_snapshot(section='bracket')."
                 )
-        existing = next(
-            (m for m in data["matches"]
-             if m["round"] == payload["round"] and _match_key(m["a"], m["b"]) == _match_key(payload["a"], payload["b"])),
-            None,
-        )
+        existing = find_fixture(data["matches"], payload["round"], payload["a"], payload["b"])
         if existing and existing["status"] == "played" and not correction:
             raise StoreError(
                 f"match {payload['round']} {payload['a']}-{payload['b']} is already recorded as "
@@ -255,13 +252,10 @@ class Store:
     def _apply(self, data: dict[str, Any], op: dict[str, Any]) -> str:
         kind, p = op["kind"], op["payload"]
         if kind == "match":
-            existing = next(
-                (m for m in data["matches"]
-                 if m["round"] == p["round"] and _match_key(m["a"], m["b"]) == _match_key(p["a"], p["b"])),
-                None,
-            )
+            existing = find_fixture(data["matches"], p["round"], p["a"], p["b"])
             if existing:
-                was = f"{existing.get('sa')}-{existing.get('sb')} ({existing['status']})"
+                was = f"{existing.get('a')}-{existing.get('b')} {existing.get('sa')}-{existing.get('sb')} ({existing['status']})"
+                # payload's real codes replace any placeholder slot they resolve to
                 existing.update(p)
                 return f"match {p['round']} {p['a']}–{p['b']}: {was} -> {p.get('sa')}-{p.get('sb')} ({p['status']})"
             data["matches"].append(p)

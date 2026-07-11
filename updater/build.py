@@ -51,38 +51,20 @@ def _load_faces(inline: bool) -> dict:
     return out
 
 
-def _winner(m: dict) -> str | None:
-    if m.get("pw"):
-        return m["pw"]
-    if m.get("sa") is None or m.get("sb") is None:
-        return None
-    if m["sa"] > m["sb"]:
-        return m["a"]
-    if m["sb"] > m["sa"]:
-        return m["b"]
-    return None
-
-
 def resolve_bracket(data: dict) -> dict:
-    """Fill two-team placeholder slots (code 'W-XXXYYY') with the actual winner of
-    the recorded XXX-vs-YYY match. Deterministic structure, not model judgment —
-    keeps the QF/SF/F tree honest and consistent with the results the agents record.
-    Operates on a copy; the stored file keeps placeholders so researchers can still
-    see which slots are undecided."""
+    """Fill two-team placeholder slots with the actual winner of their feeder match,
+    and set the stage tag from what's actually been played. Deterministic structure,
+    not model judgment — keeps the QF/SF/F tree and the header honest and consistent
+    with recorded results. Operates on a copy; the stored file keeps placeholders so
+    researchers can still see which slots are undecided."""
     import copy
+
+    from .bracket import resolve_code, stage_tag
     data = copy.deepcopy(data)
-    played = {frozenset((m["a"], m["b"])): m for m in data["matches"] if m["status"] == "played"}
-
-    def resolve(code: str) -> str:
-        if isinstance(code, str) and code.startswith("W-") and len(code) == 8:
-            c1, c2 = code[2:5], code[5:8]
-            m = played.get(frozenset((c1, c2)))
-            if m and (w := _winner(m)):
-                return w
-        return code
-
-    for m in data["matches"]:
-        m["a"], m["b"] = resolve(m["a"]), resolve(m["b"])
+    matches = data["matches"]
+    for m in matches:
+        m["a"], m["b"] = resolve_code(matches, m["a"]), resolve_code(matches, m["b"])
+    data["stageTag"] = stage_tag(data["matches"])
     return data
 
 
