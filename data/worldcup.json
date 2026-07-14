@@ -1,5 +1,5 @@
 {
- "updated": "2026-07-11",
+ "updated": "2026-07-14",
  "stageTag": "Knockout Stage · <b>Semi-finals</b> · North America",
  "defaultTeam": "ARG",
  "teamNames": {
@@ -331,23 +331,30 @@
    "venue": "Gillette Stadium, Foxborough",
    "status": "played",
    "sa": 2,
-   "sb": 0
+   "sb": 0,
+   "slot": "QF1"
   },
   {
    "round": "QF",
    "a": "NOR",
    "b": "ENG",
    "date": "Jul 11",
-   "venue": "Hard Rock, Miami",
-   "status": "upcoming"
+   "venue": "Hard Rock Stadium, Miami",
+   "status": "played",
+   "sa": 1,
+   "sb": 2,
+   "slot": "QF3"
   },
   {
    "round": "QF",
-   "a": "W-ARGEGY",
-   "b": "W-SUICOL",
+   "a": "ARG",
+   "b": "SUI",
    "date": "Jul 11",
-   "venue": "Arrowhead, Kansas City",
-   "status": "upcoming"
+   "venue": "Arrowhead Stadium, Kansas City",
+   "status": "played",
+   "sa": 3,
+   "sb": 1,
+   "slot": "QF4"
   },
   {
    "round": "SF",
@@ -355,7 +362,8 @@
    "b": "W-QF2",
    "date": "Jul 14",
    "venue": "AT&T Stadium, Dallas",
-   "status": "upcoming"
+   "status": "upcoming",
+   "slot": "SF1"
   },
   {
    "round": "SF",
@@ -363,7 +371,8 @@
    "b": "W-QF4",
    "date": "Jul 15",
    "venue": "Mercedes-Benz, Atlanta",
-   "status": "upcoming"
+   "status": "upcoming",
+   "slot": "SF2"
   },
   {
    "round": "F",
@@ -371,7 +380,8 @@
    "b": "W-SF2",
    "date": "Jul 19",
    "venue": "MetLife, New Jersey",
-   "status": "upcoming"
+   "status": "upcoming",
+   "slot": "F"
   },
   {
    "round": "QF",
@@ -381,7 +391,8 @@
    "sb": 1,
    "date": "Jul 10",
    "venue": "SoFi Stadium, Los Angeles",
-   "status": "played"
+   "status": "played",
+   "slot": "QF2"
   }
  ],
  "teams": {
@@ -458,22 +469,22 @@
    "stars": [
     {
      "name": "Lionel Messi",
-     "pos": "FW",
-     "club": "Inter Miami CF",
-     "age": 39,
-     "num": 10,
+     "pos": "",
+     "club": "",
+     "age": null,
+     "num": null,
      "wcG": 8,
-     "wcA": 1,
-     "min": 411,
+     "wcA": 2,
+     "min": null,
      "note": "All-time World Cup top scorer: 21 career WC goals in 30 apps. First player with 7+ goals in two separate World Cups (2022, 2026). 199 caps, 117 Argentina goals. Captain.",
      "src": "https://www.foxsports.com/soccer/lionel-messi-player"
     },
     {
      "name": "Lautaro Martínez",
-     "pos": "ST",
-     "club": "Inter Milan",
-     "age": 28,
-     "num": 22,
+     "pos": "",
+     "club": "",
+     "age": null,
+     "num": null,
      "wcG": 1,
      "wcA": null,
      "min": null,
@@ -482,10 +493,10 @@
     },
     {
      "name": "Julián Álvarez",
-     "pos": "FW",
-     "club": "Atlético Madrid",
-     "age": 26,
-     "num": 9,
+     "pos": "",
+     "club": "",
+     "age": null,
+     "num": null,
      "wcG": 0,
      "wcA": null,
      "min": null,
@@ -494,10 +505,10 @@
     },
     {
      "name": "Alexis Mac Allister",
-     "pos": "CM",
-     "club": "Liverpool",
-     "age": 27,
-     "num": 20,
+     "pos": "",
+     "club": "",
+     "age": null,
+     "num": null,
      "wcG": 0,
      "wcA": 1,
      "min": null,
@@ -585,7 +596,7 @@
      "num": null,
      "wcG": 8,
      "wcA": 3,
-     "min": 519,
+     "min": null,
      "note": "20 career World Cup goals. Brace against Morocco (60', 66') moved him to 8 goals, tying Messi for the Golden Boot lead. Penalty saved by Bounou in the first half.",
      "src": "https://www.foxsports.com/soccer/kylian-mbappe-2-player"
     },
@@ -597,7 +608,7 @@
      "num": null,
      "wcG": 5,
      "wcA": 2,
-     "min": 492,
+     "min": null,
      "note": "Scored against Morocco (66') for his 5th goal of the tournament. Hat trick against Norway in group stage.",
      "src": "https://www.foxsports.com/soccer/ousmane-dembele-player"
     },
@@ -700,10 +711,10 @@
    "stars": [
     {
      "name": "Harry Kane",
-     "pos": "ST",
-     "club": "Bayern Munich",
-     "age": 32,
-     "num": 9,
+     "pos": "",
+     "club": "",
+     "age": null,
+     "num": null,
      "wcG": 6,
      "wcA": 1,
      "min": null,
@@ -712,22 +723,22 @@
     },
     {
      "name": "Jude Bellingham",
-     "pos": "AM",
-     "club": "Real Madrid",
-     "age": 23,
-     "num": 10,
-     "wcG": 4,
+     "pos": "",
+     "club": "",
+     "age": null,
+     "num": null,
+     "wcG": 6,
      "wcA": 1,
      "min": null,
-     "note": "Two goals in 98 seconds at the Azteca to break Mexico. Five goal contributions — tied for the most by an Englishman in a single World Cup since 1966.",
+     "note": "First player to score twice in consecutive World Cup knockout matches since Maradona in 1986. Brace vs Norway (QF) matched Kane's tally. Nine of his 12 international goals at major tournaments.",
      "src": "https://www.foxsports.com/soccer/jude-bellingham-player"
     },
     {
      "name": "Bukayo Saka",
-     "pos": "RW",
-     "club": "Arsenal",
-     "age": 24,
-     "num": 7,
+     "pos": "",
+     "club": "",
+     "age": null,
+     "num": null,
      "wcG": 0,
      "wcA": 1,
      "min": null,
@@ -736,10 +747,10 @@
     },
     {
      "name": "Anthony Gordon",
-     "pos": "LW",
-     "club": "Barcelona",
-     "age": 25,
-     "num": 18,
+     "pos": "",
+     "club": "",
+     "age": null,
+     "num": null,
      "wcG": 0,
      "wcA": 2,
      "min": null,
@@ -821,10 +832,10 @@
    "stars": [
     {
      "name": "Lamine Yamal",
-     "pos": "RW",
-     "club": "FC Barcelona",
-     "age": 18,
-     "num": 19,
+     "pos": "",
+     "club": "",
+     "age": null,
+     "num": null,
      "wcG": 1,
      "wcA": null,
      "min": null,
@@ -833,10 +844,10 @@
     },
     {
      "name": "Mikel Oyarzabal",
-     "pos": "ST",
-     "club": "Real Sociedad",
-     "age": 29,
-     "num": 21,
+     "pos": "",
+     "club": "",
+     "age": null,
+     "num": null,
      "wcG": 4,
      "wcA": 1,
      "min": null,
@@ -845,10 +856,10 @@
     },
     {
      "name": "Rodri",
-     "pos": "DM",
-     "club": "Manchester City",
-     "age": 30,
-     "num": 16,
+     "pos": "",
+     "club": "",
+     "age": null,
+     "num": null,
      "wcG": 0,
      "wcA": null,
      "min": null,
@@ -857,10 +868,10 @@
     },
     {
      "name": "Pedri",
-     "pos": "CM",
-     "club": "FC Barcelona",
-     "age": 23,
-     "num": 20,
+     "pos": "",
+     "club": "",
+     "age": null,
+     "num": null,
      "wcG": 0,
      "wcA": null,
      "min": null,
@@ -1070,7 +1081,7 @@
      "wcG": 7,
      "wcA": 0,
      "min": null,
-     "note": "Both goals in the 2-1 shock of Brazil — Norway's first-ever World Cup quarterfinal. 16 goals in qualifying, a third straight Premier League Golden Boot, 62 in 54 caps.",
+     "note": "Eliminated in QF vs England. Finished with 7 goals in 5 matches — would have won Golden Boot in any other World Cup. 16 goals in qualifying, a third straight Premier League Golden Boot, 62 in 54 caps.",
      "src": "https://www.foxsports.com/soccer/erling-haaland-player"
     },
     {
@@ -1092,7 +1103,7 @@
      "age": null,
      "num": null,
      "wcG": 1,
-     "wcA": 0,
+     "wcA": null,
      "min": null,
      "note": "The 'Norwegian Neymar'. Scored in the round-of-32 win over Ivory Coast; 9 goals in 29 caps at 21.",
      "src": "https://en.wikipedia.org/wiki/Antonio_Nusa"
@@ -1365,13 +1376,19 @@
    "name": "Lionel Messi",
    "country": "ARG",
    "goals": 8,
-   "assists": 1
+   "assists": 2
   },
   {
    "name": "Erling Haaland",
    "country": "NOR",
    "goals": 7,
    "assists": 0
+  },
+  {
+   "name": "Jude Bellingham",
+   "country": "ENG",
+   "goals": 6,
+   "assists": 1
   },
   {
    "name": "Harry Kane",
@@ -1400,7 +1417,7 @@
   {
    "name": "Jude Bellingham",
    "country": "ENG",
-   "goals": 4,
+   "goals": 6,
    "assists": 1
   },
   {
@@ -1500,7 +1517,7 @@
    "assists": 0
   }
  ],
- "gbNote": "Mbappé (8G, 3A) leads Messi (8G, 1A) on assists as first tiebreaker. First World Cup ever with two players on 8+ goals heading into semi-finals. Haaland (7G) remains one back.",
+ "gbNote": "Mbappé (8G, 3A) leads Messi (8G, 2A) on assists as first tiebreaker. Haaland eliminated with 7G. Bellingham surged to 6G with brace vs Norway, joining Kane. First World Cup ever with two players on 8+ goals heading into semi-finals.",
  "sources": [
   {
    "topic": "Knockout bracket, results & schedule (ESPN)",
@@ -1601,6 +1618,18 @@
   {
    "topic": "Golden Boot standings",
    "url": "https://www.foxsports.com/soccer/fifa-world-cup/stats?category=standard&sort=g&season=2026&sortOrder=desc&groupId=12"
+  },
+  {
+   "topic": "QF NOR–ENG",
+   "url": "https://www.standard.co.uk/sport/football/england-norway-world-cup-2026-result-b1289674.html"
+  },
+  {
+   "topic": "QF ARG–SUI",
+   "url": "https://www.mininggazette.com/sports/2026/07/alvarezs-112th-minute-goal-helps-lift-argentina-past-switzerland-3-1-and-into-world-cup-semifinals/"
+  },
+  {
+   "topic": "Golden Boot standings",
+   "url": "https://en.as.com/soccer/world-cup/2026-world-cup-golden-boot-update-the-latest-standings-mbappe-messi-bellingham-f202607-n/"
   }
  ]
 }

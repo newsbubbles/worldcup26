@@ -31,6 +31,7 @@ class Match(BaseModel):
     date: str = Field(..., description="Display date, e.g. 'Jul 9'")
     venue: str = ""
     status: MatchStatus
+    slot: Optional[str] = Field(None, description="Bracket slot id (QF1..QF4, SF1, SF2, F) so single-feeder placeholders like W-QF1 can resolve")
 
     @model_validator(mode="after")
     def _coherent(self) -> "Match":

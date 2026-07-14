@@ -31,13 +31,25 @@ def winner(m: dict[str, Any]) -> str | None:
 
 
 def resolve_code(matches: list[dict], code: str) -> str:
-    """A 'W-XXXYYY' placeholder → the winner of the played XXX-vs-YYY match, if decided."""
-    if isinstance(code, str) and code.startswith("W-") and len(code) == 8:
-        c1, c2 = code[2:5], code[5:8]
+    """Resolve a winner-placeholder to a real team code, if decided:
+      'W-XXXYYY' (two 3-letter codes) → winner of the played XXX-vs-YYY match
+      'W-<slot>' (e.g. W-QF1, W-SF1)  → winner of the match carrying that slot id
+    Chains naturally: a semi-final's W-QF1 resolves once QF1 is played, the final's
+    W-SF1 once SF1 is played."""
+    if not (isinstance(code, str) and code.startswith("W-")):
+        return code
+    body = code[2:]
+    if len(body) == 6 and body.isalpha():  # two-team feeder
+        c1, c2 = body[:3], body[3:]
         for m in matches:
             if m["status"] == "played" and frozenset((m["a"], m["b"])) == frozenset((c1, c2)):
                 if (w := winner(m)):
                     return w
+        return code
+    for m in matches:  # single-feeder slot
+        if m.get("slot") == body and m["status"] == "played":
+            if (w := winner(m)):
+                return w
     return code
 
 
